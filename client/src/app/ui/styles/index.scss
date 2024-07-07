@@ -20,3 +20,8 @@ body {
 	font-weight: normal;
 	font-style: normal;
 }
+
+.main-container {
+	display: grid;
+	grid-template-columns: auto 1fr;
+}

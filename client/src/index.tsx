@@ -1,10 +1,35 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
-import App from '@/pages/App';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import routes from '@/app/model/routes';
+import Loader from '@/widgets/common/loader/Loader';
+import Sidebar from '@/widgets/common/sidebar/Sidebar';
 import '@/app/ui/styles/index.scss';
+
+interface RouteType {
+	path: string;
+	element: () => React.ReactElement;
+}
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
 	<React.StrictMode>
-		<App />
+		<BrowserRouter>
+			<div className='main-container'>
+				<Sidebar />
+				<Routes>
+					{routes.map((route: RouteType) => (
+						<Route
+							key={route.path}
+							path={route.path}
+							element={
+								<Suspense fallback={<Loader />}>
+									{route.element()}
+								</Suspense>
+							}
+						/>
+					))}
+				</Routes>
+			</div>
+		</BrowserRouter>
 	</React.StrictMode>
 );

@@ -58,4 +58,17 @@
 	font-style: normal;
 }
 
+@font-face {
+	font-family: 'Montserrat';
+	src: url('@/app/ui/fonts/Montserrat-Bold.eot');
+	src: url('@/app/ui/fonts/Montserrat-Bold.eot?#iefix')
+			format('embedded-opentype'),
+		url('@/app/ui/fonts/Montserrat-Bold.woff2') format('woff2'),
+		url('@/app/ui/fonts/Montserrat-Bold.woff') format('woff'),
+		url('@/app/ui/fonts/Montserrat-Bold.ttf') format('truetype'),
+		url('@/app/ui/fonts/Montserrat-Bold.svg#Montserrat-Bold') format('svg');
+	font-weight: bold;
+	font-style: normal;
+}
+
 $font-montserrat: 'Montserrat', Tahoma, sans-serif;

@@ -1,0 +1,66 @@
+@use '@/app/ui/styles/helper';
+
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 1.5rem;
+
+	&__logo {
+		height: 2rem;
+	}
+
+	&__menu {
+		display: flex;
+		gap: 3rem;
+
+		& > li {
+			list-style-type: none;
+			font-size: 1rem;
+		}
+	}
+}
+
+.menu {
+	&__qa,
+	&__search {
+		&::after {
+			content: '';
+			display: block;
+			margin-top: 0.3rem;
+			width: auto;
+			height: 0.125rem;
+			background-color: helper.$accentColor;
+			opacity: 0;
+
+			@include helper.transition();
+		}
+	}
+
+	&__qa,
+	&__search,
+	&__search-icon {
+		color: helper.$title;
+
+		@include helper.transition();
+	}
+
+	&__qa:hover,
+	&__search:hover {
+		&::after {
+			opacity: 1;
+		}
+	}
+
+	&__qa {
+		cursor: pointer;
+	}
+
+	&__search {
+		text-decoration: none;
+
+		&-icon {
+			font-size: 0.9rem;
+			padding-left: 0.5rem;
+		}
+	}
+}

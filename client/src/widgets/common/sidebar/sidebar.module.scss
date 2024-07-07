@@ -1,0 +1,52 @@
+@use '@/app/ui/styles/helper';
+
+.sidebar {
+	position: sticky;
+	top: 0;
+	left: 0;
+	width: 5.5rem;
+	height: 100vh;
+	border-right: 0.0625rem solid helper.$lightSilver;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+
+	&__menu {
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+	}
+
+	&__logo {
+		width: 3rem;
+		margin: 1rem;
+	}
+}
+
+.menu {
+	&__item {
+		height: max-content;
+		list-style-type: none;
+		padding: 1rem 0;
+		font-size: 1.2rem;
+		cursor: pointer;
+		color: helper.$primaryColor;
+
+		@include helper.transition();
+
+		&:hover {
+			background-color: helper.$lightSilver;
+		}
+
+		&:first-child {
+			background-color: helper.$accentColor;
+			color: helper.$black;
+		}
+
+		& > p {
+			font-size: 0.7rem;
+			margin-top: 0.2rem;
+		}
+	}
+}
