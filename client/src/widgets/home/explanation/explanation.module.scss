@@ -1,0 +1,39 @@
+@use '@/app/ui/styles/helper';
+
+.container {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(20rem, 1fr));
+	justify-content: space-between;
+	align-items: center;
+	margin: 0 auto 3rem;
+
+	@extend %container;
+}
+
+.explanation {
+	&__title {
+		color: helper.$title;
+		font-size: 2.3rem;
+
+		&::after {
+			content: '';
+			display: block;
+			height: 0.25rem;
+			width: 7rem;
+			background-color: helper.$accentColor;
+			margin: 1rem 0 2rem;
+		}
+	}
+
+	&__description {
+		color: helper.$subtitle;
+		font-size: 1.1rem;
+		line-height: 1.5;
+	}
+
+	&__image {
+		display: block;
+		max-width: 100%;
+		width: 27rem;
+	}
+}

@@ -1,5 +1,6 @@
 import Navbar from '@/widgets/home/navbar/Navbar';
 import Main from '@/widgets/home/main/Main';
+import Explanation from '@/widgets/home/explanation/Explanation';
 import styles from './home.module.scss';
 
 function Home(): React.ReactElement {
@@ -9,9 +10,7 @@ function Home(): React.ReactElement {
 				<Navbar />
 				<Main />
 			</main>
-			<section className={styles['content-container']}>
-				{/* Other containers */}
-			</section>
+			<Explanation />
 		</div>
 	);
 }
