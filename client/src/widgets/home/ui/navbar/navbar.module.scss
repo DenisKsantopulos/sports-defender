@@ -12,17 +12,18 @@
 	&__menu {
 		display: flex;
 		gap: 3rem;
-
-		& > li {
-			list-style-type: none;
-			font-size: 1.1rem;
-		}
 	}
 }
 
 .menu {
-	&__qa,
-	&__search {
+	&__list {
+		list-style-type: none;
+		font-size: 1.1rem;
+	}
+
+	&__item {
+		text-decoration: none;
+
 		&::after {
 			content: '';
 			display: block;
@@ -34,33 +35,23 @@
 
 			@include helper.transition();
 		}
+
+		&:hover {
+			&::after {
+				opacity: 1;
+			}
+		}
 	}
 
-	&__qa,
-	&__search,
+	&__item,
 	&__search-icon {
 		color: helper.$title;
 
 		@include helper.transition();
 	}
 
-	&__qa:hover,
-	&__search:hover {
-		&::after {
-			opacity: 1;
-		}
-	}
-
-	&__qa {
-		cursor: pointer;
-	}
-
-	&__search {
-		text-decoration: none;
-
-		&-icon {
-			font-size: 0.9rem;
-			padding-left: 0.5rem;
-		}
+	&__search-icon {
+		font-size: 0.9rem;
+		padding-left: 0.5rem;
 	}
 }

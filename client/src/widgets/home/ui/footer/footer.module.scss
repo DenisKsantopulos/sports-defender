@@ -124,6 +124,7 @@
 
 	&__item {
 		color: helper.$white;
+		text-decoration: none;
 		cursor: pointer;
 
 		@include helper.transition();

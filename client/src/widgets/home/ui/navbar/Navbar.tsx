@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import logo from '@/app/ui/assets/logo-header.png';
 import Paths from '@/shared/model/paths';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 import styles from './navbar.module.scss';
 
 function Navbar(): React.ReactElement {
@@ -16,13 +16,16 @@ function Navbar(): React.ReactElement {
 				className={styles['navbar__logo']}
 			/>
 			<ul className={styles['navbar__menu']}>
-				<li>
-					<a className={styles['menu__qa']}>
+				<li className={styles['menu__list']}>
+					<Link
+						to={`${Paths.HOME}#faq`}
+						className={styles['menu__item']}
+					>
 						Часто задаваемые вопросы
-					</a>
+					</Link>
 				</li>
-				<li>
-					<Link to={Paths.SEARCH} className={styles['menu__search']}>
+				<li className={styles['menu__list']}>
+					<Link to={Paths.SEARCH} className={styles['menu__item']}>
 						Поиск
 						<FontAwesomeIcon
 							icon={faMagnifyingGlass}

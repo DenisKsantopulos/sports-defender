@@ -1,59 +1,70 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-	faHouse,
-	faSquarePollVertical,
-	faFile,
-	faNewspaper,
-	faMagnifyingGlass,
-	faGavel,
-	faQuestion,
-	faComment,
-} from '@fortawesome/free-solid-svg-icons';
 import logo from '@/app/ui/assets/logo.png';
+import SidebarItem from '@/features/home/ui/sidebar/SidebarItem';
+import Paths from '@/shared/model/paths';
+import {
+	faComment,
+	faFile,
+	faGavel,
+	faHouse,
+	faMagnifyingGlass,
+	faNewspaper,
+	faQuestion,
+	faSquarePollVertical,
+} from '@fortawesome/free-solid-svg-icons';
 import styles from './sidebar.module.scss';
 
 function Sidebar(): React.ReactElement {
 	return (
 		<aside className={styles.sidebar}>
 			<ul className={styles['sidebar__menu']}>
-				<li className={styles['menu__item']} title='Главная'>
-					<FontAwesomeIcon icon={faHouse} />
-					<p>Главная</p>
-				</li>
-				<li className={styles['menu__item']} title='Заполнить анкету'>
-					<FontAwesomeIcon icon={faSquarePollVertical} />
-					<p>Анкета</p>
-				</li>
-				<li className={styles['menu__item']} title='Шаблоны документов'>
-					<FontAwesomeIcon icon={faFile} />
-					<p>Шаблоны документов</p>
-				</li>
-				<li
-					className={styles['menu__item']}
-					title='Тематические статьи'
-				>
-					<FontAwesomeIcon icon={faNewspaper} />
-					<p>Тематич. статьи</p>
-				</li>
-				<li className={styles['menu__item']} title='Поиск по сайту'>
-					<FontAwesomeIcon icon={faMagnifyingGlass} />
-					<p>Поиск</p>
-				</li>
-				<li className={styles['menu__item']} title='Судебные кейсы'>
-					<FontAwesomeIcon icon={faGavel} />
-					<p>Судебные кейсы</p>
-				</li>
-				<li
-					className={styles['menu__item']}
-					title='Часто задаваемые вопросы'
-				>
-					<FontAwesomeIcon icon={faQuestion} />
-					<p>FAQ</p>
-				</li>
-				<li className={styles['menu__item']} title='Обратная связь'>
-					<FontAwesomeIcon icon={faComment} />
-					<p>Обратная связь</p>
-				</li>
+				<SidebarItem
+					path={Paths.HOME}
+					icon={faHouse}
+					text='Главная'
+					isClickable={true}
+				/>
+				<SidebarItem
+					path={Paths.SURVEY}
+					icon={faSquarePollVertical}
+					text='Анкета'
+					isClickable={true}
+				/>
+				<SidebarItem
+					path={Paths.DOCUMENT_TEMPLATES}
+					icon={faFile}
+					text='Шаблоны документов'
+					isClickable={true}
+				/>
+				<SidebarItem
+					path={Paths.ARTICLES}
+					icon={faNewspaper}
+					text='Тематич. статьи'
+					isClickable={true}
+				/>
+				<SidebarItem
+					path={Paths.SEARCH}
+					icon={faMagnifyingGlass}
+					text='Поиск'
+					isClickable={true}
+				/>
+				<SidebarItem
+					path={Paths.COURT_CASES}
+					icon={faGavel}
+					text='Судебные кейсы'
+					isClickable={true}
+				/>
+				<SidebarItem
+					path={`${Paths.HOME}#faq`}
+					icon={faQuestion}
+					text='FAQ'
+					isClickable={false}
+				/>
+				<SidebarItem
+					path={`${Paths.HOME}#feedback`}
+					icon={faComment}
+					text='Обратная связь'
+					isClickable={false}
+				/>
 			</ul>
 			<img
 				src={logo}

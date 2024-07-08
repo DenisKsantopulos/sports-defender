@@ -1,3 +1,5 @@
+import Paths from '@/shared/model/paths';
+import { Link } from 'react-router-dom';
 import styles from './footer.module.scss';
 
 function Footer(): React.ReactElement {
@@ -6,7 +8,7 @@ function Footer(): React.ReactElement {
 			<div className={styles.container}>
 				<div className={styles['footer__form-container']}>
 					<div>
-						<h3 className={styles['footer__title']}>
+						<h3 id='feedback' className={styles['footer__title']}>
 							Остались сомнения?
 						</h3>
 						<p className={styles['footer__description']}>
@@ -44,44 +46,54 @@ function Footer(): React.ReactElement {
 				<div className={styles['footer__menu-container']}>
 					<ul className={styles['footer__menu']}>
 						<li className={styles['menu__list']}>
-							<a className={styles['menu__item']}>Главная</a>
-						</li>
-						<li className={styles['menu__list']}>
-							<a className={styles['menu__item']}>
+							<Link
+								to={Paths.SURVEY}
+								className={styles['menu__item']}
+							>
 								Заполнить Анкету
-							</a>
+							</Link>
 						</li>
 						<li className={styles['menu__list']}>
-							<a className={styles['menu__item']}>
+							<Link
+								to={Paths.DOCUMENT_TEMPLATES}
+								className={styles['menu__item']}
+							>
 								Скачать Шаблоны Документов
-							</a>
+							</Link>
 						</li>
 						<li className={styles['menu__list']}>
-							<a className={styles['menu__item']}>
+							<Link
+								to={Paths.ARTICLES}
+								className={styles['menu__item']}
+							>
 								Тематические Статьи
-							</a>
+							</Link>
 						</li>
 					</ul>
 					<ul className={styles['footer__menu']}>
 						<li className={styles['menu__list']}>
-							<a className={styles['menu__item']}>
+							<Link
+								to={Paths.SEARCH}
+								className={styles['menu__item']}
+							>
 								Поиск По Сайту
-							</a>
+							</Link>
 						</li>
 						<li className={styles['menu__list']}>
-							<a className={styles['menu__item']}>
+							<Link
+								to={Paths.COURT_CASES}
+								className={styles['menu__item']}
+							>
 								Судебный Кейсы
-							</a>
+							</Link>
 						</li>
 						<li className={styles['menu__list']}>
-							<a className={styles['menu__item']}>
+							<Link
+								to={`${Paths.HOME}#faq`}
+								className={styles['menu__item']}
+							>
 								Часто задаваемые вопросы
-							</a>
-						</li>
-						<li className={styles['menu__list']}>
-							<a className={styles['menu__item']}>
-								Обратная Связь
-							</a>
+							</Link>
 						</li>
 					</ul>
 				</div>

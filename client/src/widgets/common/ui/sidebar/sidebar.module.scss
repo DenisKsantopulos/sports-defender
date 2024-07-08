@@ -23,30 +23,3 @@
 		margin: 1rem;
 	}
 }
-
-.menu {
-	&__item {
-		height: max-content;
-		list-style-type: none;
-		padding: 1rem 0;
-		font-size: 1.2rem;
-		cursor: pointer;
-		color: helper.$primaryColor;
-
-		@include helper.transition();
-
-		&:hover {
-			background-color: helper.$lightSilver;
-		}
-
-		&:first-child {
-			background-color: helper.$accentColor;
-			color: helper.$black;
-		}
-
-		& > p {
-			font-size: 0.7rem;
-			margin-top: 0.2rem;
-		}
-	}
-}
