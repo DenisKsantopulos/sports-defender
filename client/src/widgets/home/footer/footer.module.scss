@@ -1,0 +1,135 @@
+@use '@/app/ui/styles/helper';
+
+.container {
+	@extend %container;
+}
+
+.footer {
+	background-color: helper.$primaryColor;
+	padding: 4rem 0 1rem;
+
+	&__form-container {
+		display: grid;
+		grid-template-columns: 2fr 3fr;
+		gap: 2rem;
+	}
+
+	&__title {
+		color: helper.$white;
+		font-size: 2rem;
+		font-weight: bold;
+
+		&::after {
+			content: '';
+			display: block;
+			height: 0.25rem;
+			width: 7rem;
+			background-color: helper.$accentColor;
+			margin: 1rem 0 1.5rem;
+		}
+	}
+
+	&__description {
+		color: helper.$lightSilver;
+		font-size: 1.1rem;
+	}
+
+	&__form {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	&__menu-container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		margin: 4rem 0 0;
+	}
+
+	&__menu {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	&__commercial {
+		text-align: center;
+		font-size: 0.9rem;
+		color: helper.$white;
+		margin-top: 4rem;
+		font-weight: 300;
+	}
+}
+
+.form {
+	&__container {
+		display: flex;
+		flex-direction: row;
+		gap: 1.5rem;
+	}
+
+	&__username,
+	&__email,
+	&__message {
+		width: 100%;
+		border: 0.125rem solid helper.$silver;
+		color: helper.$title;
+		font-size: 1rem;
+		padding: 1rem 1.2rem;
+		outline: none;
+
+		@include helper.borderRadius(2rem);
+		@include helper.transition();
+
+		&:hover,
+		&:focus {
+			border-color: helper.$accentColor;
+		}
+	}
+
+	&__message {
+		resize: none;
+		height: 10rem;
+		padding: 1rem 1.2rem;
+		font-family: inherit;
+
+		@include helper.borderRadius(1.5rem);
+	}
+
+	&__submit {
+		align-self: end;
+		outline: none;
+		color: helper.$title;
+		background-color: helper.$accentColor;
+		font-weight: 600;
+		font-size: 1.1rem;
+		padding: 1rem 2.5rem;
+		border: 0.0625rem solid helper.$accentColorDark;
+		cursor: pointer;
+
+		@include helper.borderRadius(20rem);
+		@include helper.transition();
+
+		&:hover {
+			background-color: helper.$accentColorDark;
+		}
+	}
+}
+
+.menu {
+	&__list {
+		list-style-type: none;
+	}
+
+	&__item {
+		color: helper.$white;
+		cursor: pointer;
+
+		@include helper.transition();
+
+		&:hover {
+			color: helper.$accentColor;
+		}
+	}
+}

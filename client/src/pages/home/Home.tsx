@@ -2,6 +2,7 @@ import Navbar from '@/widgets/home/navbar/Navbar';
 import Main from '@/widgets/home/main/Main';
 import Explanation from '@/widgets/home/explanation/Explanation';
 import FAQ from '@/widgets/home/faq/FAQ';
+import Footer from '@/widgets/home/footer/Footer';
 import styles from './home.module.scss';
 
 function Home(): React.ReactElement {
@@ -13,6 +14,7 @@ function Home(): React.ReactElement {
 			</main>
 			<Explanation />
 			<FAQ />
+			<Footer />
 		</div>
 	);
 }
