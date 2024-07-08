@@ -1,4 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
+import Paths from '@/shared/model/paths';
 import { lazy } from 'react';
 
 const NotFound = lazy(() => import('@/pages/not-found/ui/NotFound'));
@@ -11,21 +12,22 @@ interface RouteType {
 	element: () => React.ReactElement;
 }
 
+// Список всех React Routes
 const routes: RouteType[] = [
 	{
-		path: '*',
+		path: Paths.NOT_FOUND,
 		element: () => <NotFound />,
 	},
 	{
-		path: '/',
+		path: Paths.HOME,
 		element: () => <Home />,
 	},
 	{
-		path: '/search',
+		path: Paths.SEARCH,
 		element: () => <Search />,
 	},
 	{
-		path: '/survey',
+		path: Paths.SURVEY,
 		element: () => <Survey />,
 	},
 ];

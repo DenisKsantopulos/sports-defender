@@ -2,6 +2,7 @@ import sportsman from '@/app/ui/assets/sportsman.png';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
+import Paths from '@/shared/model/paths';
 import styles from './main.module.scss';
 
 function Main(): React.ReactElement {
@@ -19,11 +20,11 @@ function Main(): React.ReactElement {
 					защиты своих прав.
 				</p>
 				<div className={styles['main__buttons-container']}>
-					<Link to='/survey' className={styles['main__button']}>
+					<Link to={Paths.SURVEY} className={styles['main__button']}>
 						Пройти Анкету
 					</Link>
 					<Link
-						to='/document-templates'
+						to={Paths.DOCUMENT_TEMPLATES}
 						className={styles['main__button']}
 					>
 						Шаблоны Документов
