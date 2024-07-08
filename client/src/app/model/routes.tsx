@@ -1,10 +1,10 @@
 /* eslint-disable react-refresh/only-export-components */
 import { lazy } from 'react';
 
-const NotFound = lazy(() => import('@/pages/not-found/NotFound'));
-const Home = lazy(() => import('@/pages/home/Home'));
-const Search = lazy(() => import('@/pages/search/Search'));
-const Survey = lazy(() => import('@/pages/survey/Survey'));
+const NotFound = lazy(() => import('@/pages/not-found/ui/NotFound'));
+const Home = lazy(() => import('@/pages/home/ui/Home'));
+const Search = lazy(() => import('@/pages/search/ui/Search'));
+const Survey = lazy(() => import('@/pages/survey/ui/Survey'));
 
 interface RouteType {
 	path: string;

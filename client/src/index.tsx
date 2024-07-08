@@ -2,8 +2,8 @@ import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import routes from '@/app/model/routes';
-import Loader from '@/widgets/common/loader/Loader';
-import Sidebar from '@/widgets/common/sidebar/Sidebar';
+import Loader from '@/widgets/common/ui/loader/Loader';
+import Sidebar from '@/widgets/common/ui/sidebar/Sidebar';
 import '@/app/ui/styles/index.scss';
 
 interface RouteType {

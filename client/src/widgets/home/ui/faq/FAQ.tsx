@@ -1,5 +1,5 @@
 import faqData from '@/shared/model/faq-data';
-import AccordionItem from '@/widgets/home/faq/accordion item/AccordionItem';
+import AccordionItem from '@/widgets/home/ui/faq/accordion item/AccordionItem';
 import styles from './faq.module.scss';
 
 export default function FAQ(): React.ReactElement {
