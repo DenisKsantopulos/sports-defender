@@ -8,40 +8,42 @@ interface ToggleAccordionArgumentsType {
 	answer: string;
 }
 
-function ToggleAccordion({
-	question,
-	answer,
-}: ToggleAccordionArgumentsType): React.ReactElement {
-	const [isOpen, setIsOpen] = useState<boolean>(false); // Изначально выпадающий список закрыт
+const ToggleAccordion = memo(
+	({
+		question,
+		answer,
+	}: ToggleAccordionArgumentsType): React.ReactElement => {
+		const [isOpen, setIsOpen] = useState<boolean>(false); // Изначально выпадающий список закрыт
 
-	function handleToggleClick(): void {
-		setIsOpen(!isOpen);
+		function handleToggleClick(): void {
+			setIsOpen(!isOpen);
+		}
+
+		return (
+			<>
+				<div
+					className={`${styles['accordion__item']} ${
+						isOpen && styles['accordion__item--active']
+					}`}
+					onClick={handleToggleClick}
+				>
+					<p className={styles['accordion__question']}>{question}</p>
+					{isOpen ? (
+						<FontAwesomeIcon icon={faChevronUp} />
+					) : (
+						<FontAwesomeIcon icon={faChevronDown} />
+					)}
+				</div>
+				<div
+					className={`${styles['accordion__content']} ${
+						isOpen && styles['accordion__content--active']
+					}`}
+				>
+					<p className={styles['accordion__answer']}>{answer}</p>
+				</div>
+			</>
+		);
 	}
+);
 
-	return (
-		<>
-			<div
-				className={`${styles['accordion__item']} ${
-					isOpen && styles['accordion__item--active']
-				}`}
-				onClick={handleToggleClick}
-			>
-				<p className={styles['accordion__question']}>{question}</p>
-				{isOpen ? (
-					<FontAwesomeIcon icon={faChevronUp} />
-				) : (
-					<FontAwesomeIcon icon={faChevronDown} />
-				)}
-			</div>
-			<div
-				className={`${styles['accordion__content']} ${
-					isOpen && styles['accordion__content--active']
-				}`}
-			>
-				<p className={styles['accordion__answer']}>{answer}</p>
-			</div>
-		</>
-	);
-}
-
-export default memo(ToggleAccordion);
+export default ToggleAccordion;

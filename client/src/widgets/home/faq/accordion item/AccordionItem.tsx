@@ -7,15 +7,14 @@ interface AccordionItemArgumentsType {
 	answer: string;
 }
 
-function AccordionItem({
-	question,
-	answer,
-}: AccordionItemArgumentsType): React.ReactElement {
-	return (
-		<div className={styles.accordion}>
-			<ToggleAccordion question={question} answer={answer} />
-		</div>
-	);
-}
+const AccordionItem = memo(
+	({ question, answer }: AccordionItemArgumentsType): React.ReactElement => {
+		return (
+			<div className={styles.accordion}>
+				<ToggleAccordion question={question} answer={answer} />
+			</div>
+		);
+	}
+);
 
-export default memo(AccordionItem);
+export default AccordionItem;

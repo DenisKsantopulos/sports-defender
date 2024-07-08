@@ -2,7 +2,7 @@ import faqData from '@/shared/model/faq-data';
 import AccordionItem from '@/widgets/home/faq/accordion item/AccordionItem';
 import styles from './faq.module.scss';
 
-function FAQ(): React.ReactElement {
+export default function FAQ(): React.ReactElement {
 	return (
 		<section className={styles.container}>
 			<h2 className={styles['faq__title']}>Часто задаваемые вопросы</h2>
@@ -22,5 +22,3 @@ function FAQ(): React.ReactElement {
 		</section>
 	);
 }
-
-export default FAQ;
