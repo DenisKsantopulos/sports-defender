@@ -1,19 +1,15 @@
 @use '@/app/ui/styles/helper';
 
 .container {
-	display: grid;
-	grid-template-columns: repeat(2, minmax(20rem, 1fr));
-	justify-content: space-between;
-	align-items: center;
-	margin-bottom: 7rem;
+	margin-bottom: 5rem;
 
 	@extend %container;
 }
-
-.explanation {
+.faq {
 	&__title {
 		color: helper.$title;
 		font-size: 2.3rem;
+		text-align: center;
 
 		&::after {
 			content: '';
@@ -21,19 +17,20 @@
 			height: 0.25rem;
 			width: 7rem;
 			background-color: helper.$accentColor;
-			margin: 1rem 0 2rem;
+			margin: 1rem auto 2rem;
 		}
 	}
 
 	&__description {
 		color: helper.$subtitle;
 		font-size: 1.1rem;
-		line-height: 1.5;
+		text-align: center;
 	}
 
-	&__image {
-		display: block;
-		max-width: 100%;
-		width: 27rem;
+	&__accordions {
+		margin-top: 5rem;
+		display: flex;
+		flex-flow: column wrap;
+		gap: 1.5rem;
 	}
 }

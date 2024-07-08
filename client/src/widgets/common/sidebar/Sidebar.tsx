@@ -48,7 +48,7 @@ function Sidebar(): React.ReactElement {
 					title='Часто задаваемые вопросы'
 				>
 					<FontAwesomeIcon icon={faQuestion} />
-					<p>Q&A</p>
+					<p>FAQ</p>
 				</li>
 				<li className={styles['menu__item']} title='Обратная связь'>
 					<FontAwesomeIcon icon={faComment} />
