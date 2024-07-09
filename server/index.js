@@ -8,7 +8,10 @@ const app = express()
 app.use(cors())
 app.use(express.json)
 
-mongoose.connect("mongodb://localhost:27017/example")
+mongoose.connect("mongodb://127.0.0.1:27017/defender")
+
+const hostname = '127.0.0.1';
+const port = 3000;
 
 app.get('/getArticles', (res, req) =>{
     ArticleModel.find
@@ -16,6 +19,6 @@ app.get('/getArticles', (res, req) =>{
     .catch(err => res.json(err))
 })
 
-app.listen(3000, () =>{
-    console.log('Server is running')
+app.listen(port, () =>{
+    console.log(`Server running at http://${hostname}:${port}/`)
 })
