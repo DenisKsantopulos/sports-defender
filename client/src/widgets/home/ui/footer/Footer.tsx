@@ -1,4 +1,4 @@
-import Paths from '@/shared/model/paths';
+import Paths from '@/shared/model/data/Paths';
 import { Link } from 'react-router-dom';
 import styles from './footer.module.scss';
 
@@ -31,11 +31,13 @@ function Footer(): React.ReactElement {
 								className={styles['form__email']}
 							/>
 						</div>
-						<textarea
-							name='message'
-							placeholder='Опишите суть проблемы...'
-							className={styles['form__message']}
-						></textarea>
+						<div className={styles['form__container-message']}>
+							<textarea
+								name='message'
+								placeholder='Опишите суть проблемы...'
+								className={styles['form__message']}
+							></textarea>
+						</div>
 						<input
 							type='submit'
 							value='Отправить'

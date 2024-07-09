@@ -1,13 +1,16 @@
 import logo from '@/app/ui/assets/logo-header.png';
-import Paths from '@/shared/model/paths';
+import Paths from '@/shared/model/data/Paths';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
+import useAos from '@/shared/model/hooks/useAos';
 import styles from './navbar.module.scss';
 
 function Navbar(): React.ReactElement {
+	useAos();
+
 	return (
-		<nav className={styles.navbar}>
+		<nav className={styles.navbar} data-aos='fade-right'>
 			<img
 				src={logo}
 				alt='Логотип'

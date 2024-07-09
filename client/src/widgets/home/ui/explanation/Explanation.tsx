@@ -1,10 +1,13 @@
 import React from 'react';
 import image from '@/app/ui/assets/explanation-section.png';
+import useAos from '@/shared/model/hooks/useAos';
 import styles from './explanation.module.scss';
 
 function Explanation(): React.ReactElement {
+	useAos();
+
 	return (
-		<section className={styles.container}>
+		<section className={styles.container} data-aos='fade-right'>
 			<img
 				src={image}
 				alt='Что такое ЗоЗПП?'
@@ -13,7 +16,7 @@ function Explanation(): React.ReactElement {
 			/>
 			<div>
 				<h2 className={styles['explanation__title']}>
-					Что такое ЗоЗПП?
+					Что такое закон о защите прав потребителей?
 				</h2>
 				<p className={styles['explanation__description']}>
 					Закон о защите прав потребителей (ЗоЗПП) – это

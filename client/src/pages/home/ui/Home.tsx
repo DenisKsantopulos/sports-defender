@@ -3,24 +3,12 @@ import Main from '@/widgets/home/ui/main/Main';
 import Explanation from '@/widgets/home/ui/explanation/Explanation';
 import FAQ from '@/widgets/home/ui/faq/FAQ';
 import Footer from '@/widgets/home/ui/footer/Footer';
-import { useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
 import TopButton from '@/features/common/ui/top-button/TopButton';
+import useHashScrollIntoView from '@/shared/model/hooks/useHashScrollIntoView';
 import styles from './home.module.scss';
 
 function Home(): React.ReactElement {
-	const location = useLocation();
-
-	// Скролим до определенного блока на главное странице, если он прописан якорем в URL
-	useEffect(() => {
-		if (location.hash) {
-			const element: HTMLElement = document.getElementById(
-				location.hash.substring(1)
-			) as HTMLElement;
-
-			element.scrollIntoView(true);
-		}
-	}, [location]);
+	useHashScrollIntoView(); // Скролим до определенного блока на главное странице, если он прописан якорем в URL
 
 	return (
 		<>

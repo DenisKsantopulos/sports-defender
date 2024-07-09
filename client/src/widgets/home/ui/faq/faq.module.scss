@@ -1,15 +1,17 @@
 @use '@/app/ui/styles/helper';
 
 .container {
-	margin-bottom: 5rem;
+	margin-top: 7rem;
 
 	@extend %container;
 }
+
 .faq {
 	&__title {
 		color: helper.$title;
 		font-size: 2.3rem;
 		text-align: center;
+		line-height: 1.4;
 
 		&::after {
 			content: '';
@@ -25,10 +27,13 @@
 		color: helper.$subtitle;
 		font-size: 1.1rem;
 		text-align: center;
+		line-height: 1.8;
+		margin: 0 auto;
+		max-width: 60rem;
 	}
 
 	&__accordions {
-		margin-top: 5rem;
+		margin-top: 3rem;
 		display: flex;
 		flex-flow: column wrap;
 		gap: 1.5rem;

@@ -1,5 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
-import Paths from '@/shared/model/paths';
+import Paths from '@/shared/model/data/Paths';
 import { lazy } from 'react';
 
 const NotFound = lazy(() => import('@/pages/not-found/ui/NotFound'));

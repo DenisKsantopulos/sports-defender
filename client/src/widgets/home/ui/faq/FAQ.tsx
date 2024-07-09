@@ -1,10 +1,16 @@
-import faqData from '@/shared/model/faq-data';
-import AccordionItem from '@/widgets/home/ui/faq/accordion item/AccordionItem';
+import faqData from '@/shared/model/data/FAQ';
+import AccordionItem from '@/widgets/home/ui/faq/accordion-item/AccordionItem';
+import useAos from '@/shared/model/hooks/useAos';
 import styles from './faq.module.scss';
 
 export default function FAQ(): React.ReactElement {
+	useAos();
+
 	return (
-		<section className={`${styles.container} faq-scroll-to`}>
+		<section
+			className={`${styles.container} faq-scroll-to`}
+			data-aos='fade-left'
+		>
 			<h2 id='faq' className={styles['faq__title']}>
 				Часто задаваемые вопросы
 			</h2>

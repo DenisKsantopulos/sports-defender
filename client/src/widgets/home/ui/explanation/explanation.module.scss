@@ -2,10 +2,10 @@
 
 .container {
 	display: grid;
-	grid-template-columns: repeat(2, minmax(20rem, 1fr));
+	grid-template-columns: minmax(15rem, 2fr) 3fr;
 	justify-content: space-between;
 	align-items: center;
-	margin-bottom: 7rem;
+	margin-top: 7rem;
 
 	@extend %container;
 }
@@ -14,6 +14,7 @@
 	&__title {
 		color: helper.$title;
 		font-size: 2.3rem;
+		line-height: 1.4;
 
 		&::after {
 			content: '';
@@ -28,12 +29,12 @@
 	&__description {
 		color: helper.$subtitle;
 		font-size: 1.1rem;
-		line-height: 1.5;
+		line-height: 1.8;
 	}
 
 	&__image {
 		display: block;
 		max-width: 100%;
-		width: 27rem;
+		width: 21rem;
 	}
 }

@@ -1,11 +1,14 @@
 import image from '@/app/ui/assets/404.png';
 import { Link } from 'react-router-dom';
-import Paths from '@/shared/model/paths';
+import Paths from '@/shared/model/data/Paths';
+import useAos from '@/shared/model/hooks/useAos';
 import styles from './not-found.module.scss';
 
 function NotFound(): React.ReactElement {
+	useAos();
+
 	return (
-		<section className={styles['not-found']}>
+		<section className={styles['not-found']} data-aos='zoom-in'>
 			<img
 				src={image}
 				alt='404 Ошибка'

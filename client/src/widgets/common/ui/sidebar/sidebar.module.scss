@@ -4,13 +4,14 @@
 	position: sticky;
 	top: 0;
 	left: 0;
-	width: 5.5rem;
+	width: 5.9rem;
 	height: 100vh;
 	border-right: 0.0625rem solid helper.$lightSilver;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
+	box-shadow: 0.0625rem 0 0.125rem helper.$lightSilver;
 
 	&__menu {
 		display: flex;
