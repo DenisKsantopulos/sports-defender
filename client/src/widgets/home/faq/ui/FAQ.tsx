@@ -1,5 +1,5 @@
 import faqData from '@/shared/model/data/FAQ';
-import AccordionItem from '@/widgets/home/ui/faq/accordion-item/AccordionItem';
+import AccordionItem from '@/widgets/home/faq/ui/accordion-item/ui/AccordionItem';
 import useAos from '@/shared/model/hooks/useAos';
 import styles from './faq.module.scss';
 

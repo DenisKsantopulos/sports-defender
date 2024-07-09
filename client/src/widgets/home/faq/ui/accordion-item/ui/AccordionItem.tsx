@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import ToggleAccordion from '@/features/home/ui/accordion/ToggleAccordion';
+import ToggleAccordion from '@/features/home/accordion/ui/ToggleAccordion';
 import styles from './accordion-item.module.scss';
 
 interface AccordionItemArgumentsType {

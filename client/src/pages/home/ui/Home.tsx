@@ -1,9 +1,9 @@
-import Navbar from '@/widgets/home/ui/navbar/Navbar';
-import Main from '@/widgets/home/ui/main/Main';
-import Explanation from '@/widgets/home/ui/explanation/Explanation';
-import FAQ from '@/widgets/home/ui/faq/FAQ';
-import Footer from '@/widgets/home/ui/footer/Footer';
-import TopButton from '@/features/common/ui/top-button/TopButton';
+import Navbar from '@/widgets/home/navbar/ui/Navbar';
+import Main from '@/widgets/home/main/ui/Main';
+import Explanation from '@/widgets/home/explanation/ui/Explanation';
+import FAQ from '@/widgets/home/faq/ui/FAQ';
+import Footer from '@/widgets/home/footer/ui/Footer';
+import TopButton from '@/features/common/top-button/ui/TopButton';
 import useHashScrollIntoView from '@/shared/model/hooks/useHashScrollIntoView';
 import styles from './home.module.scss';
 

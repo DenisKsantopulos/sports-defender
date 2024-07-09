@@ -1,5 +1,6 @@
 import Paths from '@/shared/model/data/Paths';
 import { Link } from 'react-router-dom';
+import Feedback from '@/features/home/feedback/ui/Feedback';
 import styles from './footer.module.scss';
 
 function Footer(): React.ReactElement {
@@ -16,34 +17,7 @@ function Footer(): React.ReactElement {
 							разобраться.
 						</p>
 					</div>
-					<form action='#' className={styles['footer__form']}>
-						<div className={styles['form__container']}>
-							<input
-								type='text'
-								name='username'
-								placeholder='Как Вас зовут?'
-								className={styles['form__username']}
-							/>
-							<input
-								type='email'
-								name='email'
-								placeholder='Введите адрес электронной почты'
-								className={styles['form__email']}
-							/>
-						</div>
-						<div className={styles['form__container-message']}>
-							<textarea
-								name='message'
-								placeholder='Опишите суть проблемы...'
-								className={styles['form__message']}
-							></textarea>
-						</div>
-						<input
-							type='submit'
-							value='Отправить'
-							className={styles['form__submit']}
-						/>
-					</form>
+					<Feedback />
 				</div>
 				<div className={styles['footer__menu-container']}>
 					<ul className={styles['footer__menu']}>

@@ -1,5 +1,5 @@
 import logo from '@/app/ui/assets/logo.png';
-import SidebarItem from '@/features/common/ui/sidebar/SidebarItem';
+import SidebarItem from '@/features/common/sidebar/ui/SidebarItem';
 import Paths from '@/shared/model/data/Paths';
 import {
 	faComment,
