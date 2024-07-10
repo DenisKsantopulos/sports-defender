@@ -1,0 +1,5 @@
+@use '@/app/ui/styles/helper';
+
+.container {
+	@extend %container;
+}

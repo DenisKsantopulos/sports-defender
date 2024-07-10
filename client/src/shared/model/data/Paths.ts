@@ -5,7 +5,7 @@ enum Paths {
 	SEARCH = '/search',
 	SURVEY = '/survey',
 	DOCUMENT_TEMPLATES = '/document-templates',
-	ARTICLES = '/articles',
+	TOPIC_ARTICLES = '/topic-articles',
 	COURT_CASES = '/court-cases',
 }
 

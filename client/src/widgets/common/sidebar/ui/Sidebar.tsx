@@ -36,7 +36,7 @@ function Sidebar(): React.ReactElement {
 					isClickable={true}
 				/>
 				<SidebarItem
-					path={Paths.ARTICLES}
+					path={Paths.TOPIC_ARTICLES}
 					icon={faNewspaper}
 					text='Тематич. статьи'
 					isClickable={true}

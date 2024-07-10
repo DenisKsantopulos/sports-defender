@@ -39,7 +39,7 @@ function Footer(): React.ReactElement {
 						</li>
 						<li className={styles['menu__list']}>
 							<Link
-								to={Paths.ARTICLES}
+								to={Paths.TOPIC_ARTICLES}
 								className={styles['menu__item']}
 							>
 								Тематические Статьи
