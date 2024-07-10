@@ -51,12 +51,24 @@
 		gap: 1rem;
 	}
 
+	&__message {
+		text-align: center;
+		color: helper.$white;
+		font-size: 0.9rem;
+		font-weight: 300;
+		margin-top: 4rem;
+	}
+
+	&__warning {
+		color: helper.$red;
+	}
+
 	&__commercial {
 		text-align: center;
-		font-size: 0.9rem;
 		color: helper.$white;
-		margin-top: 4rem;
+		font-size: 0.8rem;
 		font-weight: 300;
+		margin-top: 1rem;
 	}
 }
 

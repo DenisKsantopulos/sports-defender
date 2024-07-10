@@ -23,20 +23,11 @@
 		font-size: 1.1rem;
 		margin: 1rem 0;
 		line-height: 1.8;
-
-		& + .main__description {
-			font-style: italic;
-		}
-	}
-
-	&__warning {
-		color: helper.$red;
-		font-weight: 600;
 	}
 
 	&__buttons-container {
 		display: flex;
-		gap: 1.5rem;
+		gap: 2rem;
 		margin-top: 2rem;
 	}
 
@@ -45,7 +36,7 @@
 		font-weight: 600;
 		font-size: 1.1rem;
 		padding: 1.1rem 2rem;
-		border-width: 0.1rem;
+		border-width: 0.15rem;
 		border-style: solid;
 		box-shadow: 0 0 0.625rem helper.$lightSilver;
 

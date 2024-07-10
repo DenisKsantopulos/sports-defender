@@ -13,20 +13,13 @@ function Main(): React.ReactElement {
 		<div className={styles.container} data-aos='fade-left'>
 			<div>
 				<h1 className={styles['main__title']}>
-					ваши права в фитнес-индустрии: найдем решение вашей
-					проблемы!
+					ваши права в фитнес-индустрии
 				</h1>
 				<p className={styles['main__description']}>
 					Возникли юридические вопросы по услугам фитнес-центров или
 					спортивных товаров? Мы поможем! Пройдите анкету для готового
 					решения или скачайте шаблоны документов для самостоятельной
 					защиты своих прав.
-				</p>
-				<p className={styles['main__description']}>
-					<span className={styles['main__warning']}>ВНИМАНИЕ!</span>{' '}
-					Сайт не предоставляет юридических консультаций, это просто
-					справочный материал. Если необходима дополнительная помощь,
-					пожалуйста, обратитесь к юристам.
 				</p>
 				<div className={styles['main__buttons-container']}>
 					<Link
