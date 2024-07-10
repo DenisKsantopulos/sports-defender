@@ -1,6 +1,5 @@
-import faqData from '@/shared/model/data/FAQ';
-import AccordionItem from '@/widgets/home/faq/ui/accordion-item/ui/AccordionItem';
 import useAos from '@/shared/model/hooks/useAos';
+import AccordionList from '@/features/home/faq/accordion/ui/AccordionList';
 import styles from './faq.module.scss';
 
 export default function FAQ(): React.ReactElement {
@@ -19,13 +18,7 @@ export default function FAQ(): React.ReactElement {
 				сталкиваются участники правовых отношений.
 			</p>
 			<div className={styles['faq__accordions']}>
-				{faqData.map(({ id, question, answer }) => (
-					<AccordionItem
-						key={id}
-						question={question}
-						answer={answer}
-					/>
-				))}
+				<AccordionList />
 			</div>
 		</section>
 	);

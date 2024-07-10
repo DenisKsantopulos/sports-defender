@@ -1,16 +1,28 @@
 import TopButton from '@/features/common/top-button/ui/TopButton';
-import TopicArticlesTitle from '@/widgets/topic-articles/title/ui/TopicArticlesTitle';
-import TopicArticlesFilters from '@/widgets/topic-articles/filters/ui/TopicArticlesFilters';
+import useAos from '@/shared/model/hooks/useAos';
 import styles from './topic-articles.module.scss';
+import SearchField from '@/features/common/search/ui/SearchField';
+import Title from '@/widgets/common/title/ui/Title';
 
 function TopicArticles(): React.ReactElement {
+	useAos();
+
 	return (
 		<>
 			<TopButton />
 			<div>
 				<section className={styles.container}>
-					<TopicArticlesTitle />
-					<TopicArticlesFilters />
+					<Title title='Поиск по тематическим статьям'>
+						Тематические статьи предоставляют очень важную
+						юридическую информацию. Данный раздел предназначен для
+						поиска такого рода документов.
+					</Title>
+					<div
+						className={styles['document-templates__filters']}
+						data-aos='fade-up'
+					>
+						<SearchField placeholder='Введите название статьи' />
+					</div>
 				</section>
 			</div>
 		</>
