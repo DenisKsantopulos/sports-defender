@@ -13,8 +13,8 @@ function Home(): React.ReactElement {
 	return (
 		<>
 			<TopButton />
-			<div className={styles['main-container']}>
-				<main id='main' className={styles['content-container']}>
+			<div>
+				<main id='main' className={styles['container']}>
 					<Navbar />
 					<Main />
 				</main>
