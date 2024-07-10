@@ -12,6 +12,7 @@ const DocumentTemplates = lazy(
 const TopicArticles = lazy(
 	() => import('@/pages/topic-articles/ui/TopicArticles')
 );
+const CourtCases = lazy(() => import('@/pages/court-cases/ui/CourtCases'));
 
 interface RouteType {
 	path: string;
@@ -43,6 +44,10 @@ const routes: RouteType[] = [
 	{
 		path: Paths.TOPIC_ARTICLES,
 		element: () => <TopicArticles />,
+	},
+	{
+		path: Paths.COURT_CASES,
+		element: () => <CourtCases />,
 	},
 ];
 
