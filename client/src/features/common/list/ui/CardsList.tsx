@@ -1,6 +1,7 @@
 import { observer } from 'mobx-react-lite';
-import styles from './cards-list.module.scss';
 import CardTypes from '@/shared/model/data/CardTypes';
+import NothingFound from '@/widgets/common/search/nothing-found/ui/NothingFound';
+import styles from './cards-list.module.scss';
 
 interface CardListArgumentsType {
 	cardType?: CardTypes; // Если нет типа карточки, значит представлен список карточек всех типов
@@ -28,6 +29,7 @@ const CardsList = observer(
 		return (
 			<div className={styles['cards-list']}>
 				<p style={{ fontStyle: 'italic' }}>{determineCardType()}</p>
+				{/* <NothingFound /> */}
 				{/* <Card
 					cardType={CardTypes.DOCUMENT_TEMPLATE}
 					title='Название шаблона документа'
