@@ -1,6 +1,6 @@
 import AccordionItem from '@/features/home/faq/accordion-item/ui/AccordionItem';
 import { useFAQs } from '@/shared/api/queries';
-import Faq from '@/shared/model/entities/Faq';
+import Faq from '@/entities/Faq';
 import styles from './accordion-list.module.scss';
 
 function AccordionList(): React.ReactElement {

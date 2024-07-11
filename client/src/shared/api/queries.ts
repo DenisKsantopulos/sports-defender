@@ -1,5 +1,5 @@
 import useSWR from 'swr';
-import Faq from '@/shared/model/entities/Faq';
+import Faq from '@/entities/Faq';
 
 // Вернуть список всех часто задаваемых вопросов для главной страницы сайта
 export function useFAQs() {

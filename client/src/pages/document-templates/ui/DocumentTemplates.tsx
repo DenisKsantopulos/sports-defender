@@ -3,9 +3,16 @@ import Title from '@/widgets/common/title/ui/Title';
 import useAos from '@/shared/model/hooks/useAos';
 import SearchField from '@/features/common/search/ui/SearchField';
 import Tabs from '@/features/common/tabs/ui/Tabs';
+import CardsList from '@/features/common/list/ui/CardsList';
+import { useStores } from '@/shared/model/hooks/useStores';
+import documentTemplatesTabTitles from '@/shared/model/data/DocumentTemplatesTabTitles';
+import CardTypes from '@/shared/model/data/CardTypes';
+import { observer } from 'mobx-react-lite';
 import styles from './document-templates.module.scss';
 
-function DocumentTemplates(): React.ReactElement {
+const DocumentTemplates = observer((): React.ReactElement => {
+	const { documentTemplatesTabsStore, documentTemplatesSearch } = useStores();
+
 	useAos();
 
 	return (
@@ -23,20 +30,25 @@ function DocumentTemplates(): React.ReactElement {
 						className={styles['document-templates__filters']}
 						data-aos='fade-up'
 					>
-						<SearchField placeholder='Введите название документа' />
+						<SearchField
+							cardType={CardTypes.DOCUMENT_TEMPLATE}
+							category={documentTemplatesTabsStore.activeTab}
+							store={documentTemplatesSearch}
+							placeholder='Введите название документа'
+						/>
 						<Tabs
-							items={[
-								'Все категории',
-								'Заявления',
-								'Досудебные претензии',
-								'Жалобы в Роспотребнадзор',
-							]}
+							items={documentTemplatesTabTitles}
+							store={documentTemplatesTabsStore}
+						/>
+						<CardsList
+							cardType={CardTypes.DOCUMENT_TEMPLATE}
+							category={documentTemplatesTabsStore.activeTab}
 						/>
 					</div>
 				</section>
 			</div>
 		</>
 	);
-}
+});
 
 export default DocumentTemplates;

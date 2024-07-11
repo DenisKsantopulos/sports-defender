@@ -3,9 +3,16 @@ import useAos from '@/shared/model/hooks/useAos';
 import Title from '@/widgets/common/title/ui/Title';
 import SearchField from '@/features/common/search/ui/SearchField';
 import Tabs from '@/features/common/tabs/ui/Tabs';
+import { useStores } from '@/shared/model/hooks/useStores';
+import courtCasesTabTitles from '@/shared/model/data/CourtCasesTabTitles';
+import CardsList from '@/features/common/list/ui/CardsList';
+import CardTypes from '@/shared/model/data/CardTypes';
+import { observer } from 'mobx-react-lite';
 import styles from './court-cases.module.scss';
 
-function CourtCases(): React.ReactElement {
+const CourtCases = observer((): React.ReactElement => {
+	const { courtCasesTabsStore, courtCasesSearch } = useStores();
+
 	useAos();
 
 	return (
@@ -22,13 +29,25 @@ function CourtCases(): React.ReactElement {
 						className={styles['document-templates__filters']}
 						data-aos='fade-up'
 					>
-						<SearchField placeholder='Введите название дела' />
-						<Tabs items={['Все категории', 'Товары', 'Услуги']} />
+						<SearchField
+							cardType={CardTypes.COURT_CASE}
+							category={courtCasesTabsStore.activeTab}
+							store={courtCasesSearch}
+							placeholder='Введите название дела'
+						/>
+						<Tabs
+							items={courtCasesTabTitles}
+							store={courtCasesTabsStore}
+						/>
+						<CardsList
+							cardType={CardTypes.COURT_CASE}
+							category={courtCasesTabsStore.activeTab}
+						/>
 					</div>
 				</section>
 			</div>
 		</>
 	);
-}
+});
 
 export default CourtCases;
