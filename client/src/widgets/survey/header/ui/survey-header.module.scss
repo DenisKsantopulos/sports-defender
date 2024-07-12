@@ -1,0 +1,41 @@
+@use '@/app/ui/styles/helper';
+
+.survey {
+	&__question {
+		font-size: 2rem;
+		font-weight: 600;
+		line-height: 1.5;
+		color: helper.$title;
+		text-align: center;
+	}
+
+	&__warning {
+		background-color: helper.$yellow;
+		border: 0.1rem solid helper.$darkYellow;
+		padding: 1.3rem 2rem;
+		max-width: 60rem;
+		margin-top: 1rem;
+
+		@include helper.borderRadius(2rem);
+	}
+}
+
+.warning {
+	&__title {
+		font-weight: 600;
+		font-size: 0.9rem;
+		color: helper.$title;
+		line-height: 1.5;
+	}
+
+	&__icon {
+		margin-right: 0.5rem;
+	}
+
+	&__message {
+		font-size: 0.9rem;
+		color: helper.$subtitle;
+		line-height: 1.5;
+		margin-top: 0.5rem;
+	}
+}

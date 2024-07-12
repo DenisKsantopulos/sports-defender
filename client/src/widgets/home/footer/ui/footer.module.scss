@@ -1,0 +1,91 @@
+@use '@/app/ui/styles/helper';
+
+.container {
+	@extend %container;
+}
+
+.footer {
+	margin-top: 7rem;
+	background-color: helper.$primaryColor;
+	padding: 4rem 0 1rem;
+
+	&__form-container {
+		display: grid;
+		grid-template-columns: 2fr 3fr;
+		gap: 2rem;
+	}
+
+	&__title {
+		color: helper.$white;
+		font-size: 2rem;
+		font-weight: bold;
+		line-height: 1.5;
+
+		&::after {
+			content: '';
+			display: block;
+			height: 0.25rem;
+			width: 7rem;
+			background-color: helper.$accentColor;
+			margin: 1rem 0 1.5rem;
+		}
+	}
+
+	&__description {
+		color: helper.$lightSilver;
+		font-size: 1.1rem;
+		line-height: 1.5;
+		max-width: 30rem;
+	}
+
+	&__menu-container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		margin: 4rem 0 0;
+	}
+
+	&__menu {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	&__message {
+		text-align: center;
+		color: helper.$white;
+		font-size: 0.9rem;
+		font-weight: 300;
+		margin-top: 4rem;
+	}
+
+	&__warning {
+		color: helper.$red;
+	}
+
+	&__commercial {
+		text-align: center;
+		color: helper.$white;
+		font-size: 0.8rem;
+		font-weight: 300;
+		margin-top: 1rem;
+	}
+}
+
+.menu {
+	&__list {
+		list-style-type: none;
+	}
+
+	&__item {
+		color: helper.$white;
+		text-decoration: none;
+		cursor: pointer;
+
+		@include helper.transition();
+
+		&:hover {
+			color: helper.$accentColor;
+		}
+	}
+}

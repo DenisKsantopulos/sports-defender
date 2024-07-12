@@ -1,0 +1,43 @@
+@use 'colors';
+@use 'fonts';
+
+*,
+*::before,
+*::after {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+:root {
+	scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+	width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+	background: colors.$silver;
+}
+
+::-webkit-scrollbar-thumb {
+	background: colors.$accentColor;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: colors.$accentColorDark;
+}
+
+body {
+	font-family: fonts.$font-montserrat;
+	font-weight: normal;
+	font-style: normal;
+}
+
+.main-container {
+	display: grid;
+	grid-template-columns: auto 1fr;
+}

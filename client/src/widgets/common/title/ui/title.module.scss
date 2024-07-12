@@ -1,0 +1,17 @@
+@use '@/app/ui/styles/helper';
+
+.title {
+	&__main-text {
+		font-size: 2rem;
+		color: helper.$title;
+		line-height: 1.5;
+		margin-top: 1.5rem;
+	}
+
+	&__description {
+		font-size: 1rem;
+		color: helper.$subtitle;
+		line-height: 1.5;
+		margin-top: 1rem;
+	}
+}

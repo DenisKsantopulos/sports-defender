@@ -1,0 +1,26 @@
+@use '@/app/ui/styles/helper';
+
+.button {
+	position: fixed;
+	bottom: -5rem;
+	right: 1.2rem;
+	font-size: 1.5rem;
+	color: helper.$title;
+	padding: 0.5rem 0.8rem;
+	background-color: helper.$accentColor;
+	border: 0.0625rem solid helper.$accentColorDark;
+	box-shadow: 0 0 0.625rem helper.$silver;
+	outline: none;
+	cursor: pointer;
+
+	@include helper.borderRadius();
+	@include helper.transition();
+
+	&--active {
+		bottom: 1.2rem;
+	}
+
+	&:hover {
+		background-color: helper.$accentColorDark;
+	}
+}

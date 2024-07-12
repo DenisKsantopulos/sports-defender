@@ -1,0 +1,29 @@
+@use '@/app/ui/styles/helper';
+
+.not-found {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	&__image {
+		max-width: 100%;
+		display: block;
+		width: 25rem;
+	}
+
+	&__title {
+		font-size: 2rem;
+		font-weight: bold;
+		line-height: 1.8;
+		color: helper.$title;
+		margin-top: 5rem;
+	}
+
+	&__link {
+		margin-top: 1rem;
+		font-size: 1.1rem;
+		line-height: 1.5;
+		color: helper.$subtitle;
+	}
+}

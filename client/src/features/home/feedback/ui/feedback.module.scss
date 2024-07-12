@@ -1,0 +1,93 @@
+@use '@/app/ui/styles/helper';
+
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+
+	&__container {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		align-items: end;
+		gap: 1.5rem;
+	}
+
+	&__error {
+		font-size: 1rem;
+		font-weight: 600;
+		color: helper.$red;
+		margin: 0.5rem 0;
+		display: inline-block;
+	}
+
+	&__username,
+	&__email,
+	&__message {
+		width: 100%;
+		border: 0.125rem solid helper.$silver;
+		color: helper.$title;
+		font-size: 1rem;
+		padding: 1rem 1.2rem;
+		outline: none;
+		background-color: helper.$white;
+
+		@include helper.borderRadius(2rem);
+		@include helper.transition();
+
+		&:hover,
+		&:focus {
+			border-color: helper.$accentColor;
+		}
+	}
+
+	&__container-message {
+		padding: 1rem 1rem 1rem 0;
+		background-color: helper.$white;
+		border: 0.125rem solid helper.$silver;
+
+		@include helper.transition();
+		@include helper.borderRadius(1.5rem);
+
+		&:has(.form__message:hover),
+		&:has(.form__message:focus) {
+			border-color: helper.$accentColor;
+		}
+	}
+
+	&__message {
+		border: none;
+		resize: none;
+		height: 10rem;
+		font-family: inherit;
+		padding: 0 0.5rem 0 1.2rem;
+
+		&::-webkit-scrollbar-track {
+			background: helper.$lightSilver;
+
+			@include helper.borderRadius(2rem);
+		}
+
+		&::-webkit-scrollbar-thumb {
+			@include helper.borderRadius(2rem);
+		}
+	}
+
+	&__submit {
+		align-self: end;
+		outline: none;
+		color: helper.$title;
+		background-color: helper.$accentColor;
+		font-weight: 600;
+		font-size: 1.1rem;
+		padding: 1rem 3rem;
+		border: 0.1rem solid helper.$accentColorDark;
+		cursor: pointer;
+
+		@include helper.borderRadius(20rem);
+		@include helper.transition();
+
+		&:hover {
+			background-color: helper.$accentColorDark;
+		}
+	}
+}

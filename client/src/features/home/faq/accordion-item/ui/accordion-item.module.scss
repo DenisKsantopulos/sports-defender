@@ -1,0 +1,63 @@
+@use '@/app/ui/styles/helper';
+
+.accordion {
+	cursor: pointer;
+
+	&__item {
+		display: flex;
+		justify-content: space-between;
+		gap: 2.5rem;
+		border: 0.125rem solid helper.$lightSilver;
+		padding: 1rem 2rem;
+
+		@include helper.borderRadius(2rem);
+		@include helper.transition();
+
+		&:hover {
+			border-color: helper.$accentColor;
+		}
+
+		&--active {
+			border-color: helper.$accentColor;
+			border-bottom: none;
+
+			@include helper.borderRadius(2rem, 2rem, 0, 0);
+		}
+	}
+
+	&__question {
+		color: helper.$title;
+		font-size: 1.1rem;
+		line-height: 1.5;
+		font-weight: 600;
+	}
+
+	&__content {
+		max-height: 0;
+		overflow: hidden;
+
+		@include helper.transition(max-height, 0.5s, cubic-bezier(0, 1, 0, 1));
+
+		&--active {
+			max-height: 999rem;
+			height: auto;
+
+			@include helper.transition(
+				max-height,
+				0.5s,
+				cubic-bezier(1, 0, 1, 0)
+			);
+		}
+	}
+
+	&__answer {
+		color: helper.$subtitle;
+		font-size: 1rem;
+		line-height: 1.5;
+		padding: 1rem 2rem 1.5rem;
+		border: 0.125rem solid helper.$accentColor;
+		border-top: none;
+
+		@include helper.borderRadius(0, 0, 2rem, 2rem);
+	}
+}

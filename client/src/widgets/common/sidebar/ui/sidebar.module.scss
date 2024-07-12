@@ -1,0 +1,26 @@
+@use '@/app/ui/styles/helper';
+
+.sidebar {
+	position: sticky;
+	top: 0;
+	left: 0;
+	width: 5.9rem;
+	height: 100vh;
+	border-right: 0.0625rem solid helper.$lightSilver;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	box-shadow: 0.0625rem 0 0.125rem helper.$lightSilver;
+
+	&__menu {
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+	}
+
+	&__logo {
+		width: 3rem;
+		margin: 1rem;
+	}
+}

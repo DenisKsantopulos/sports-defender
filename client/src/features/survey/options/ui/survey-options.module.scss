@@ -1,0 +1,56 @@
+@use '@/app/ui/styles/helper';
+
+.survey {
+	&__options {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		margin-top: 2rem;
+	}
+
+	&__proceed {
+		align-self: end;
+		font-size: 1rem;
+		color: helper.$accentColor;
+		background-color: helper.$primaryColor;
+		padding: 1rem 2.5rem;
+		font-family: inherit;
+		font-weight: 600;
+		border: 0.15rem solid helper.$primaryColorDark;
+		box-shadow: 0 0 0.625rem helper.$lightSilver;
+		outline: none;
+		cursor: pointer;
+
+		@include helper.borderRadius(2rem);
+		@include helper.transition();
+
+		&:hover {
+			background-color: helper.$primaryColorDark;
+		}
+	}
+}
+
+.options {
+	&__item {
+		width: 60rem;
+		padding: 1rem 2rem;
+		border: 0.1rem solid helper.$lightSilver;
+		cursor: pointer;
+
+		@include helper.borderRadius(2rem);
+		@include helper.transition();
+
+		&:hover {
+			box-shadow: 0 0 0.5rem helper.$lightSilver;
+		}
+	}
+
+	&__radio-button {
+		cursor: inherit;
+	}
+
+	&__label {
+		padding-left: 1rem;
+		cursor: inherit;
+	}
+}

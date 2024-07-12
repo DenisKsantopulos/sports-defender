@@ -1,0 +1,71 @@
+@use '@/app/ui/styles/helper';
+
+.card {
+	display: flex;
+	flex-direction: column;
+	width: 25rem;
+	box-shadow: 0 0 0.4rem helper.$lightSilver;
+	overflow: hidden;
+	cursor: pointer;
+
+	@include helper.borderRadius(1rem);
+	@include helper.transition();
+
+	&:hover {
+		box-shadow: 0 0 0.8rem helper.$lightSilver;
+	}
+
+	&__content-container {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		padding: 1rem 1.2rem;
+	}
+
+	&__title-icon {
+		padding-right: 0.5rem;
+		font-size: 1rem;
+	}
+
+	&__title {
+		max-height: 4.7rem;
+		overflow: hidden;
+		font-size: 1.2rem;
+		font-weight: 600;
+		line-height: 1.5;
+		color: helper.$title;
+	}
+
+	&__bottom-container {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__description {
+		font-size: 0.9rem;
+		line-height: 1.5;
+		color: helper.$subtitle;
+		margin-top: 1rem;
+	}
+
+	&__download {
+		align-self: end;
+		outline: none;
+		background: none;
+		border: none;
+		font-size: 0.9rem;
+		color: helper.$accentColor;
+		cursor: pointer;
+
+		@include helper.transition();
+
+		&:hover {
+			color: helper.$title;
+		}
+	}
+
+	&__download-icon {
+		padding-right: 0.5rem;
+	}
+}

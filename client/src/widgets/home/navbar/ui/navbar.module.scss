@@ -1,0 +1,58 @@
+@use '@/app/ui/styles/helper';
+
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 1.5rem;
+
+	&__logo {
+		height: 2.2rem;
+	}
+
+	&__menu {
+		display: flex;
+		gap: 3rem;
+	}
+}
+
+.menu {
+	&__list {
+		list-style-type: none;
+		font-size: 1.1rem;
+	}
+
+	&__item {
+		text-decoration: none;
+
+		&::after {
+			content: '';
+			display: block;
+			margin-top: 0.3rem;
+			width: auto;
+			height: 0.125rem;
+			background-color: helper.$accentColor;
+			opacity: 0;
+
+			@include helper.transition();
+		}
+
+		&:hover {
+			&::after {
+				opacity: 1;
+			}
+		}
+	}
+
+	&__item,
+	&__search-icon {
+		color: helper.$title;
+
+		@include helper.transition();
+	}
+
+	&__search-icon {
+		font-size: 0.9rem;
+		padding-left: 0.5rem;
+	}
+}

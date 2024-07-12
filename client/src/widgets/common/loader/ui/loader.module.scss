@@ -1,0 +1,14 @@
+@use '@/app/ui/styles/helper';
+
+.loader {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	&__title {
+		font-size: 1.8rem;
+		font-weight: 600;
+		color: helper.$subtitle;
+	}
+}

@@ -1,0 +1,31 @@
+@use '@/app/ui/styles/helper';
+
+.menu__link {
+	height: max-content;
+	padding: 1rem 0;
+	font-size: 1.2rem;
+	color: helper.$primaryColor;
+	text-decoration: none;
+	cursor: pointer;
+
+	@include helper.transition();
+
+	& > p {
+		font-size: 0.8rem;
+		line-height: 1.4;
+		margin-top: 0.2rem;
+	}
+
+	&:hover {
+		background-color: helper.$lightSilver;
+	}
+
+	&--active {
+		background-color: helper.$accentColor;
+		color: helper.$black;
+
+		&:hover {
+			background-color: helper.$accentColor;
+		}
+	}
+}
