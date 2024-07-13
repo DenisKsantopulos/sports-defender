@@ -64,7 +64,7 @@ const Card = memo(
 								icon={faDownload}
 								className={styles['card__download-icon']}
 							/>
-							{fileSize}MB
+							{fileSize} MB
 						</button>
 					</div>
 				</div>
