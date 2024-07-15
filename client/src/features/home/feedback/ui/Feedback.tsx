@@ -1,10 +1,19 @@
-import { SubmitHandler, useForm } from 'react-hook-form';
 import { FeedbackEntity } from '@/features/home/feedback/model/FeedbackEntity';
 import { FeedbackFormSchema } from '@/features/home/feedback/model/FeedbackFormSchema';
+import emailjs from '@emailjs/browser';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useEffect, useState } from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import styles from './feedback.module.scss';
 
 function Feedback(): React.ReactElement {
+	// EmailJS API ключи доступа
+	const PUBLIC_KEY: string = import.meta.env.VITE_EMAIL_JS_PUBLIC_KEY;
+	const SERVICE_ID: string = import.meta.env.VITE_EMAIL_JS_SERVICE_ID;
+	const TEMPLATE_ID: string = import.meta.env.VITE_EMAIL_JS_TEMPLATE_ID;
+
+	const [isEmailSending, setIsEmailSending] = useState<boolean>(false); // Если email отправляется, то покажем индикатор загрузки вместо кнопки
+
 	const {
 		register,
 		handleSubmit,
@@ -14,16 +23,36 @@ function Feedback(): React.ReactElement {
 		resolver: zodResolver(FeedbackFormSchema),
 	});
 
-	// При успешной валидации чистим поля и отправляем данные на сервер
-	// TODO: Отправлять данные на сервер!
-	const onSuccessFormSubmit: SubmitHandler<FeedbackEntity> = data => {
-		reset();
+	// Инициализация EmailJS библиотеки
+	useEffect(() => {
+		emailjs.init(PUBLIC_KEY);
+	}, []);
 
-		console.log('----------------------------------------------------');
-		console.log(`React Hook Form | USERNAME: ${data.username}`);
-		console.log(`React Hook Form | EMAil: ${data.email}`);
-		console.log(`React Hook Form | MESSAGE: ${data.message}`);
-		console.log('----------------------------------------------------');
+	// Отправляем письмо пользователя через EmailJS к нам на почту
+	const onSuccessFormSubmit: SubmitHandler<FeedbackEntity> = data => {
+		setIsEmailSending(true);
+
+		// Отправляем сообщение на почту
+		emailjs
+			.send(SERVICE_ID, TEMPLATE_ID, {
+				username: data.username.trim(),
+				email: data.email.trim(),
+				message: data.message.trim(),
+			})
+			.then(() => {
+				// Успешно
+				alert('Ваша заявка была успешно отправлена!');
+
+				reset(); // Чистим форму обратной связи
+			})
+			.catch((error: Error) => {
+				// Неуспешно
+				alert('Что-то пошло не так :(');
+				console.log(error);
+			})
+			.finally(() => {
+				setIsEmailSending(false);
+			});
 	};
 
 	return (
@@ -75,7 +104,8 @@ function Feedback(): React.ReactElement {
 			</div>
 			<input
 				type='submit'
-				value='Отправить'
+				value={isEmailSending ? 'Отправка...' : 'Отправить'}
+				disabled={isEmailSending}
 				className={styles['form__submit']}
 			/>
 		</form>

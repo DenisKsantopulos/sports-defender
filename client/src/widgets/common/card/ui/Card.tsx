@@ -1,4 +1,3 @@
-import cardImage from '@/app/ui/assets/card-image.png';
 import CardTypes from '@/shared/model/data/CardTypes';
 import {
 	faDownload,
@@ -38,12 +37,6 @@ const Card = memo(
 
 		return (
 			<article className={styles.card} title={title}>
-				<img
-					src={cardImage}
-					alt='Заголовок карточки'
-					loading='lazy'
-					className={styles['card__image']}
-				/>
 				<div className={styles['card__content-container']}>
 					<p className={styles['card__title']}>
 						<FontAwesomeIcon
@@ -64,7 +57,7 @@ const Card = memo(
 								icon={faDownload}
 								className={styles['card__download-icon']}
 							/>
-							{fileSize}MB
+							{fileSize} MB
 						</button>
 					</div>
 				</div>

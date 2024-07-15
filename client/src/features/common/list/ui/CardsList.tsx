@@ -1,6 +1,7 @@
 import { observer } from 'mobx-react-lite';
 import CardTypes from '@/shared/model/data/CardTypes';
 import NothingFound from '@/widgets/common/search/nothing-found/ui/NothingFound';
+import Card from '@/widgets/common/card/ui/Card';
 import styles from './cards-list.module.scss';
 
 interface CardListArgumentsType {
@@ -28,9 +29,9 @@ const CardsList = observer(
 
 		return (
 			<div className={styles['cards-list']}>
-				<p style={{ fontStyle: 'italic' }}>{determineCardType()}</p>
+				{/* <p style={{ fontStyle: 'italic' }}>{determineCardType()}</p> */}
 				{/* <NothingFound /> */}
-				{/* <Card
+				<Card
 					cardType={CardTypes.DOCUMENT_TEMPLATE}
 					title='Название шаблона документа'
 					fileSize={2.1}
@@ -49,7 +50,7 @@ const CardsList = observer(
 					cardType={CardTypes.DOCUMENT_TEMPLATE}
 					title='Название шаблона документа'
 					fileSize={3.9}
-				/> */}
+				/>
 			</div>
 		);
 	}

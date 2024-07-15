@@ -86,6 +86,16 @@
 		@include helper.borderRadius(20rem);
 		@include helper.transition();
 
+		&:disabled {
+			background-color: helper.$silver;
+			border-color: helper.$primaryColorDark;
+			cursor: default;
+
+			&:hover {
+				background-color: helper.$silver;
+			}
+		}
+
 		&:hover {
 			background-color: helper.$accentColorDark;
 		}
