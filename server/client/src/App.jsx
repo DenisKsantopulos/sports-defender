@@ -1,39 +1,68 @@
 import { useEffect, useState } from "react";
+import { BrowserRouter, Route, Link } from "react-router-dom";
 import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
   const [templates, setTemplates] = useState([])
-  const [survey, setSurvey] = useState({
+  const [surveys, setSurveys] = useState([])
+  const [form, setForm] = useState({
     currentQuestion: 0,
     answers: []
   })
   
   useEffect(() => {
-    axios.get('http://localhost:3001/getTemplates')
+    axios.get('http://localhost:3001/get-templates')
      .then(templates => setTemplates(templates.data))
      .catch(err => console.log(err))
   }, [])
 
-  const templat = templates.find(template => template.title === "Претензия_Устранение недостатков ТСТ")
-  const pr211 = templates.find(template => template.title === "Претензия_Устранение недостатков ТСТ")
-  const pr212 = templates.find(template => template.title === "Претензия_Возврат (обмен) некачественного товара")
-  const pr213 = templates.find(template => template.title === "Претензия_Возврат некачественного товара (ст.12)")
-  const pr214 = templates.find(template => template.title === "Заявление о возврате товара")
+  useEffect(() => {
+    axios.get('http://localhost:3001/surveys')
+      .then(surveys => setSurveys(surveys.data))
+      .catch(err => console.log(err));
+  }, []);
+
+  const templat = templates.find(template => template.title === "Требование о ремонте ТСТ")
+  const pr211 = templates.find(template => template.title === "Требование о ремонте ТСТ")
+  const pr212 = templates.find(template => template.title === "Требование о возврате некач. товара")
+  const pr213 = templates.find(template => template.title === "Требование о возврате некач. товара (ст.12)")
+  const pr214 = templates.find(template => template.title === "Заявление о возврате кач. товара")
+
+  const q1 = surveys.find(survey => survey.id === 1)
+  const q2 = surveys.find(survey => survey.id === 2)
+  const q3 = surveys.find(survey => survey.id === 3)
+  const q4 = surveys.find(survey => survey.id === 4)
+  const q5 = surveys.find(survey => survey.id === 5)
+  const q6 = surveys.find(survey => survey.id === 6)
+  const q7 = surveys.find(survey => survey.id === 7)
+  const q8 = surveys.find(survey => survey.id === 8)
+  const q9 = surveys.find(survey => survey.id === 9)
+  const q10 = surveys.find(survey => survey.id === 10)
+  const q11 = surveys.find(survey => survey.id === 11)
+  const q12 = surveys.find(survey => survey.id === 12)
+  const q13 = surveys.find(survey => survey.id === 13)
+  const q14 = surveys.find(survey => survey.id === 14)
+  const q15 = surveys.find(survey => survey.id === 15)
+  const q16 = surveys.find(survey => survey.id === 16)
+  const q17 = surveys.find(survey => survey.id === 17)
+  const q18 = surveys.find(survey => survey.id === 18)
+  const q19 = surveys.find(survey => survey.id === 19)
+  const q20 = surveys.find(survey => survey.id === 20)
 
 
   const handleAnswer = (answer) => {
-    setSurvey({
-     ...survey,
-      answers: [...survey.answers, answer],
-      currentQuestion: getNextQuestion(survey.currentQuestion, answer)
+    setForm({
+     ...form,
+      answers: [...form.answers, answer],
+      currentQuestion: getNextQuestion(form.currentQuestion, answer)
     })
   }
 
   const questions = [
     {
       id: 11,
-      text: 'С чем нужна помощь?',
+      text: q1?.question ,
       answers: [
         { id: 1, text: 'У меня травма' },
         { id: 2, text: 'Хочу вернуть товар' },
@@ -170,7 +199,7 @@ function App() {
 
     {
       id: 12,
-      text: 'Товар качественный?',
+      text: q2?.question,
       answers: [
         { id: 1, text: 'Да' },
         { id: 2, text: 'Нет' }
@@ -182,7 +211,8 @@ function App() {
     },
     {
       id: 13,
-      text: 'Проверим: товар продовольственный или входит в Перечень товаров, не подлежащих обмену?',
+      text: q3?.question,
+      info: q3?.info,
       answers: [
         { id: 1, text: 'Да' },
         { id: 2, text: 'Нет' }
@@ -194,7 +224,8 @@ function App() {
     },
     {
       id: 14,
-      text: 'Гарантийный срок установлен?',
+      text: q4?.question,
+      info: q4?.info,
       answers: [
         { id: 1, text: 'Да' },
         { id: 2, text: 'Нет' }
@@ -206,7 +237,7 @@ function App() {
     },
     {
       id: 15,
-      text: 'Товар был куплен дистанционно?',
+      text: q5?.question,
       answers: [
         { id: 1, text: 'Да' },
         { id: 2, text: 'Нет' }
@@ -218,7 +249,7 @@ function App() {
     },
     {
       id: 16,
-      text: 'Прошло 7 дней с передачи товара?',
+      text: q6?.question,
       answers: [
         { id: 1, text: 'Да' },
         { id: 2, text: 'Нет' }
@@ -230,7 +261,7 @@ function App() {
     },
     {
       id: 17,
-      text: 'Соблюдено ли каждое из этих условий:1)  С момента покупки не прошло 15 дней (либо не кончился иной срок, установленный продавцом). 2) Товар не был в употреблении, полностью сохранен, пломбы и/или ярлычки на месте. 3) Есть чек или получится сослаться на свидетельские показания о покупке товара. (ст. 25 Закона о защите прав потребителей)',
+      text: q7?.question,
       answers: [
         { id: 1, text: 'Да' },
         { id: 2, text: 'Нет' }
@@ -242,7 +273,7 @@ function App() {
     },
     {
       id: 18,
-      text: 'При покупке была возможность незамедлительно получить информацию о товаре? (ст. 12 Закона о защите прав потребителей)',
+      text: q8?.question,
       answers: [
         { id: 1, text: 'Да' },
         { id: 2, text: 'Нет' }
@@ -254,7 +285,7 @@ function App() {
     },
     {
       id: 19,
-      text: 'В момент доставки вам предоставили письменную информацию о порядке и сроках возврата качественного товара?',
+      text: q9?.question,
       answers: [
         { id: 1, text: 'Да' },
         { id: 2, text: 'Нет' }
@@ -266,7 +297,7 @@ function App() {
     },
     {
       id: 20,
-      text: 'Гарантийный срок прошел?',
+      text: q10?.question,
       answers: [
         { id: 1, text: 'Да' },
         { id: 2, text: 'Нет' }
@@ -278,7 +309,8 @@ function App() {
     },
     {
       id: 21,
-      text: 'Проверим: товар входит в Перечень технически сложных товаров No 924?',
+      text: q11?.question,
+      info: q11?.info,
       answers: [
         { id: 1, text: 'Да' },
         { id: 2, text: 'Нет' }
@@ -290,7 +322,7 @@ function App() {
     },
     {
       id: 22,
-      text: 'С момента покупки прошло 15 дней?',
+      text: q12?.question,
       answers: [
         { id: 1, text: 'Да' },
         { id: 2, text: 'Нет' }
@@ -302,7 +334,8 @@ function App() {
     },
     {
       id: 23,
-      text: 'Недостаток существенный?',
+      text: q13?.question,
+      info: q13?.info,
       answers: [
         { id: 1, text: 'Да' },
         { id: 2, text: 'Нет' }
@@ -314,7 +347,7 @@ function App() {
     },
     {
       id: 24,
-      text: 'С момента покупки прошло 2 года?',
+      text: q14?.question,
       answers: [
         { id: 1, text: 'Да' },
         { id: 2, text: 'Нет' }
@@ -326,7 +359,7 @@ function App() {
     },
     {
       id: 25,
-      text: 'Недостатки или их причины возникли до передачи товара?',
+      text: q15?.question,
       answers: [
         { id: 1, text: 'Да' },
         { id: 2, text: 'Нет' }
@@ -481,20 +514,20 @@ function App() {
             </div>
           ))}
         </div>
-        <div className="col-md-4">
-  {survey.currentQuestion < questions.length && (
-    questions[survey.currentQuestion].id === 101 ? (
+    <div className="col-md-4">
+  {form.currentQuestion < questions.length && (
+    questions[form.currentQuestion].id === 101 ? (
       <div>
         <h5>К сожалению, компенсацию истребовать не получится</h5>
       </div>
-    ) : questions[survey.currentQuestion].id === 111 ? (
+    ) : questions[form.currentQuestion].id === 111 ? (
       <div>
         <div>
-      <h5>{templat.title}</h5>
+      <h5>{q1.question}</h5>
       <a href={templat.link} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Open Link</a>
     </div>
       </div>
-    ) : questions[survey.currentQuestion].id === 211 ? (
+    ) : questions[form.currentQuestion].id === 211 ? (
       <div>
         <div>
           <p>Вы можете требовать только устранения недостатков (ремонта товара) или уменьшения покупной цены. Возврат или обмен невозможен
@@ -504,7 +537,7 @@ function App() {
       <a href={pr211.link} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Open Link</a>
     </div>
       </div>
-    ) : questions[survey.currentQuestion].id === 212 ? (
+    ) : questions[form.currentQuestion].id === 212 ? (
       <div>
         <div>
           <p>Вы можете требовать  или устранения недостатков, или уменьшения покупной цены, или возврата (обмена) товара
@@ -514,11 +547,11 @@ function App() {
       <a href={pr212.link} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Open Link</a>
     </div>
       </div>
-    ) : questions[survey.currentQuestion].id === 201 ? (
+    ) : questions[form.currentQuestion].id === 201 ? (
       <div>
       <h5>К сожалению, ваши требования не удовлетворят</h5>
       </div>
-    ) : questions[survey.currentQuestion].id === 213 ? (
+    ) : questions[form.currentQuestion].id === 213 ? (
       <div>
       <div>
           <p>Можно отказаться от исполнения договора, потребовать обратно деньги за товар и возмещения убытков
@@ -527,7 +560,7 @@ function App() {
       <a href={pr213.link} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Open Link</a>
     </div>
       </div>
-    ) : questions[survey.currentQuestion].id === 214 ? (
+    ) : questions[form.currentQuestion].id === 214 ? (
       <div>
       <div>
           <p>Возможен обмен. Если аналогичного товара в день обращения не будет, то можно
@@ -537,7 +570,7 @@ function App() {
       <a href={pr214.link} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Open Link</a>
     </div>
       </div>
-    ) : questions[survey.currentQuestion].id === 220 ? (
+    ) : questions[form.currentQuestion].id === 220 ? (
       <div>
       <div>
       <h5>Возврат возможен</h5>
@@ -546,7 +579,7 @@ function App() {
           </p>
     </div>
       </div>
-    ) : questions[survey.currentQuestion].id === 221 ? (
+    ) : questions[form.currentQuestion].id === 221 ? (
       <div>
       <div>
       <h5>Тогда товар можно вернуть в течение 3 месяцев</h5>
@@ -557,10 +590,13 @@ function App() {
       </div>
     ) : (
       <div>
-        <h5>{questions[survey.currentQuestion].text}</h5>
-        {questions[survey.currentQuestion].answers.map((answer) => (
-          <button key={answer.id} onClick={() => handleAnswer(answer.text)} className="btn btn-primary">{answer.text}</button>
-        ))}
+        <>
+          {questions[form.currentQuestion].info && <p>{questions[form.currentQuestion].info}</p>} {/* Render the info property if it exists */}
+          <h5>{questions[form.currentQuestion].text}</h5>
+          {questions[form.currentQuestion].answers.map((answer) => (
+            <button key={answer.id} onClick={() => handleAnswer(answer.text)} className="btn btn-primary">{answer.text}</button>
+          ))}
+        </>
       </div>
     )
   )}
@@ -590,7 +626,7 @@ export default App;
 //   return (
     
 //     <div className="container">
-//       <a href="/survey" className="btn btn-secondary">Go to Survey</a>
+//       <a href="/form" className="btn btn-secondary">Go to Survey</a>
 //       {templates.map((template, index) => (
 //         <div key={index} className="card mb-3">
 //           <h5 className="card-title">{template.title}</h5>

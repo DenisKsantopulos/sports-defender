@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const TemplateModel = require('./models/Templates')
+const SurveyModel = require('./models/Surveys');
 
 const app = express()
 app.use(cors())
@@ -18,11 +19,17 @@ db.once('open', () => {
   console.log('Connected to MongoDB');
 });
 
-app.get('/getTemplates', (req, res) =>{
+app.get('/get-templates', (req, res) =>{
     TemplateModel.find()
     .then(templates => res.json(templates))
     .catch(err => res.json(err))
 })
+
+app.get('/surveys', (req, res) =>{
+    SurveyModel.find()
+      .then(surveys => res.json(surveys))
+      .catch(err => res.json(err))
+  });
 
 app.get('*', (req, res) => {
     res.status(404).send({ message: 'Not Found' });

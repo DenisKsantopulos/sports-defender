@@ -3,7 +3,7 @@ import React from 'react';
 function Survey() {
   return (
     <div>
-      grrg
+      <h1>Survey Page</h1>
     </div>
   );
 }
