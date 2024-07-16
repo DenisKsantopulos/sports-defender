@@ -1,0 +1,11 @@
+@use '@/app/ui/styles/helper';
+
+.text {
+	margin-top: 2rem;
+	font-size: 1.3rem;
+	color: helper.$title;
+}
+
+.link {
+	color: helper.$accentColorDark;
+}

@@ -1,43 +1,51 @@
-import { memo, useState } from 'react';
+import { Answer } from '@/entities/Survey';
+import { useStores } from '@/shared/model/hooks/useStores';
+import { observer } from 'mobx-react-lite';
+import { useState } from 'react';
 import styles from './survey-options.module.scss';
 
 interface SurveyOptionsArgumentsType {
-	options: string[];
+	options: Answer[];
 }
 
-const SurveyOptions = memo(
+const SurveyOptions = observer(
 	({ options }: SurveyOptionsArgumentsType): React.ReactElement => {
-		const [currentOption, setCurrentOption] = useState<string | null>(null); // По умолчанию нет выбранного ответа
+		const [nextQuestionId, setNextQuestionId] = useState<number | null>(
+			null
+		); // Хранит ID следующего вопроса
 
-		// Обрабатываем и отправляем ответ на сервер
-		// TODO: send answer to server
+		const { currentSurvey } = useStores(); // Текущий ID анкеты из MobX
+
+		// Обрабатываем и ставим новый ID текущего элемента анкеты
 		function handleProceedClick(): void {
-			if (currentOption === null) alert('Выберите вариант ответа!');
-			else console.log(`SURVEY ANSWER = ${currentOption}`);
+			if (nextQuestionId === null) alert('Выберите вариант ответа!');
+			else currentSurvey.setSurveyId(nextQuestionId);
 		}
 
 		return (
 			<div className={styles['survey__options']}>
-				{options.map((option: string, index: number) => (
+				{options.map((option: Answer) => (
 					<article
 						className={styles['options__item']}
-						key={index}
-						onClick={() => setCurrentOption(option)}
+						key={option.id}
+						onClick={() => setNextQuestionId(option.nextQuestionId)}
 					>
 						<input
 							type='radio'
-							id={`${index}-ID`}
+							id={`${option.id}-ID`}
 							name='survey-options'
-							value={option}
+							value={option.text}
 							className={styles['options__radio-button']}
-							checked={currentOption === option}
-							onChange={() => setCurrentOption(option)}
+							checked={nextQuestionId === option.nextQuestionId}
+							onChange={() =>
+								setNextQuestionId(option.nextQuestionId)
+							}
 						/>
 						<label
-							htmlFor={`${index}-ID`}
+							htmlFor={`${option.id}-ID`}
 							className={styles['options__label']}
 						>
-							{option}
+							{option.text}
 						</label>
 					</article>
 				))}
