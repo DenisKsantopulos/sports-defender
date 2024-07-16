@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from 'axios';
 
 export const axiosInstance: AxiosInstance = axios.create({
-	baseURL: 'https://jsonplaceholder.typicode.com', // TODO: change to our backend URL
+	baseURL: 'http://localhost:3001',
 });
 
 const fetcher = (endpoint: string) =>

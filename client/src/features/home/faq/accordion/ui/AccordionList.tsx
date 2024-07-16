@@ -1,24 +1,20 @@
 import AccordionItem from '@/features/home/faq/accordion-item/ui/AccordionItem';
 import { useFAQs } from '@/shared/api/queries';
 import Faq from '@/entities/Faq';
-import styles from './accordion-list.module.scss';
+import Info from '@/widgets/common/fetch-status/info/ui/Info';
+import Error from '@/widgets/common/fetch-status/error/ui/Error';
 
 function AccordionList(): React.ReactElement {
 	const { data, isLoading, error } = useFAQs(); // Список всех часто задаваемых вопросов
 
-	if (isLoading)
-		return (
-			<p className={styles['accordions__loading']}>
-				Загрузка часто задаваемых вопросов...
-			</p>
-		);
+	if (isLoading) return <Info text='Загрузка часто задаваемых вопросов...' />;
 
 	if (error)
 		return (
-			<p className={styles['accordions__error']}>
-				При загрузке часто задаваемых вопросов произошла ошибка!
-				Пожалуйста, проверьте ваше интернет соединение.
-			</p>
+			<Error
+				text='При загрузке часто задаваемых вопросов произошла ошибка!
+				Пожалуйста, проверьте ваше интернет соединение.'
+			/>
 		);
 
 	return (
@@ -26,8 +22,8 @@ function AccordionList(): React.ReactElement {
 			{data?.map((faq: Faq) => (
 				<AccordionItem
 					key={faq.id}
-					question={faq.name}
-					answer={faq.email}
+					question={faq.question}
+					answer={faq.answer}
 				/>
 			))}
 		</>

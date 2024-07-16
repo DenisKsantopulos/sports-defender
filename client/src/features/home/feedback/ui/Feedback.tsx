@@ -26,7 +26,7 @@ function Feedback(): React.ReactElement {
 	// Инициализация EmailJS библиотеки
 	useEffect(() => {
 		emailjs.init(PUBLIC_KEY);
-	}, []);
+	}, [PUBLIC_KEY]);
 
 	// Отправляем письмо пользователя через EmailJS к нам на почту
 	const onSuccessFormSubmit: SubmitHandler<FeedbackEntity> = data => {

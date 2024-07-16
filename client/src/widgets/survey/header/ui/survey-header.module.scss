@@ -7,6 +7,7 @@
 		line-height: 1.5;
 		color: helper.$title;
 		text-align: center;
+		white-space: pre-wrap;
 	}
 
 	&__warning {
@@ -14,7 +15,7 @@
 		border: 0.1rem solid helper.$darkYellow;
 		padding: 1.3rem 2rem;
 		max-width: 60rem;
-		margin-top: 1rem;
+		margin: 1rem auto 0;
 
 		@include helper.borderRadius(2rem);
 	}
@@ -37,5 +38,6 @@
 		color: helper.$subtitle;
 		line-height: 1.5;
 		margin-top: 0.5rem;
+		white-space: pre-wrap;
 	}
 }
