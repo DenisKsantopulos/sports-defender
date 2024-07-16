@@ -26,8 +26,8 @@ function AccordionList(): React.ReactElement {
 			{data?.map((faq: Faq) => (
 				<AccordionItem
 					key={faq.id}
-					question={faq.name}
-					answer={faq.email}
+					question={faq.question}
+					answer={faq.answer}
 				/>
 			))}
 		</>
