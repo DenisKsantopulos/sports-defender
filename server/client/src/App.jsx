@@ -12,7 +12,7 @@ function App() {
   const handleSearch = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:3001/search?q=${searchQuery}`);
+      const response = await fetch(`http://localhost:3001/search-application?q=${searchQuery}`);
       const templates = await response.json();
       setSearchResults(templates);
     } catch (error) {

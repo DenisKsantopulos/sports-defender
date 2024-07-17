@@ -38,7 +38,7 @@ router.get('/surveys/:id', async (req, res) => {
 	}
 });
 
-router.get('/search', async (req, res) => {
+router.get('/search-all-templates', async (req, res) => {
 	const query = req.query.q;
 	if (!query || query.trim() === '') {
 	  return res.json([]);
@@ -50,6 +50,38 @@ router.get('/search', async (req, res) => {
 	  res.status(500).send({ message: 'Error searching templates' });
 	}
   });
+
+router.get('/search-application', async (req, res) => {
+	const query = req.query.q;
+	if (!query || query.trim() === '') {
+	  return res.json([]);
+	}
+	try {
+	  const templates = await TemplateModel.find({
+		category: 'application',
+		title: { $regex: query, $options: 'i' }
+	  }).exec();
+	  res.json(templates);
+	} catch (err) {
+	  res.status(500).send({ message: 'Error searching applications' });
+	}
+});
+
+router.get('/search-claim', async (req, res) => {
+	const query = req.query.q;
+	if (!query || query.trim() === '') {
+	  return res.json([]);
+	}
+	try {
+	  const templates = await TemplateModel.find({
+		category: 'claim',
+		title: { $regex: query, $options: 'i' }
+	  }).exec();
+	  res.json(templates);
+	} catch (err) {
+	  res.status(500).send({ message: 'Error searching claims' });
+	}
+});
 
 router.get('*', (req, res) => {
   res.status(404).send({ message: 'Not Found' });
