@@ -1,60 +1,65 @@
 import { Answer } from '@/entities/Survey';
-import { useStores } from '@/shared/model/hooks/useStores';
+import SurveyBack from '@/features/survey/actions/back/ui/SurveyBack';
+import SurveyNext from '@/features/survey/actions/next/ui/SurveyNext';
+import SurveyReset from '@/features/survey/actions/reset/ui/SurveyReset';
 import { observer } from 'mobx-react-lite';
 import { useState } from 'react';
+import { useStores } from '@/shared/model/hooks/useStores';
 import styles from './survey-options.module.scss';
 
 interface SurveyOptionsArgumentsType {
-	options: Answer[];
+	options: Answer[] | null; // Все возможные варианты ответа на вопрос анкеты
+	shouldHaveResetButton: boolean; // Если пользователь дошел до конца анкеты, то появляется кнопка "Начать заново"
 }
 
 const SurveyOptions = observer(
-	({ options }: SurveyOptionsArgumentsType): React.ReactElement => {
+	({
+		options,
+		shouldHaveResetButton,
+	}: SurveyOptionsArgumentsType): React.ReactElement => {
 		const [nextQuestionId, setNextQuestionId] = useState<number | null>(
 			null
 		); // Хранит ID следующего вопроса
 
-		const { currentSurvey } = useStores(); // Текущий ID анкеты из MobX
-
-		// Обрабатываем и ставим новый ID текущего элемента анкеты
-		function handleProceedClick(): void {
-			if (nextQuestionId === null) alert('Выберите вариант ответа!');
-			else currentSurvey.setSurveyId(nextQuestionId);
-		}
+		const { survey } = useStores();
 
 		return (
 			<div className={styles['survey__options']}>
-				{options.map((option: Answer) => (
-					<article
-						className={styles['options__item']}
-						key={option.id}
-						onClick={() => setNextQuestionId(option.nextQuestionId)}
-					>
-						<input
-							type='radio'
-							id={`${option.id}-ID`}
-							name='survey-options'
-							value={option.text}
-							className={styles['options__radio-button']}
-							checked={nextQuestionId === option.nextQuestionId}
-							onChange={() =>
+				{options &&
+					options.map((option: Answer) => (
+						<article
+							className={styles['options__item']}
+							key={option.id}
+							onClick={() =>
 								setNextQuestionId(option.nextQuestionId)
 							}
-						/>
-						<label
-							htmlFor={`${option.id}-ID`}
-							className={styles['options__label']}
 						>
-							{option.text}
-						</label>
-					</article>
-				))}
-				<button
-					className={styles['survey__proceed']}
-					onClick={handleProceedClick}
-				>
-					Дальше
-				</button>
+							<input
+								type='radio'
+								id={`${option.id}-ID`}
+								name='survey-options'
+								value={option.text}
+								className={styles['options__radio-button']}
+								checked={
+									nextQuestionId === option.nextQuestionId
+								}
+								onChange={() =>
+									setNextQuestionId(option.nextQuestionId)
+								}
+							/>
+							<label
+								htmlFor={`${option.id}-ID`}
+								className={styles['options__label']}
+							>
+								{option.text}
+							</label>
+						</article>
+					))}
+				<div className={styles['survey__actions']}>
+					{shouldHaveResetButton && <SurveyReset />}
+					{options && <SurveyNext nextQuestionId={nextQuestionId} />}
+					{survey.previousSurveyIds.length !== 0 && <SurveyBack />}
+				</div>
 			</div>
 		);
 	}

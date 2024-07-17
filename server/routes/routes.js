@@ -2,20 +2,25 @@ const express = require('express');
 const router = express.Router();
 const TemplateModel = require('../models/Templates');
 const SurveyModel = require('../models/Surveys');
+<<<<<<< HEAD
 const QaModel = require('../models/Qa')
 //const stemmer = require('stemmer');
 //const stemmer = require('mongoose-stemmer');
+=======
+const QaModel = require('../models/Qa');
+//const stemmer = require('stemmer');
+>>>>>>> feature-client
 
 router.get('/get-templates', (req, res) => {
-  TemplateModel.find()
-    .then(templates => res.json(templates))
-    .catch(err => res.json(err))
+	TemplateModel.find()
+		.then(templates => res.json(templates))
+		.catch(err => res.json(err));
 });
 
 router.get('/question-answer', (req, res) => {
 	QaModel.find()
-	 .then(qa => res.json(qa))
-	 .catch(err => res.json(err));
+		.then(qa => res.json(qa))
+		.catch(err => res.json(err));
 });
 
 router.get('/surveys/:id', async (req, res) => {
@@ -41,18 +46,20 @@ router.get('/surveys/:id', async (req, res) => {
 router.get('/search', async (req, res) => {
 	const query = req.query.q;
 	if (!query || query.trim() === '') {
-	  return res.json([]);
+		return res.json([]);
 	}
 	try {
-	  const templates = await TemplateModel.find({ title: { $regex: query, $options: 'i' } }).exec();
-	  res.json(templates);
+		const templates = await TemplateModel.find({
+			title: { $regex: query, $options: 'i' },
+		}).exec();
+		res.json(templates);
 	} catch (err) {
-	  res.status(500).send({ message: 'Error searching templates' });
+		res.status(500).send({ message: 'Error searching templates' });
 	}
-  });
+});
 
 router.get('*', (req, res) => {
-  res.status(404).send({ message: 'Not Found' });
+	res.status(404).send({ message: 'Not Found' });
 });
 
 module.exports = router;

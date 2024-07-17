@@ -4,12 +4,16 @@ import DocumentTemplatesSearch from '@/shared/model/mobx/stores/DocumentTemplate
 import CourtCasesSearch from '@/shared/model/mobx/stores/CourtCasesSearch';
 import GlobalSearch from '@/shared/model/mobx/stores/GlobalSearch';
 import TopicArticlesSearch from '@/shared/model/mobx/stores/TopicArticlesSearch';
-import CurrentSurvey from '@/shared/model/mobx/stores/CurrentSurvey';
+import Survey from '@/shared/model/mobx/stores/Survey';
+import SearchResults from '@/shared/model/mobx/stores/SearchResults';
 
 // Содержит список всех MobX stores
 class RootStore {
 	// Текущий вопрос анкеты
-	currentSurvey = CurrentSurvey;
+	survey = Survey;
+
+	// Результаты поиска
+	searchResults = SearchResults;
 
 	// Активные вкладки на страницах поиска
 	documentTemplatesTabsStore = DocumentTemplatesTabs;

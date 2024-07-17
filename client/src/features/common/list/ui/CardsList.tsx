@@ -2,15 +2,19 @@ import { observer } from 'mobx-react-lite';
 import CardTypes from '@/shared/model/data/CardTypes';
 import NothingFound from '@/widgets/common/search/nothing-found/ui/NothingFound';
 import Card from '@/widgets/common/card/ui/Card';
+import { useStores } from '@/shared/model/hooks/useStores';
+import Document from '@/entities/Document';
 import styles from './cards-list.module.scss';
 
 interface CardListArgumentsType {
-	cardType?: CardTypes; // Если нет типа карточки, значит представлен список карточек всех типов
+	cardType?: string; // Если нет типа карточки, значит представлен список карточек всех типов
 	category?: string; // Если нет категории, значит нет вкладок
 }
 
 const CardsList = observer(
 	({ cardType, category }: CardListArgumentsType): React.ReactElement => {
+		const { searchResults } = useStores();
+
 		// Определяет какой тип документа будет отображаться (шаблон, статья, кейс) и из какой категории
 		function determineCardType(): string {
 			switch (cardType) {
@@ -29,9 +33,19 @@ const CardsList = observer(
 
 		return (
 			<div className={styles['cards-list']}>
+				{searchResults.results.length == 0 && <NothingFound />}
+				{searchResults.results.length > 0 &&
+					searchResults.results.map((document: Document) => (
+						<Card
+							key={document._id}
+							type={document.type}
+							title={document.title}
+							fileSize={document.size}
+							link={document.link}
+						/>
+					))}
 				{/* <p style={{ fontStyle: 'italic' }}>{determineCardType()}</p> */}
-				{/* <NothingFound /> */}
-				<Card
+				{/* <Card
 					cardType={CardTypes.DOCUMENT_TEMPLATE}
 					title='Название шаблона документа'
 					fileSize={2.1}
@@ -50,7 +64,7 @@ const CardsList = observer(
 					cardType={CardTypes.DOCUMENT_TEMPLATE}
 					title='Название шаблона документа'
 					fileSize={3.9}
-				/>
+				/> */}
 			</div>
 		);
 	}
