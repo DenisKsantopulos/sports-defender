@@ -7,7 +7,7 @@ const SurveyReset = observer((): React.ReactElement => {
 
 	return (
 		<button onClick={() => currentSurvey.reset()} className={styles.button}>
-			Пройти анкету заново?
+			Пройти анкету заново
 		</button>
 	);
 });
