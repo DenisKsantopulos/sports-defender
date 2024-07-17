@@ -2,7 +2,9 @@ import CardTypes from '@/shared/model/data/CardTypes';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { observer } from 'mobx-react-lite';
-import { KeyboardEvent } from 'react';
+import { KeyboardEvent, useEffect, useState } from 'react';
+import { useSearch } from '@/shared/api/queries';
+import { useStores } from '@/shared/model/hooks/useStores';
 import styles from './search-field.module.scss';
 
 interface SearchFieldArgumentsType {
@@ -19,6 +21,18 @@ const SearchField = observer(
 		store,
 		placeholder,
 	}: SearchFieldArgumentsType): React.ReactElement => {
+		const [finalQuery, setFinalQuery] = useState<string | null>(null); // Отправляется запросом на сервер
+
+		const { data } = useSearch(finalQuery);
+		const { searchResults } = useStores();
+
+		useEffect(() => {
+			if (data) {
+				searchResults.clearResults();
+				searchResults.setResults(data);
+			}
+		}, [data]);
+
 		// При нажатии на Enter отправляем запрос на поиск
 		function handleKeyDownPress(
 			event: KeyboardEvent<HTMLInputElement>
@@ -53,6 +67,8 @@ const SearchField = observer(
 				// TODO: perform search
 				const searchQuery: string = store.query.trim();
 				console.log(`SEARCH QUERY at [${searchType}] = ${searchQuery}`);
+
+				setFinalQuery(searchQuery);
 			}
 		}
 
