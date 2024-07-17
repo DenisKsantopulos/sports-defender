@@ -2,14 +2,8 @@ const express = require('express');
 const router = express.Router();
 const TemplateModel = require('../models/Templates');
 const SurveyModel = require('../models/Surveys');
-<<<<<<< HEAD
-const QaModel = require('../models/Qa')
-//const stemmer = require('stemmer');
-//const stemmer = require('mongoose-stemmer');
-=======
 const QaModel = require('../models/Qa');
 //const stemmer = require('stemmer');
->>>>>>> feature-client
 
 router.get('/get-templates', (req, res) => {
 	TemplateModel.find()
@@ -56,42 +50,42 @@ router.get('/search-all-templates', async (req, res) => {
 	} catch (err) {
 		res.status(500).send({ message: 'Error searching templates' });
 	}
-  });
+});
 
 router.get('/search-application', async (req, res) => {
 	const query = req.query.q;
 	if (!query || query.trim() === '') {
-	  return res.json([]);
+		return res.json([]);
 	}
 	try {
-	  const templates = await TemplateModel.find({
-		category: 'application',
-		title: { $regex: query, $options: 'i' }
-	  }).exec();
-	  res.json(templates);
+		const templates = await TemplateModel.find({
+			category: 'application',
+			title: { $regex: query, $options: 'i' },
+		}).exec();
+		res.json(templates);
 	} catch (err) {
-	  res.status(500).send({ message: 'Error searching applications' });
+		res.status(500).send({ message: 'Error searching applications' });
 	}
 });
 
 router.get('/search-claim', async (req, res) => {
 	const query = req.query.q;
 	if (!query || query.trim() === '') {
-	  return res.json([]);
+		return res.json([]);
 	}
 	try {
-	  const templates = await TemplateModel.find({
-		category: 'claim',
-		title: { $regex: query, $options: 'i' }
-	  }).exec();
-	  res.json(templates);
+		const templates = await TemplateModel.find({
+			category: 'claim',
+			title: { $regex: query, $options: 'i' },
+		}).exec();
+		res.json(templates);
 	} catch (err) {
-	  res.status(500).send({ message: 'Error searching claims' });
+		res.status(500).send({ message: 'Error searching claims' });
 	}
 });
 
 router.get('*', (req, res) => {
-  res.status(404).send({ message: 'Not Found' });
+	res.status(404).send({ message: 'Not Found' });
 });
 
 router.get('*', (req, res) => {
