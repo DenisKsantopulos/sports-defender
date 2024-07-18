@@ -25,7 +25,7 @@ const SurveySchema = new mongoose.Schema({
 		required: false,
 	},
 	solutionDocumentId: {
-		// Ссылка на шаблон документа, если юзер прошел всю анкету
+		// ID на шаблон документа, если юзер прошел всю анкету
 		type: String,
 		default: null,
 		required: false,
