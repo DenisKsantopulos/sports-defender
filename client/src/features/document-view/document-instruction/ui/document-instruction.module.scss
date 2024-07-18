@@ -1,0 +1,45 @@
+@use '@/app/ui/styles/helper';
+
+.view-document {
+	&__accordion {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__button {
+		margin: 3rem auto;
+		outline: none;
+		background: none;
+		border: none;
+		font-size: 1.1rem;
+		font-weight: 600;
+		font-family: inherit;
+		color: helper.$accentColorDark;
+		text-decoration: underline;
+		cursor: pointer;
+	}
+
+	&__frame {
+		display: block;
+		margin: 0 auto 2rem;
+		width: 100%;
+		border: none;
+		outline: none;
+		background: none;
+		max-height: 0;
+		overflow: hidden;
+
+		@include helper.transition(max-height, 0.5s, cubic-bezier(0, 1, 0, 1));
+
+		&--active {
+			max-height: 999rem;
+			height: 40rem;
+
+			@include helper.transition(
+				max-height,
+				0.5s,
+				cubic-bezier(1, 0, 1, 0)
+			);
+		}
+	}
+}

@@ -1,0 +1,27 @@
+@use '@/app/ui/styles/helper';
+
+.view-document {
+	&__download {
+		font-weight: 600;
+		font-family: inherit;
+		font-size: 1rem;
+		padding: 1rem 1.8rem;
+		margin-top: 1rem;
+		border: 0.15rem solid helper.$primaryColorDark;
+		box-shadow: 0 0 0.625rem helper.$lightSilver;
+		background-color: helper.$primaryColor;
+		color: helper.$accentColor;
+		cursor: pointer;
+
+		@include helper.borderRadius(20rem);
+		@include helper.transition();
+
+		&-icon {
+			margin-left: 0.7rem;
+		}
+
+		&:hover {
+			background-color: helper.$primaryColorDark;
+		}
+	}
+}

@@ -14,8 +14,8 @@ export function useSurveyById(id: number) {
 }
 
 // Вернуть документ по его ID
-export function useDocumentById(id: string) {
-	return useSWR<Document>(`/get-document/${id}`);
+export function useDocumentById(id: string | undefined) {
+	return useSWR<Document>(id ? `/get-document/${id}` : null);
 }
 
 // Вернуть список найденных документов
