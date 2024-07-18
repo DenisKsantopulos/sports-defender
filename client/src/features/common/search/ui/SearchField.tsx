@@ -1,16 +1,16 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import CardTypes from '@/shared/model/data/CardTypes';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { observer } from 'mobx-react-lite';
-import { KeyboardEvent, useEffect, useState } from 'react';
-import { useSearch } from '@/shared/api/queries';
-import { useStores } from '@/shared/model/hooks/useStores';
+import { KeyboardEvent, useEffect } from 'react';
 import styles from './search-field.module.scss';
+import { useSearchParams } from 'react-router-dom';
 
 interface SearchFieldArgumentsType {
 	cardType?: CardTypes;
 	category?: string;
-	store: any; // MobX store
+	store: any; // MobX store хранит текст запроса в поле поиска
 	placeholder: string;
 }
 
@@ -21,17 +21,12 @@ const SearchField = observer(
 		store,
 		placeholder,
 	}: SearchFieldArgumentsType): React.ReactElement => {
-		const [finalQuery, setFinalQuery] = useState<string | null>(null); // Отправляется запросом на сервер
+		const [, setSearchParams] = useSearchParams();
 
-		const { data } = useSearch(finalQuery);
-		const { searchResults } = useStores();
-
+		// Если поле поиска пустое, то убираем все параметры в URL
 		useEffect(() => {
-			if (data) {
-				searchResults.clearResults();
-				searchResults.setResults(data);
-			}
-		}, [data]);
+			if (store.query.length === 0) setSearchParams({});
+		}, [store.query]);
 
 		// При нажатии на Enter отправляем запрос на поиск
 		function handleKeyDownPress(
@@ -40,35 +35,16 @@ const SearchField = observer(
 			if (event.key === 'Enter') performQuery();
 		}
 
-		// Выполняем запрос на поиск данных
+		// Устанавливаем поисковые параметры в URL
 		function performQuery(): void {
 			if (store.query.length !== 0) {
-				// Определяем тип запроса
-				let searchType: string | null = null;
-
-				switch (cardType) {
-					case CardTypes.DOCUMENT_TEMPLATE:
-						if (category !== undefined)
-							searchType = `шаблоны | ${category}`;
-						else searchType = 'шаблоны';
-						break;
-					case CardTypes.TOPIC_ARTICLE:
-						searchType = 'статьи';
-						break;
-					case CardTypes.COURT_CASE:
-						if (category !== undefined)
-							searchType = `кейсы | ${category}`;
-						else searchType = 'кейсы';
-						break;
-					default:
-						searchType = 'поиск по базе';
-				}
-
-				// TODO: perform search
 				const searchQuery: string = store.query.trim();
-				console.log(`SEARCH QUERY at [${searchType}] = ${searchQuery}`);
 
-				setFinalQuery(searchQuery);
+				setSearchParams({
+					type: cardType ?? '',
+					category: category ?? '',
+					query: searchQuery,
+				});
 			}
 		}
 

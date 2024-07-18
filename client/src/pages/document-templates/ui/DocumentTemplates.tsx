@@ -40,10 +40,7 @@ const DocumentTemplates = observer((): React.ReactElement => {
 							items={documentTemplatesTabTitles}
 							store={documentTemplatesTabsStore}
 						/>
-						<CardsList
-							cardType={CardTypes.DOCUMENT_TEMPLATE}
-							category={documentTemplatesTabsStore.activeTab}
-						/>
+						<CardsList />
 					</div>
 				</section>
 			</div>

@@ -1,73 +1,69 @@
-import { observer } from 'mobx-react-lite';
-import CardTypes from '@/shared/model/data/CardTypes';
+import { useSearchParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useSearch } from '@/shared/api/queries';
+import Info from '@/widgets/common/fetch-status/info/ui/Info';
+import Error from '@/widgets/common/fetch-status/error/ui/Error';
 import NothingFound from '@/widgets/common/search/nothing-found/ui/NothingFound';
-import Card from '@/widgets/common/card/ui/Card';
-import { useStores } from '@/shared/model/hooks/useStores';
 import Document from '@/entities/Document';
+import Card from '@/widgets/common/card/ui/Card';
 import styles from './cards-list.module.scss';
 
-interface CardListArgumentsType {
-	cardType?: string; // Если нет типа карточки, значит представлен список карточек всех типов
-	category?: string; // Если нет категории, значит нет вкладок
+interface SearchParamsType {
+	type: string; // Тип документа (шаблон, статья, кейс)
+	category: string; // Категория документа (заявление, претензия, товары и пр.)
+	query: string | null; // Сам поисковой запрос пользователя
 }
 
-const CardsList = observer(
-	({ cardType, category }: CardListArgumentsType): React.ReactElement => {
-		const { searchResults } = useStores();
+function CardsList(): React.ReactElement {
+	const [searchParams] = useSearchParams();
+	const [searchFilters, setSearchFilters] = useState<SearchParamsType>({
+		type: '',
+		category: '',
+		query: null,
+	}); // Хранит параметры поиска для запроса по SWR
 
-		// Определяет какой тип документа будет отображаться (шаблон, статья, кейс) и из какой категории
-		function determineCardType(): string {
-			switch (cardType) {
-				case CardTypes.DOCUMENT_TEMPLATE:
-					if (category !== undefined) return category;
-					return 'шаблоны';
-				case CardTypes.TOPIC_ARTICLE:
-					return 'статьи';
-				case CardTypes.COURT_CASE:
-					if (category !== undefined) return category;
-					return 'кейсы';
-				default:
-					return 'поиск по базе';
-			}
+	const { data, isLoading, error } = useSearch(
+		searchFilters.type,
+		searchFilters.category,
+		searchFilters.query
+	);
+
+	// При обновлении параметров поиска в URL обновляем их для запроса на сервер
+	useEffect(() => {
+		const type: string = searchParams.get('type') ?? '';
+		const category: string = searchParams.get('category') ?? '';
+		const query: string = searchParams.get('query') ?? '';
+
+		if (query.length !== 0) {
+			setSearchFilters({
+				type,
+				category,
+				query,
+			});
 		}
+	}, [searchParams]);
 
-		return (
-			<div className={styles['cards-list']}>
-				{searchResults.results.length == 0 && <NothingFound />}
-				{searchResults.results.length > 0 &&
-					searchResults.results.map((document: Document) => (
-						<Card
-							key={document._id}
-							type={document.type}
-							title={document.title}
-							fileSize={document.size}
-							link={document.link}
-						/>
-					))}
-				{/* <p style={{ fontStyle: 'italic' }}>{determineCardType()}</p> */}
-				{/* <Card
-					cardType={CardTypes.DOCUMENT_TEMPLATE}
-					title='Название шаблона документа'
-					fileSize={2.1}
-				/>
-				<Card
-					cardType={CardTypes.TOPIC_ARTICLE}
-					title='Название тематической статьи'
-					fileSize={1.8}
-				/>
-				<Card
-					cardType={CardTypes.COURT_CASE}
-					title='Название судебного кейса'
-					fileSize={1.0}
-				/>
-				<Card
-					cardType={CardTypes.DOCUMENT_TEMPLATE}
-					title='Название шаблона документа'
-					fileSize={3.9}
-				/> */}
-			</div>
-		);
-	}
-);
+	if (isLoading) return <Info text='Поиск по документам...' />;
+
+	if (error) return <Error text='Во время поиска произошла ошибка!' />;
+
+	return (
+		<div className={styles['cards-list']}>
+			{data?.length == 0 && <NothingFound />}
+			{data !== undefined &&
+				data?.length > 0 &&
+				data?.map((document: Document) => (
+					<Card
+						key={document.id}
+						id={document.id}
+						type={document.type}
+						title={document.title}
+						size={document.size}
+						downloadLink={document.download_link}
+					/>
+				))}
+		</div>
+	);
+}
 
 export default CardsList;

@@ -5,15 +5,11 @@ import CourtCasesSearch from '@/shared/model/mobx/stores/CourtCasesSearch';
 import GlobalSearch from '@/shared/model/mobx/stores/GlobalSearch';
 import TopicArticlesSearch from '@/shared/model/mobx/stores/TopicArticlesSearch';
 import Survey from '@/shared/model/mobx/stores/Survey';
-import SearchResults from '@/shared/model/mobx/stores/SearchResults';
 
 // Содержит список всех MobX stores
 class RootStore {
 	// Текущий вопрос анкеты
 	survey = Survey;
-
-	// Результаты поиска
-	searchResults = SearchResults;
 
 	// Активные вкладки на страницах поиска
 	documentTemplatesTabsStore = DocumentTemplatesTabs;

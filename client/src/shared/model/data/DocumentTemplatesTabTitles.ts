@@ -3,7 +3,6 @@ const documentTemplatesTabTitles: string[] = [
 	'Все категории',
 	'Заявления',
 	'Досудебные претензии',
-	'Жалобы в Роспотребнадзор',
 ];
 
 export default documentTemplatesTabTitles;

@@ -1,16 +1,25 @@
+import Paths from '@/shared/model/data/Paths';
 import { memo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './survey-document.module.scss';
 
 interface SurveyDocumentArgumentsType {
-	link: string;
+	documentId: string;
 }
 
 const SurveyDocument = memo(
-	({ link }: SurveyDocumentArgumentsType): React.ReactElement => {
+	({ documentId }: SurveyDocumentArgumentsType): React.ReactElement => {
+		const navigate = useNavigate();
+
 		return (
 			<p className={styles.text}>
 				По результатам анкеты вам необходим следующий{' '}
-				<a href={link} target='_blank' className={styles.link}>
+				<a
+					className={styles.link}
+					onClick={() =>
+						navigate(`${Paths.VIEW_DOCUMENT}/${documentId}`)
+					}
+				>
 					шаблон документа
 				</a>
 				.

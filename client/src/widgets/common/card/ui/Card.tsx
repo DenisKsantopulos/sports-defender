@@ -8,25 +8,28 @@ import {
 	IconDefinition,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { memo } from 'react';
-import styles from './card.module.scss';
+import { memo, MouseEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Paths from '@/shared/model/data/Paths';
+import styles from './card.module.scss';
 
 interface CardArgumentsType {
-	type: string;
-	title: string;
-	fileSize: string;
-	link: string;
+	id: string;
+	title: string; // Заголовок документа
+	type: string; // Тип документа (статья, кейс или шаблон)
+	size: string; // Размер документа
+	downloadLink: string; // Ссылка на скачивание в Google Docs
 }
 
 // Данная карточка высвечивается в поисковом списке
 // Она может содержать шаблон документа, тематическую статью или судебное дело
 const Card = memo(
 	({
-		type,
+		id,
 		title,
-		fileSize,
-		link,
+		type,
+		size,
+		downloadLink,
 	}: CardArgumentsType): React.ReactElement => {
 		const navigate = useNavigate();
 
@@ -44,11 +47,25 @@ const Card = memo(
 			}
 		}
 
+		// Открываем документ в новом окне
+		function handleOpenDocumentClick(): void {
+			navigate(`${Paths.VIEW_DOCUMENT}/${id}`);
+		}
+
+		// Скачать документ
+		function handleDownloadClick(
+			event: MouseEvent<HTMLButtonElement>
+		): void {
+			event.stopPropagation();
+
+			window.open(downloadLink, '_blank');
+		}
+
 		return (
 			<article
 				className={styles.card}
 				title={title}
-				onClick={() => window.open(link, '_blank')}
+				onClick={handleOpenDocumentClick}
 			>
 				<div className={styles['card__content-container']}>
 					<p className={styles['card__title']}>
@@ -63,12 +80,13 @@ const Card = memo(
 						<button
 							className={styles['card__download']}
 							title='Скачать документ'
+							onClick={handleDownloadClick}
 						>
 							<FontAwesomeIcon
 								icon={faDownload}
 								className={styles['card__download-icon']}
 							/>
-							{fileSize}
+							{size}
 						</button>
 					</div>
 				</div>

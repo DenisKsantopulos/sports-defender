@@ -1,22 +1,39 @@
 const express = require('express');
 const router = express.Router();
-const TemplateModel = require('../models/Templates');
+const DocumentsModel = require('../models/Documents');
 const SurveyModel = require('../models/Surveys');
-const QaModel = require('../models/Qa');
+const FaqModel = require('../models/Faq');
 //const stemmer = require('stemmer');
 
-router.get('/get-templates', (req, res) => {
-	TemplateModel.find()
-		.then(templates => res.json(templates))
-		.catch(err => res.json(err));
+// Получить документ по ID
+router.get('/get-document/:id', async (req, res) => {
+	try {
+		const documentId = req.params.id; // ID документа, который нужен клиенту
+
+		// Поиск элемента в MongoDB по ID
+		const document = await DocumentsModel.findOne({ id: documentId });
+
+		if (!document) {
+			return res.status(404).send({
+				message: 'Документ не был найден на сервере!',
+			});
+		}
+
+		// Отправка найденного документа клиенту в формате JSON
+		res.json(document);
+	} catch (error) {
+		res.status(500).send({ message: 'Oops, server error' });
+	}
 });
 
-router.get('/question-answer', (req, res) => {
-	QaModel.find()
-		.then(qa => res.json(qa))
-		.catch(err => res.json(err));
+// Получить часто задаваемые вопросы
+router.get('/get-frequently-asked-questions', async (req, res) => {
+	const faqs = await FaqModel.find();
+
+	res.json(faqs);
 });
 
+// Получить вопрос для анкеты по ID
 router.get('/surveys/:id', async (req, res) => {
 	try {
 		const surveyId = req.params.id; // ID вопроса, который нужен клиенту
@@ -37,57 +54,51 @@ router.get('/surveys/:id', async (req, res) => {
 	}
 });
 
-router.get('/search-all-templates', async (req, res) => {
-	const query = req.query.q;
-	if (!query || query.trim() === '') {
-		return res.json([]);
-	}
-	try {
-		const templates = await TemplateModel.find({
-			title: { $regex: query, $options: 'i' },
-		}).exec();
-		res.json(templates);
-	} catch (err) {
-		res.status(500).send({ message: 'Error searching templates' });
+// Вернуть документы по определенной категории, типу и поисковому запросу
+// /search?query=...
+// /search?type=...&query=...
+// /search?type=...&category=...&query=...
+router.get('/search', async (req, res) => {
+	const type = req.query.type; // Тип документа (шаблон, статья или кейс)
+	const category = req.query.category; // Категория документа (заявления, претензии, товары и пр.)
+	const query = req.query.query;
+
+	if (query.length !== 0) {
+		let documents = undefined;
+
+		if (type.length === 0) {
+			// Поиск по всей базе
+			documents = await DocumentsModel.find({
+				title: { $regex: query, $options: 'i' },
+			}).exec();
+		} else {
+			if (category.length === 0 || category === 'Все категории') {
+				// Поиск по типу только
+				documents = await DocumentsModel.find({
+					$and: [
+						{ title: { $regex: query, $options: 'i' } },
+						{ type },
+					],
+				});
+			} else {
+				// Поиск по типу и категории
+				documents = await DocumentsModel.find({
+					$and: [
+						{ title: { $regex: query, $options: 'i' } },
+						{ type },
+						{ category },
+					],
+				});
+			}
+		}
+
+		res.json(documents);
+	} else {
+		res.status(500).json({ message: 'Search Query Empty!' });
 	}
 });
 
-router.get('/search-application', async (req, res) => {
-	const query = req.query.q;
-	if (!query || query.trim() === '') {
-		return res.json([]);
-	}
-	try {
-		const templates = await TemplateModel.find({
-			category: 'application',
-			title: { $regex: query, $options: 'i' },
-		}).exec();
-		res.json(templates);
-	} catch (err) {
-		res.status(500).send({ message: 'Error searching applications' });
-	}
-});
-
-router.get('/search-claim', async (req, res) => {
-	const query = req.query.q;
-	if (!query || query.trim() === '') {
-		return res.json([]);
-	}
-	try {
-		const templates = await TemplateModel.find({
-			category: 'claim',
-			title: { $regex: query, $options: 'i' },
-		}).exec();
-		res.json(templates);
-	} catch (err) {
-		res.status(500).send({ message: 'Error searching claims' });
-	}
-});
-
-router.get('*', (req, res) => {
-	res.status(404).send({ message: 'Not Found' });
-});
-
+// Обработка 404 ошибки
 router.get('*', (req, res) => {
 	res.status(404).send({ message: 'Not Found' });
 });

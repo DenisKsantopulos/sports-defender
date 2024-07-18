@@ -13,6 +13,9 @@ const TopicArticles = lazy(
 	() => import('@/pages/topic-articles/ui/TopicArticles')
 );
 const CourtCases = lazy(() => import('@/pages/court-cases/ui/CourtCases'));
+const ViewDocument = lazy(
+	() => import('@/pages/view-document/ui/ViewDocument')
+);
 
 interface RouteType {
 	path: string;
@@ -48,6 +51,10 @@ const routes: RouteType[] = [
 	{
 		path: Paths.COURT_CASES,
 		element: () => <CourtCases />,
+	},
+	{
+		path: Paths.VIEW_DOCUMENT_ID,
+		element: () => <ViewDocument />,
 	},
 ];
 

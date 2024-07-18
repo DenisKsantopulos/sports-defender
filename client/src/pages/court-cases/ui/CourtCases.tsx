@@ -39,10 +39,7 @@ const CourtCases = observer((): React.ReactElement => {
 							items={courtCasesTabTitles}
 							store={courtCasesTabsStore}
 						/>
-						<CardsList
-							cardType={CardTypes.COURT_CASE}
-							category={courtCasesTabsStore.activeTab}
-						/>
+						<CardsList />
 					</div>
 				</section>
 			</div>

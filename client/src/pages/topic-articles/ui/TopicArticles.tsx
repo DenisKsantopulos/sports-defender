@@ -31,7 +31,7 @@ function TopicArticles(): React.ReactElement {
 							store={topicArticlesSearch}
 							placeholder='Введите название статьи'
 						/>
-						<CardsList cardType={CardTypes.TOPIC_ARTICLE} />
+						<CardsList />
 					</div>
 				</section>
 			</div>

@@ -29,8 +29,10 @@ const Survey = observer((): React.ReactElement => {
 								{data.note !== null ? data.note : undefined}
 							</SurveyHeader>
 						)}
-						{data.documentUrl !== null && (
-							<SurveyDocument link={data.documentUrl} />
+						{data.solutionDocumentId !== null && (
+							<SurveyDocument
+								documentId={data.solutionDocumentId}
+							/>
 						)}
 						<SurveyOptions
 							key={survey.currentSurveyId}
@@ -38,9 +40,9 @@ const Survey = observer((): React.ReactElement => {
 								data.answers !== null ? data.answers : null
 							}
 							shouldHaveResetButton={
-								(data.documentUrl === null &&
+								(data.solutionDocumentId === null &&
 									data.answers === null) ||
-								data.documentUrl !== null
+								data.solutionDocumentId !== null
 							}
 						/>
 					</>
