@@ -26,7 +26,7 @@ function Footer(): React.ReactElement {
 								to={Paths.SURVEY}
 								className={styles['menu__item']}
 							>
-								Заполнить Анкету
+								Заполнить анкету
 							</Link>
 						</li>
 						<li className={styles['menu__list']}>
@@ -34,7 +34,7 @@ function Footer(): React.ReactElement {
 								to={Paths.DOCUMENT_TEMPLATES}
 								className={styles['menu__item']}
 							>
-								Скачать Шаблоны Документов
+								Скачать шаблоны документов
 							</Link>
 						</li>
 						<li className={styles['menu__list']}>
@@ -42,7 +42,7 @@ function Footer(): React.ReactElement {
 								to={Paths.TOPIC_ARTICLES}
 								className={styles['menu__item']}
 							>
-								Тематические Статьи
+								Тематические статьи
 							</Link>
 						</li>
 					</ul>
@@ -52,7 +52,7 @@ function Footer(): React.ReactElement {
 								to={Paths.SEARCH}
 								className={styles['menu__item']}
 							>
-								Поиск По Сайту
+								Поиск по сайту
 							</Link>
 						</li>
 						<li className={styles['menu__list']}>
@@ -60,7 +60,7 @@ function Footer(): React.ReactElement {
 								to={Paths.COURT_CASES}
 								className={styles['menu__item']}
 							>
-								Судебный Кейсы
+								Судебные кейсы
 							</Link>
 						</li>
 						<li className={styles['menu__list']}>
