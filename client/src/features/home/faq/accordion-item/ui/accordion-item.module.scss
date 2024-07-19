@@ -6,6 +6,7 @@
 	&__item {
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
 		gap: 2.5rem;
 		border: 0.125rem solid helper.$lightSilver;
 		padding: 1rem 2rem;
