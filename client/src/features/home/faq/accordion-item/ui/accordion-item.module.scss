@@ -58,6 +58,7 @@
 		padding: 1rem 2rem 1.5rem;
 		border: 0.125rem solid helper.$accentColor;
 		border-top: none;
+		white-space: pre-wrap;
 
 		@include helper.borderRadius(0, 0, 2rem, 2rem);
 	}
