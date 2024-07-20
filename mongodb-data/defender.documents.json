@@ -1,0 +1,406 @@
+[{
+  "_id": {
+    "$oid": "668fd2bf1841b5e1db95b5cd"
+  },
+  "title": "Заявление о возврате качественного товара",
+  "type": "Шаблон документа",
+  "size": "11 kb",
+  "link": "https://docs.google.com/document/d/169Rpu46hkWzOKmAyRutuqCeOO9EErc8Z/preview",
+  "category": "Заявления",
+  "download_link": "https://drive.google.com/uc?export=download&id=169Rpu46hkWzOKmAyRutuqCeOO9EErc8Z",
+  "instruction_link": "https://docs.google.com/document/d/1m8DfmTIyirRcYA-Dh5KjjKP4JSGohWhS/preview",
+  "id": "1",
+  "instruction_link_download": "https://drive.google.com/uc?export=download&id=1m8DfmTIyirRcYA-Dh5KjjKP4JSGohWhS"
+},
+{
+  "_id": {
+    "$oid": "668fd2e71841b5e1db95b5cf"
+  },
+  "title": "Заявление об обмене качественного товара",
+  "type": "Шаблон документа",
+  "size": "4 kb",
+  "link": "https://docs.google.com/document/d/1vg_Ifsq7OTs_NLt9CUjQouEjAnH3aau5NY0CYdYjC34/preview",
+  "category": "Заявления",
+  "download_link": "https://docs.google.com/document/export?format=docx&id=1vg_Ifsq7OTs_NLt9CUjQouEjAnH3aau5NY0CYdYjC34",
+  "instruction_link": "https://docs.google.com/document/d/1m8DfmTIyirRcYA-Dh5KjjKP4JSGohWhS/preview",
+  "id": "2",
+  "instruction_link_download": "https://drive.google.com/uc?export=download&id=1m8DfmTIyirRcYA-Dh5KjjKP4JSGohWhS"
+},
+{
+  "_id": {
+    "$oid": "668fd3161841b5e1db95b5d1"
+  },
+  "title": "Требование о возврате (ст. 12)",
+  "type": "Шаблон документа",
+  "size": "12 kb",
+  "link": "https://docs.google.com/document/d/1p5XLT2XZrVxuWnRc-od0r_n_jYU6LCCh/preview",
+  "category": "Заявления",
+  "download_link": "https://drive.google.com/uc?export=download&id=1p5XLT2XZrVxuWnRc-od0r_n_jYU6LCCh",
+  "instruction_link": "https://docs.google.com/document/d/1VwYNKh8Iovzg2FF-LkBPlBMscSLU4tft/preview",
+  "id": "3",
+  "instruction_link_download": "https://drive.google.com/uc?export=download&id=1VwYNKh8Iovzg2FF-LkBPlBMscSLU4tft"
+},
+{
+  "_id": {
+    "$oid": "668fd33f1841b5e1db95b5d3"
+  },
+  "title": "Требование о возврате некачественного товара",
+  "type": "Шаблон документа",
+  "size": "13 kb",
+  "link": "https://docs.google.com/document/d/1qjP0AOzsQmbRdO1eIKD4gIqCSyNSWs1w/preview",
+  "category": "Заявления",
+  "download_link": "https://drive.google.com/uc?export=download&id=1qjP0AOzsQmbRdO1eIKD4gIqCSyNSWs1w",
+  "instruction_link": "https://docs.google.com/document/d/1VwYNKh8Iovzg2FF-LkBPlBMscSLU4tft/preview",
+  "id": "4",
+  "instruction_link_download": "https://drive.google.com/uc?export=download&id=1VwYNKh8Iovzg2FF-LkBPlBMscSLU4tft"
+},
+{
+  "_id": {
+    "$oid": "669449b0e61485686ac2ca03"
+  },
+  "title": "Требование о ремонте ТСТ",
+  "type": "Шаблон документа",
+  "size": "12 kb",
+  "link": "https://docs.google.com/document/d/1MvjlSc0Bqk3pkAR0oDh-4oS4RuTKnWqS/preview",
+  "category": "Заявления",
+  "download_link": "https://drive.google.com/uc?export=download&id=1MvjlSc0Bqk3pkAR0oDh-4oS4RuTKnWqS",
+  "instruction_link": "https://docs.google.com/document/d/1VwYNKh8Iovzg2FF-LkBPlBMscSLU4tft/preview",
+  "id": "5",
+  "instruction_link_download": "https://drive.google.com/uc?export=download&id=1VwYNKh8Iovzg2FF-LkBPlBMscSLU4tft"
+},
+{
+  "_id": {
+    "$oid": "66944ac1e61485686ac2ca05"
+  },
+  "title": "Требование об обмене некачественного товара",
+  "type": "Шаблон документа",
+  "size": "13 kb",
+  "link": "https://docs.google.com/document/d/1-ICNsydE7_8wc1I9cAHspbxXwnR9xC04/preview",
+  "category": "Заявления",
+  "download_link": "https://drive.google.com/uc?export=download&id=1-ICNsydE7_8wc1I9cAHspbxXwnR9xC04",
+  "instruction_link": "https://docs.google.com/document/d/1VwYNKh8Iovzg2FF-LkBPlBMscSLU4tft/preview",
+  "id": "6",
+  "instruction_link_download": "https://drive.google.com/uc?export=download&id=1VwYNKh8Iovzg2FF-LkBPlBMscSLU4tft"
+},
+{
+  "_id": {
+    "$oid": "66944bc4e61485686ac2ca07"
+  },
+  "title": "Требование об уменьшении покупной цены",
+  "type": "Шаблон документа",
+  "size": "12 kb",
+  "link": "https://docs.google.com/document/d/1cqdMcLK0BTh6jMhFDL6WGmkm3SHu8Wg2/preview",
+  "category": "Заявления",
+  "download_link": "https://drive.google.com/uc?export=download&id=1cqdMcLK0BTh6jMhFDL6WGmkm3SHu8Wg2",
+  "instruction_link": "https://docs.google.com/document/d/1VwYNKh8Iovzg2FF-LkBPlBMscSLU4tft/preview",
+  "id": "7",
+  "instruction_link_download": "https://drive.google.com/uc?export=download&id=1VwYNKh8Iovzg2FF-LkBPlBMscSLU4tft"
+},
+{
+  "_id": {
+    "$oid": "6697e514e36e6624a24adc23"
+  },
+  "title": "Требование об устранении недостатков товара",
+  "type": "Шаблон документа",
+  "size": "13 kb",
+  "link": "https://docs.google.com/document/d/1Nk-ypENaj4b0AGpWSNdW74YbWqrAUq9w/preview",
+  "category": "Заявления",
+  "download_link": "https://drive.google.com/uc?export=download&id=1Nk-ypENaj4b0AGpWSNdW74YbWqrAUq9w",
+  "instruction_link": "https://docs.google.com/document/d/1VwYNKh8Iovzg2FF-LkBPlBMscSLU4tft/preview",
+  "id": "8",
+  "instruction_link_download": "https://drive.google.com/uc?export=download&id=1VwYNKh8Iovzg2FF-LkBPlBMscSLU4tft"
+},
+{
+  "_id": {
+    "$oid": "6697e514e36e6624a24adc24"
+  },
+  "title": "Досудебная претензия о возмещении убытков ввиду получения травмы",
+  "type": "Шаблон документа",
+  "size": "12 kb",
+  "link": "https://docs.google.com/document/d/16qN-8wMzSU7gSCw0cNA9NwbhHOS_f6nv/preview",
+  "category": "Досудебные претензии",
+  "download_link": "https://drive.google.com/uc?export=download&id=16qN-8wMzSU7gSCw0cNA9NwbhHOS_f6nv",
+  "instruction_link": "",
+  "id": "9",
+  "instruction_link_download": ""
+},
+{
+  "_id": {
+    "$oid": "6697e514e36e6624a24adc25"
+  },
+  "title": "Возврат денег_качество_досудебная претензия",
+  "type": "Шаблон документа",
+  "size": "11 kb",
+  "link": "https://docs.google.com/document/d/16Zcz-6ukqmyPldBlx_W9aCzQlBNWhbGC/preview",
+  "category": "Досудебные претензии",
+  "download_link": "https://drive.google.com/uc?export=download&id=16Zcz-6ukqmyPldBlx_W9aCzQlBNWhbGC",
+  "instruction_link": "",
+  "id": "10",
+  "instruction_link_download": ""
+},
+{
+  "_id": {
+    "$oid": "6697e514e36e6624a24adc26"
+  },
+  "title": "Возврат денег_сроки_досудебная претензия",
+  "type": "Шаблон документа",
+  "size": "11 kb",
+  "link": "https://docs.google.com/document/d/1LoVnB7Mn_5EjVmzSspbFcccDvnoxPgR4/preview",
+  "category": "Досудебные претензии",
+  "download_link": "https://drive.google.com/uc?export=download&id=1LoVnB7Mn_5EjVmzSspbFcccDvnoxPgR4",
+  "instruction_link": "",
+  "id": "11",
+  "instruction_link_download": ""
+},
+{
+  "_id": {
+    "$oid": "6697e514e36e6624a24adc27"
+  },
+  "title": "Уменьшение цены_досудебная претензия",
+  "type": "Шаблон документа",
+  "size": "11 kb",
+  "link": "https://docs.google.com/document/d/1smDwK3hCW1KM9K_8mZnb5-pGq6D8lUxK/preview",
+  "category": "Досудебные претензии",
+  "download_link": "https://drive.google.com/uc?export=download&id=1smDwK3hCW1KM9K_8mZnb5-pGq6D8lUxK",
+  "instruction_link": "",
+  "id": "12",
+  "instruction_link_download": ""
+},
+{
+  "_id": {
+    "$oid": "6697e514e36e6624a24adc28"
+  },
+  "title": "Устранение недостатков_досудебная претензия",
+  "type": "Шаблон документа",
+  "size": "11 kb",
+  "link": "https://docs.google.com/document/d/1Adj94HwOPaGglVzNj11nylwdaL2om0JQ/preview",
+  "category": "Досудебные претензии",
+  "download_link": "https://drive.google.com/uc?export=download&id=1Adj94HwOPaGglVzNj11nylwdaL2om0JQ",
+  "instruction_link": "",
+  "id": "13",
+  "instruction_link_download": ""
+},
+{
+  "_id": {
+    "$oid": "66990b1520c07e34ee19a515"
+  },
+  "title": "Требование о возврате качественного товара (ст.12)",
+  "type": "Шаблон документа",
+  "size": "12 kb",
+  "link": "https://docs.google.com/document/d/1W4JZmiY2dNERR75-b0aukVQ9vCjowrKS/preview",
+  "category": "Заявления",
+  "download_link": "https://drive.google.com/uc?export=download&id=1W4JZmiY2dNERR75-b0aukVQ9vCjowrKS",
+  "instruction_link": "https://docs.google.com/document/d/1m8DfmTIyirRcYA-Dh5KjjKP4JSGohWhS/preview",
+  "id": "14",
+  "instruction_link_download": "https://drive.google.com/uc?export=download&id=1m8DfmTIyirRcYA-Dh5KjjKP4JSGohWhS"
+},
+{
+  "_id": {
+    "$oid": "66990b1520c07e34ee19a516"
+  },
+  "title": "Заявление Возврат денег_сроки",
+  "type": "Шаблон документа",
+  "size": "12 kb",
+  "link": "https://docs.google.com/document/d/1aFoHEcQGqaysJbWa7wG52nepwl6OmJDI/preview",
+  "category": "Заявления",
+  "download_link": "https://drive.google.com/uc?export=download&id=1aFoHEcQGqaysJbWa7wG52nepwl6OmJDI",
+  "instruction_link": "",
+  "id": "15",
+  "instruction_link_download": ""
+},
+{
+  "_id": {
+    "$oid": "66990b1520c07e34ee19a517"
+  },
+  "title": "Заявление Возврат денег_качество",
+  "type": "Шаблон документа",
+  "size": "11 kb",
+  "link": "https://docs.google.com/document/d/1woXLH4Xu2K_EwVtA8UBKxKjpl4RVTUZz/preview",
+  "category": "Заявления",
+  "download_link": "https://drive.google.com/uc?export=download&id=1woXLH4Xu2K_EwVtA8UBKxKjpl4RVTUZz",
+  "instruction_link": "",
+  "id": "16",
+  "instruction_link_download": ""
+},
+{
+  "_id": {
+    "$oid": "66990b1520c07e34ee19a518"
+  },
+  "title": "Заявление Недопустимые условия_убытки",
+  "type": "Шаблон документа",
+  "size": "12 kb",
+  "link": "https://docs.google.com/document/d/1dqBaLyjSxa1UTH2r0EUxbsn9iSXD1u2s/preview",
+  "category": "Заявления",
+  "download_link": "https://drive.google.com/uc?export=download&id=1dqBaLyjSxa1UTH2r0EUxbsn9iSXD1u2s",
+  "instruction_link": "",
+  "id": "17",
+  "instruction_link_download": ""
+},
+{
+  "_id": {
+    "$oid": "66990b1520c07e34ee19a519"
+  },
+  "title": "Заявление Новый срок",
+  "type": "Шаблон документа",
+  "size": "12 kb",
+  "link": "https://docs.google.com/document/d/1Katz8u4_hVsMx1DX9IO9hQNd2mwvePv3/preview",
+  "category": "Заявления",
+  "download_link": "https://drive.google.com/uc?export=download&id=1Katz8u4_hVsMx1DX9IO9hQNd2mwvePv3",
+  "instruction_link": "",
+  "id": "18",
+  "instruction_link_download": ""
+},
+{
+  "_id": {
+    "$oid": "66990b1520c07e34ee19a51a"
+  },
+  "title": "Заявление Уменьшение цены",
+  "type": "Шаблон документа",
+  "size": "11 kb",
+  "link": "https://docs.google.com/document/d/17PfCX2ubfjORT2Y-kumQwYpk-P9DLkwO/preview",
+  "category": "Заявления",
+  "download_link": "https://drive.google.com/uc?export=download&id=17PfCX2ubfjORT2Y-kumQwYpk-P9DLkwO",
+  "instruction_link": "",
+  "id": "19",
+  "instruction_link_download": ""
+},
+{
+  "_id": {
+    "$oid": "66990b1520c07e34ee19a51b"
+  },
+  "title": "Заявление Устранение недостатков",
+  "type": "Шаблон документа",
+  "size": "12 kb",
+  "link": "https://docs.google.com/document/d/1BDq4HTeusD3zyhD_21woCwpEWoHU4YDn/preview",
+  "category": "Заявления",
+  "download_link": "https://drive.google.com/uc?export=download&id=1BDq4HTeusD3zyhD_21woCwpEWoHU4YDn",
+  "instruction_link": "",
+  "id": "20",
+  "instruction_link_download": ""
+},
+{
+  "_id": {
+    "$oid": "66990b1520c07e34ee19a51c"
+  },
+  "title": "Недопустимые условия_убытки_досудебная претензия",
+  "type": "Шаблон документа",
+  "size": "12 kb",
+  "link": "https://docs.google.com/document/d/1ByKamo2dyCkDR_V2abALNSdjsgHa1KVB/preview",
+  "category": "Досудебные претензии",
+  "download_link": "https://drive.google.com/uc?export=download&id=1ByKamo2dyCkDR_V2abALNSdjsgHa1KVB",
+  "instruction_link": "",
+  "id": "21",
+  "instruction_link_download": ""
+},
+{
+  "_id": {
+    "$oid": "66990b1520c07e34ee19a51d"
+  },
+  "title": "Новый срок_досудебная претензия",
+  "type": "Шаблон документа",
+  "size": "11 kb",
+  "link": "https://docs.google.com/document/d/1ZZLTtF5uomS2EPUv6P10QQIU7omXbhRt/preview",
+  "category": "Досудебные претензии",
+  "download_link": "https://drive.google.com/uc?export=download&id=1ZZLTtF5uomS2EPUv6P10QQIU7omXbhRt",
+  "instruction_link": "",
+  "id": "22",
+  "instruction_link_download": ""
+},
+{
+  "_id": {
+    "$oid": "6699182620c07e34ee19a521"
+  },
+  "title": "Брак в онлайн-заказе: вернут ли деньги?",
+  "type": "Судебное дело",
+  "size": "3 kb",
+  "link": "https://docs.google.com/document/d/1Sudm3bhd_sIFJrd_Xy4onUurE5xPGVCkmbqW6NqSnd8/preview",
+  "category": "Товары",
+  "download_link": "https://docs.google.com/document/export?format=docx&id=1Sudm3bhd_sIFJrd_Xy4onUurE5xPGVCkmbqW6NqSnd8",
+  "instruction_link": null,
+  "id": "23",
+  "instruction_link_download": null
+},
+{
+  "_id": {
+    "$oid": "6699182620c07e34ee19a522"
+  },
+  "title": "Дифференцированная система оплаты: что это и почему так нельзя?",
+  "type": "Судебное дело",
+  "size": "3 kb",
+  "link": "https://docs.google.com/document/d/1CyiotxnTT0DoQTSV5pQsQRxJ9hOWS89Q34CBeK81yDI/preview",
+  "category": "Услуги",
+  "download_link": "https://docs.google.com/document/export?format=docx&id=1CyiotxnTT0DoQTSV5pQsQRxJ9hOWS89Q34CBeK81yDI",
+  "instruction_link": null,
+  "id": "24",
+  "instruction_link_download": null
+},
+{
+  "_id": {
+    "$oid": "6699182620c07e34ee19a523"
+  },
+  "title": "Заметил брак после покупки: вернут ли деньги?",
+  "type": "Судебное дело",
+  "size": "3 kb",
+  "link": "https://docs.google.com/document/d/1K6FYXiOkEbRq-Bsa_muRxXLRPR54Tkw8aI9bHk3gaPY/preview",
+  "category": "Товары",
+  "download_link": "https://docs.google.com/document/export?format=docx&id=1K6FYXiOkEbRq-Bsa_muRxXLRPR54Tkw8aI9bHk3gaPY",
+  "instruction_link": null,
+  "id": "25",
+  "instruction_link_download": null
+},
+{
+  "_id": {
+    "$oid": "6699182620c07e34ee19a524"
+  },
+  "title": "Истек срок абонемента: почему вернуть деньги не получится",
+  "type": "Судебное дело",
+  "size": "4 kb",
+  "link": "https://docs.google.com/document/d/1-QW6xmz5pbAv57IKlMR_ZIfeYiDd0MZMKmxmCGtD7EY/preview",
+  "category": "Услуги",
+  "download_link": "https://docs.google.com/document/export?format=docx&id=1-QW6xmz5pbAv57IKlMR_ZIfeYiDd0MZMKmxmCGtD7EY",
+  "instruction_link": null,
+  "id": "26",
+  "instruction_link_download": null
+},
+{
+  "_id": {
+    "$oid": "6699182620c07e34ee19a525"
+  },
+  "title": "Как прекратить ходить в зал и вернуть деньги",
+  "type": "Судебное дело",
+  "size": "4 kb",
+  "link": "https://docs.google.com/document/d/183DtsCP45c0BwB_kBiVDdA8ZvBY0Gx0jIvMp6TLx6GA/preview",
+  "category": "Услуги",
+  "download_link": "https://docs.google.com/document/export?format=docx&id=183DtsCP45c0BwB_kBiVDdA8ZvBY0Gx0jIvMp6TLx6GA",
+  "instruction_link": null,
+  "id": "27",
+  "instruction_link_download": null
+},
+{
+  "_id": {
+    "$oid": "6699182620c07e34ee19a526"
+  },
+  "title": "Магазин не виноват в дефекте: возможна ли компенсация?",
+  "type": "Судебное дело",
+  "size": "3 kb",
+  "link": "https://docs.google.com/document/d/1Xgf7PU1nvW9ZaXBLAL0GbWANAMcooLxRpnqFvPvYf2Y/preview",
+  "category": "Товары",
+  "download_link": "https://docs.google.com/document/export?format=docx&id=1Xgf7PU1nvW9ZaXBLAL0GbWANAMcooLxRpnqFvPvYf2Y",
+  "instruction_link": null,
+  "id": "28",
+  "instruction_link_download": null
+},
+{
+  "_id": {
+    "$oid": "6699182620c07e34ee19a527"
+  },
+  "title": "Травма на тренировке: когда виноват тренер",
+  "type": "Судебное дело",
+  "size": "4 kb",
+  "link": "https://docs.google.com/document/d/1bMNl6PHeeL0pk6SJGJX0M5YLIiNdrwhD1WoXkskOoO8/preview",
+  "category": "Травмы",
+  "download_link": "https://docs.google.com/document/export?format=docx&id=1bMNl6PHeeL0pk6SJGJX0M5YLIiNdrwhD1WoXkskOoO8",
+  "instruction_link": null,
+  "id": "29",
+  "instruction_link_download": null
+}]
