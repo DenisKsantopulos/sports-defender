@@ -2,12 +2,12 @@
 
 .survey__back {
 	font-size: 1rem;
-	color: helper.$accentColor;
-	background-color: helper.$primaryColor;
+	color: helper.$title;
+	background-color: helper.$accentColor;
 	padding: 1rem 2.5rem;
 	font-family: inherit;
 	font-weight: 600;
-	border: 0.15rem solid helper.$primaryColorDark;
+	border: 0.15rem solid helper.$accentColorDark;
 	box-shadow: 0 0 0.625rem helper.$lightSilver;
 	outline: none;
 	cursor: pointer;
@@ -16,6 +16,6 @@
 	@include helper.transition();
 
 	&:hover {
-		background-color: helper.$primaryColorDark;
+		background-color: helper.$accentColorDark;
 	}
 }
