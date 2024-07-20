@@ -32,7 +32,7 @@ export function useInfiniteSearch(
 		if (previousPageData && !previousPageData.length) return null; // Дошли до конца
 
 		return query !== null
-			? `/search?type=${type}&category=${category}&query=${query}&offset=${pageIndex}&limit=5`
+			? `/search?type=${type}&category=${category}&query=${query}&offset=${pageIndex}&limit=10`
 			: null;
 	};
 
