@@ -1,11 +1,18 @@
 @use '@/app/ui/styles/helper';
 
+.wrapper {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
 .container {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
+	flex: 1;
 
 	@extend %container;
 }

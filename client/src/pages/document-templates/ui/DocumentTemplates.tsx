@@ -8,6 +8,7 @@ import { useStores } from '@/shared/model/hooks/useStores';
 import documentTemplatesTabTitles from '@/shared/model/data/DocumentTemplatesTabTitles';
 import CardTypes from '@/shared/model/data/CardTypes';
 import { observer } from 'mobx-react-lite';
+import Footer from '@/widgets/common/footer/ui/Footer';
 import styles from './document-templates.module.scss';
 
 const DocumentTemplates = observer((): React.ReactElement => {
@@ -18,7 +19,7 @@ const DocumentTemplates = observer((): React.ReactElement => {
 	return (
 		<>
 			<TopButton />
-			<div>
+			<div className={styles.wrapper}>
 				<section className={styles.container}>
 					<Title title='Поиск по шаблонам документов'>
 						Необходимо скачать готовый шаблон документа?
@@ -43,6 +44,7 @@ const DocumentTemplates = observer((): React.ReactElement => {
 						<CardsList />
 					</div>
 				</section>
+				<Footer />
 			</div>
 		</>
 	);

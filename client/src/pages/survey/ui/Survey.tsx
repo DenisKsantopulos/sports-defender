@@ -7,6 +7,7 @@ import Info from '@/widgets/common/fetch-status/info/ui/Info';
 import SurveyDocument from '@/widgets/survey/document/ui/SurveyDocument';
 import SurveyHeader from '@/widgets/survey/header/ui/SurveyHeader';
 import { observer } from 'mobx-react-lite';
+import Footer from '@/widgets/common/footer/ui/Footer';
 import styles from './survey.module.scss';
 
 const Survey = observer((): React.ReactElement => {
@@ -16,7 +17,7 @@ const Survey = observer((): React.ReactElement => {
 	const { data, isLoading, error } = useSurveyById(survey.currentSurveyId); // Извлекаем объект анкеты (вопрос или шаблон документа)
 
 	return (
-		<div>
+		<div className={styles.wrapper}>
 			<section className={styles.container} data-aos='fade-left'>
 				{isLoading && <Info text='Загрузка анкеты...' />}
 				{error && (
@@ -48,6 +49,7 @@ const Survey = observer((): React.ReactElement => {
 					</>
 				)}
 			</section>
+			<Footer />
 		</div>
 	);
 });

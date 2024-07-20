@@ -1,0 +1,25 @@
+@use '@/app/ui/styles/helper';
+
+.footer {
+	background-color: helper.$primaryColor;
+	padding: 2rem 1rem;
+
+	&__message {
+		text-align: center;
+		color: helper.$white;
+		font-size: 0.9rem;
+		font-weight: 300;
+	}
+
+	&__warning {
+		color: helper.$red;
+	}
+
+	&__commercial {
+		text-align: center;
+		color: helper.$white;
+		font-size: 0.8rem;
+		font-weight: 300;
+		margin-top: 1rem;
+	}
+}

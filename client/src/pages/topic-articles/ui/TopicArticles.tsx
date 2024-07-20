@@ -5,6 +5,7 @@ import CardsList from '@/features/common/list/ui/CardsList';
 import Title from '@/widgets/common/title/ui/Title';
 import CardTypes from '@/shared/model/data/CardTypes';
 import { useStores } from '@/shared/model/hooks/useStores';
+import Footer from '@/widgets/common/footer/ui/Footer';
 import styles from './topic-articles.module.scss';
 
 function TopicArticles(): React.ReactElement {
@@ -15,7 +16,7 @@ function TopicArticles(): React.ReactElement {
 	return (
 		<>
 			<TopButton />
-			<div>
+			<div className={styles.wrapper}>
 				<section className={styles.container}>
 					<Title title='Поиск по тематическим статьям'>
 						Тематические статьи предоставляют очень важную
@@ -34,6 +35,7 @@ function TopicArticles(): React.ReactElement {
 						<CardsList />
 					</div>
 				</section>
+				<Footer />
 			</div>
 		</>
 	);

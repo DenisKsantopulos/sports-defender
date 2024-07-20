@@ -6,6 +6,7 @@ import Error from '@/widgets/common/fetch-status/error/ui/Error';
 import Info from '@/widgets/common/fetch-status/info/ui/Info';
 import { useParams } from 'react-router-dom';
 import DocumentDownload from '@/features/document-view/document-download/ui/DocumentDownload';
+import Footer from '@/widgets/common/footer/ui/Footer';
 import styles from './view-document.module.scss';
 
 function ViewDocument(): React.ReactElement {
@@ -18,7 +19,7 @@ function ViewDocument(): React.ReactElement {
 	return (
 		<>
 			<TopButton />
-			<div>
+			<div className={styles.wrapper}>
 				<section className={styles.container} data-aos='fade-up'>
 					{isLoading && <Info text='Загрузка документа...' />}
 					{error && (
@@ -58,6 +59,7 @@ function ViewDocument(): React.ReactElement {
 						</>
 					)}
 				</section>
+				<Footer />
 			</div>
 		</>
 	);

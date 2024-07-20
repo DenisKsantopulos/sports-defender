@@ -8,6 +8,7 @@ import courtCasesTabTitles from '@/shared/model/data/CourtCasesTabTitles';
 import CardsList from '@/features/common/list/ui/CardsList';
 import CardTypes from '@/shared/model/data/CardTypes';
 import { observer } from 'mobx-react-lite';
+import Footer from '@/widgets/common/footer/ui/Footer';
 import styles from './court-cases.module.scss';
 
 const CourtCases = observer((): React.ReactElement => {
@@ -18,7 +19,7 @@ const CourtCases = observer((): React.ReactElement => {
 	return (
 		<>
 			<TopButton />
-			<div>
+			<div className={styles.wrapper}>
 				<section className={styles.container}>
 					<Title title='Поиск по судебным делам'>
 						Данный раздел предназначен для поиска нужного вами
@@ -42,6 +43,7 @@ const CourtCases = observer((): React.ReactElement => {
 						<CardsList />
 					</div>
 				</section>
+				<Footer />
 			</div>
 		</>
 	);
