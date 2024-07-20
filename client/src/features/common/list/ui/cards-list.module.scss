@@ -1,6 +1,34 @@
+@use '@/app/ui/styles/helper';
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 .cards-list {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: start;
 	gap: 4.5rem;
+
+	&__button {
+		margin-top: 2rem;
+		font-size: 1rem;
+		font-weight: 600;
+		font-family: inherit;
+		padding: 1.1rem 2rem;
+		border: 0.15rem solid helper.$primaryColorDark;
+		box-shadow: 0 0 0.625rem helper.$lightSilver;
+		background-color: helper.$primaryColor;
+		color: helper.$accentColor;
+		cursor: pointer;
+
+		@include helper.borderRadius(20rem);
+		@include helper.transition();
+
+		&:hover {
+			background-color: helper.$primaryColorDark;
+		}
+	}
 }

@@ -2,6 +2,7 @@ import useSWR from 'swr';
 import Faq from '@/entities/Faq';
 import Survey from '@/entities/Survey';
 import Document from '@/entities/Document';
+import useSWRInfinite, { SWRInfiniteKeyLoader } from 'swr/infinite';
 
 // Вернуть список всех часто задаваемых вопросов для главной страницы сайта
 export function useFAQs() {
@@ -19,14 +20,21 @@ export function useDocumentById(id: string | undefined) {
 }
 
 // Вернуть список найденных документов
-export function useSearch(
+export function useInfiniteSearch(
 	type: string,
 	category: string,
 	query: string | null
 ) {
-	return useSWR<Document[]>(
-		query !== null
-			? `/search?type=${type}&category=${category}&query=${query}`
-			: null
-	);
+	const getKey: SWRInfiniteKeyLoader = (
+		pageIndex: number,
+		previousPageData: Document[]
+	) => {
+		if (previousPageData && !previousPageData.length) return null; // Дошли до конца
+
+		return query !== null
+			? `/search?type=${type}&category=${category}&query=${query}&offset=${pageIndex}&limit=5`
+			: null;
+	};
+
+	return useSWRInfinite<Document[]>(getKey);
 }

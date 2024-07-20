@@ -54,41 +54,55 @@ router.get('/surveys/:id', async (req, res) => {
 	}
 });
 
-// Вернуть документы по определенной категории, типу и поисковому запросу
-// /search?query=...
-// /search?type=...&query=...
-// /search?type=...&category=...&query=...
+// Вернуть документы по определенной категории, типу и поисковому запросу (Infinite Scroll)
+// /search?query=...&offset=...&limit=...
+// /search?type=...&query=...&offset=...&limit=...
+// /search?type=...&category=...&query=...&offset=...&limit=...
 router.get('/search', async (req, res) => {
 	const type = req.query.type; // Тип документа (шаблон, статья или кейс)
 	const category = req.query.category; // Категория документа (заявления, претензии, товары и пр.)
 	const query = req.query.query;
+	const limit = req.query.limit; // Максимальное количество выводимых запросов за раз
+	const offset = req.query.offset * limit; // С какого элемента надо выводить запросы (необходимо умножить на limit, т.к это pageIndex в SWR)
 
 	if (query.length !== 0) {
 		let documents = undefined;
 
 		if (type.length === 0) {
 			// Поиск по всей базе
-			documents = await DocumentsModel.find({
-				title: { $regex: query, $options: 'i' },
-			}).exec();
+			documents = await DocumentsModel.find(
+				{
+					title: { $regex: query, $options: 'i' },
+				},
+				undefined,
+				{ skip: offset, limit }
+			).exec();
 		} else {
 			if (category.length === 0 || category === 'Все категории') {
 				// Поиск по типу только
-				documents = await DocumentsModel.find({
-					$and: [
-						{ title: { $regex: query, $options: 'i' } },
-						{ type },
-					],
-				});
+				documents = await DocumentsModel.find(
+					{
+						$and: [
+							{ title: { $regex: query, $options: 'i' } },
+							{ type },
+						],
+					},
+					undefined,
+					{ skip: offset, limit }
+				);
 			} else {
 				// Поиск по типу и категории
-				documents = await DocumentsModel.find({
-					$and: [
-						{ title: { $regex: query, $options: 'i' } },
-						{ type },
-						{ category },
-					],
-				});
+				documents = await DocumentsModel.find(
+					{
+						$and: [
+							{ title: { $regex: query, $options: 'i' } },
+							{ type },
+							{ category },
+						],
+					},
+					undefined,
+					{ skip: offset, limit }
+				);
 			}
 		}
 
