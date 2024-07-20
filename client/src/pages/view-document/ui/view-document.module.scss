@@ -23,8 +23,9 @@
 
 	&__frame {
 		display: block;
-		margin-top: 3rem;
-		width: 100%;
+		margin: 3rem auto 0;
+		max-width: 100%;
+		width: 60rem;
 		height: 60rem;
 		border: none;
 		outline: none;

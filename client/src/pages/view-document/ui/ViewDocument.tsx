@@ -1,11 +1,11 @@
 import TopButton from '@/features/common/top-button/ui/TopButton';
-import DocumentDownload from '@/features/document-view/document-download/ui/DocumentDownload';
 import DocumentInstruction from '@/features/document-view/document-instruction/ui/DocumentInstruction';
 import { useDocumentById } from '@/shared/api/queries';
 import useAos from '@/shared/model/hooks/useAos';
 import Error from '@/widgets/common/fetch-status/error/ui/Error';
 import Info from '@/widgets/common/fetch-status/info/ui/Info';
 import { useParams } from 'react-router-dom';
+import DocumentDownload from '@/features/document-view/document-download/ui/DocumentDownload';
 import styles from './view-document.module.scss';
 
 function ViewDocument(): React.ReactElement {
@@ -40,6 +40,7 @@ function ViewDocument(): React.ReactElement {
 							</p>
 							<DocumentDownload
 								downloadLink={data.download_link}
+								text='Скачать документ'
 							/>
 							<iframe
 								src={`${data.link}?&rm=minimal&embedded=true`}
@@ -49,6 +50,9 @@ function ViewDocument(): React.ReactElement {
 								data.instruction_link.length !== 0 && (
 									<DocumentInstruction
 										link={data.instruction_link}
+										downloadLink={
+											data.instruction_link_download!
+										}
 									/>
 								)}
 						</>

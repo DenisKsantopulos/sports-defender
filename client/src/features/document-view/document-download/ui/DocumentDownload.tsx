@@ -1,15 +1,19 @@
 import { memo } from 'react';
-import styles from './document-download.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
+import styles from './document-download.module.scss';
 
 interface DocumentDownloadArgumentsType {
-	downloadLink: string;
+	downloadLink: string; // Ссылка на скачивание документа
+	text: string; // Текст кнопки
 }
 
 const DocumentDownload = memo(
-	({ downloadLink }: DocumentDownloadArgumentsType): React.ReactElement => {
-		// Скачать документ
+	({
+		downloadLink,
+		text,
+	}: DocumentDownloadArgumentsType): React.ReactElement => {
+		// Скачать документ/инструкцию/пр. по ссылке
 		function handleDownloadClick(): void {
 			window.open(downloadLink, '_blank');
 		}
@@ -19,7 +23,7 @@ const DocumentDownload = memo(
 				className={styles['view-document__download']}
 				onClick={handleDownloadClick}
 			>
-				Скачать документ
+				{text}
 				<FontAwesomeIcon
 					icon={faDownload}
 					className={styles['view-document__download-icon']}

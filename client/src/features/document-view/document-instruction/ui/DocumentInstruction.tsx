@@ -1,12 +1,19 @@
 import { memo, useState } from 'react';
+import DocumentDownload from '@/features/document-view/document-download/ui/DocumentDownload';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import styles from './document-instruction.module.scss';
 
 interface DocumentInstructionArgumentsType {
 	link: string; // Ссылка на просмотр инструкции для шаблона документа
+	downloadLink: string; // Ссылка на скачивание инструкции для шаблона документа
 }
 
 const DocumentInstruction = memo(
-	({ link }: DocumentInstructionArgumentsType): React.ReactElement => {
+	({
+		link,
+		downloadLink,
+	}: DocumentInstructionArgumentsType): React.ReactElement => {
 		const [isOpen, setIsOpen] = useState<boolean>(false);
 
 		function handleToggleClick(): void {
@@ -21,13 +28,25 @@ const DocumentInstruction = memo(
 				>
 					{isOpen ? 'Закрыть' : 'Открыть'} инструкцию по заполнению
 					шаблона
+					<FontAwesomeIcon
+						icon={isOpen ? faChevronUp : faChevronDown}
+						className={styles['view-document__button-icon']}
+					/>
 				</button>
-				<iframe
-					src={`${link}?&rm=minimal&embedded=true`}
-					className={`${styles['view-document__frame']} ${
-						isOpen && styles['view-document__frame--active']
+				<div
+					className={`${styles['view-document__content']} ${
+						isOpen && styles['view-document__content--active']
 					}`}
-				></iframe>
+				>
+					<DocumentDownload
+						downloadLink={downloadLink}
+						text='Скачать инструкцию'
+					/>
+					<iframe
+						src={`${link}?&rm=minimal&embedded=true`}
+						className={styles['view-document__frame']}
+					></iframe>
+				</div>
 			</div>
 		);
 	}
