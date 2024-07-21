@@ -82,7 +82,7 @@ function Feedback(): React.ReactElement {
 					)}
 					<input
 						type='email'
-						placeholder='Введите адрес электронной почты'
+						placeholder='Введите email'
 						className={styles['form__email']}
 						{...register('email')}
 					/>

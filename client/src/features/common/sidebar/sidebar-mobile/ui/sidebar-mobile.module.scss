@@ -38,10 +38,24 @@
 	&__container {
 		width: max-content;
 		height: 100%;
-		background-color: helper.$blackTransparent;
+		background-color: helper.$primaryColor;
 		box-shadow: 0.0625rem 0 1rem helper.$black;
 		overflow-y: auto;
 		z-index: 999;
+	}
+
+	&__logo-container {
+		width: 100%;
+		border-bottom: 0.0625rem solid helper.$accentColorDark;
+	}
+
+	&__logo {
+		width: 3rem;
+		margin: 1.3rem 2rem;
+		background-color: helper.$white;
+		padding: 0.3rem;
+
+		@include helper.borderRadius();
 	}
 
 	&__item {

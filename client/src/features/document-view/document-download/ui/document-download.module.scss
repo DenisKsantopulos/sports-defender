@@ -36,3 +36,13 @@
 		}
 	}
 }
+
+@media (max-width: 23.4375em) {
+	.view-document {
+		&__download {
+			&-icon {
+				display: none;
+			}
+		}
+	}
+}

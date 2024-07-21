@@ -3,6 +3,7 @@ import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import smallLogo from '@/app/ui/assets/logo.png';
 import styles from './sidebar-mobile.module.scss';
 
 function SidebarMobile(): React.ReactElement {
@@ -34,6 +35,16 @@ function SidebarMobile(): React.ReactElement {
 			>
 				<div className={styles['sidebar-mobile__container']}>
 					<ul className={styles['sidebar-mobile__menu']}>
+						<div
+							className={styles['sidebar-mobile__logo-container']}
+						>
+							<img
+								src={smallLogo}
+								alt='Логотип'
+								loading='lazy'
+								className={styles['sidebar-mobile__logo']}
+							/>
+						</div>
 						<li className={styles['sidebar-mobile__item']}>
 							<Link
 								to={Paths.HOME}

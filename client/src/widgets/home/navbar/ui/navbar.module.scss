@@ -70,8 +70,10 @@
 	}
 }
 
-@media (max-width: 31.25em) {
+@media (max-width: 23.4375em) {
 	.navbar {
+		justify-content: center;
+
 		&__logo {
 			display: none;
 

@@ -26,6 +26,7 @@
 	&__message {
 		width: 100%;
 		border: 0.125rem solid helper.$silver;
+		font-family: inherit;
 		color: helper.$title;
 		font-size: 0.9rem;
 		font-size: clamp(0.9rem, 0.88rem + 0.09999999999999998vw, 1rem);
