@@ -62,6 +62,14 @@
 		&:hover {
 			color: helper.$silver;
 		}
+
+		&--active {
+			color: helper.$accentColor;
+
+			&:hover {
+				color: helper.$accentColor;
+			}
+		}
 	}
 }
 
