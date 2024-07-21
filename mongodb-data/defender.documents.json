@@ -30,7 +30,7 @@
   "_id": {
     "$oid": "668fd3161841b5e1db95b5d1"
   },
-  "title": "Требование о возврате (ст. 12)",
+  "title": "Требование о возврате некачественного товара в случае непредоставления необходимой информации",
   "type": "Шаблон документа",
   "size": "12 kb",
   "link": "https://docs.google.com/document/d/1p5XLT2XZrVxuWnRc-od0r_n_jYU6LCCh/preview",
@@ -58,7 +58,7 @@
   "_id": {
     "$oid": "669449b0e61485686ac2ca03"
   },
-  "title": "Требование о ремонте ТСТ",
+  "title": "Требование о ремонте технически сложного товара",
   "type": "Шаблон документа",
   "size": "12 kb",
   "link": "https://docs.google.com/document/d/1MvjlSc0Bqk3pkAR0oDh-4oS4RuTKnWqS/preview",
@@ -128,7 +128,7 @@
   "_id": {
     "$oid": "6697e514e36e6624a24adc25"
   },
-  "title": "Возврат денег_качество_досудебная претензия",
+  "title": "Досудебная претензия о возврате средств за некачественные услуги",
   "type": "Шаблон документа",
   "size": "11 kb",
   "link": "https://docs.google.com/document/d/16Zcz-6ukqmyPldBlx_W9aCzQlBNWhbGC/preview",
@@ -142,7 +142,7 @@
   "_id": {
     "$oid": "6697e514e36e6624a24adc26"
   },
-  "title": "Возврат денег_сроки_досудебная претензия",
+  "title": "Досудебная претензия о возврате средств за нарушение сроков оказания услуги",
   "type": "Шаблон документа",
   "size": "11 kb",
   "link": "https://docs.google.com/document/d/1LoVnB7Mn_5EjVmzSspbFcccDvnoxPgR4/preview",
@@ -156,7 +156,7 @@
   "_id": {
     "$oid": "6697e514e36e6624a24adc27"
   },
-  "title": "Уменьшение цены_досудебная претензия",
+  "title": "Досудебная претензия об уменьшении цены",
   "type": "Шаблон документа",
   "size": "11 kb",
   "link": "https://docs.google.com/document/d/1smDwK3hCW1KM9K_8mZnb5-pGq6D8lUxK/preview",
@@ -170,7 +170,7 @@
   "_id": {
     "$oid": "6697e514e36e6624a24adc28"
   },
-  "title": "Устранение недостатков_досудебная претензия",
+  "title": "Досудебная претензия об устранении недостатков",
   "type": "Шаблон документа",
   "size": "11 kb",
   "link": "https://docs.google.com/document/d/1Adj94HwOPaGglVzNj11nylwdaL2om0JQ/preview",
@@ -184,7 +184,7 @@
   "_id": {
     "$oid": "66990b1520c07e34ee19a515"
   },
-  "title": "Требование о возврате качественного товара (ст.12)",
+  "title": "Требование о возврате качественного товара в случае непредоставления необходимой информации",
   "type": "Шаблон документа",
   "size": "12 kb",
   "link": "https://docs.google.com/document/d/1W4JZmiY2dNERR75-b0aukVQ9vCjowrKS/preview",
@@ -198,7 +198,7 @@
   "_id": {
     "$oid": "66990b1520c07e34ee19a516"
   },
-  "title": "Заявление Возврат денег_сроки",
+  "title": " Заявление о возврате средств за нарушение сроков оказания услуги",
   "type": "Шаблон документа",
   "size": "12 kb",
   "link": "https://docs.google.com/document/d/1aFoHEcQGqaysJbWa7wG52nepwl6OmJDI/preview",
@@ -212,7 +212,7 @@
   "_id": {
     "$oid": "66990b1520c07e34ee19a517"
   },
-  "title": "Заявление Возврат денег_качество",
+  "title": "Заявление о возврат средств за некачественные услуги",
   "type": "Шаблон документа",
   "size": "11 kb",
   "link": "https://docs.google.com/document/d/1woXLH4Xu2K_EwVtA8UBKxKjpl4RVTUZz/preview",
@@ -226,7 +226,7 @@
   "_id": {
     "$oid": "66990b1520c07e34ee19a518"
   },
-  "title": "Заявление Недопустимые условия_убытки",
+  "title": "Заявление о взыскании убытков, возникших из-за недопустимых условий договора",
   "type": "Шаблон документа",
   "size": "12 kb",
   "link": "https://docs.google.com/document/d/1dqBaLyjSxa1UTH2r0EUxbsn9iSXD1u2s/preview",
@@ -240,7 +240,7 @@
   "_id": {
     "$oid": "66990b1520c07e34ee19a519"
   },
-  "title": "Заявление Новый срок",
+  "title": "Заявление о назначении нового срока",
   "type": "Шаблон документа",
   "size": "12 kb",
   "link": "https://docs.google.com/document/d/1Katz8u4_hVsMx1DX9IO9hQNd2mwvePv3/preview",
@@ -254,7 +254,7 @@
   "_id": {
     "$oid": "66990b1520c07e34ee19a51a"
   },
-  "title": "Заявление Уменьшение цены",
+  "title": "Заявление об уменьшении цены",
   "type": "Шаблон документа",
   "size": "11 kb",
   "link": "https://docs.google.com/document/d/17PfCX2ubfjORT2Y-kumQwYpk-P9DLkwO/preview",
@@ -268,7 +268,7 @@
   "_id": {
     "$oid": "66990b1520c07e34ee19a51b"
   },
-  "title": "Заявление Устранение недостатков",
+  "title": "Заявление об устранении недостатков",
   "type": "Шаблон документа",
   "size": "12 kb",
   "link": "https://docs.google.com/document/d/1BDq4HTeusD3zyhD_21woCwpEWoHU4YDn/preview",
@@ -282,7 +282,7 @@
   "_id": {
     "$oid": "66990b1520c07e34ee19a51c"
   },
-  "title": "Недопустимые условия_убытки_досудебная претензия",
+  "title": "Досудебная претензия о взыскании убытков, возникших из-за недопустимых условий договора",
   "type": "Шаблон документа",
   "size": "12 kb",
   "link": "https://docs.google.com/document/d/1ByKamo2dyCkDR_V2abALNSdjsgHa1KVB/preview",
@@ -296,7 +296,7 @@
   "_id": {
     "$oid": "66990b1520c07e34ee19a51d"
   },
-  "title": "Новый срок_досудебная претензия",
+  "title": "Досудебная претензия о назначении нового срока",
   "type": "Шаблон документа",
   "size": "11 kb",
   "link": "https://docs.google.com/document/d/1ZZLTtF5uomS2EPUv6P10QQIU7omXbhRt/preview",
@@ -402,5 +402,61 @@
   "download_link": "https://docs.google.com/document/export?format=docx&id=1bMNl6PHeeL0pk6SJGJX0M5YLIiNdrwhD1WoXkskOoO8",
   "instruction_link": null,
   "id": "29",
+  "instruction_link_download": null
+},
+{
+  "_id": {
+    "$oid": "669cfe447ec2e4d01fb4fc8b"
+  },
+  "title": "Заявление  о расторжении договора об оказании услуг",
+  "type": "Шаблон документа",
+  "size": "11 kb",
+  "link": "https://docs.google.com/document/d/1NCMyB1xXwCC7VsVo-IoDzoYgVBCoYf_f/preview",
+  "category": "Заявления",
+  "download_link": "https://docs.google.com/document/export?format=docx&id=1NCMyB1xXwCC7VsVo-IoDzoYgVBCoYf_f",
+  "instruction_link": null,
+  "id": "30",
+  "instruction_link_download": null
+},
+{
+  "_id": {
+    "$oid": "669cfe447ec2e4d01fb4fc8c"
+  },
+  "title": "Претензия о расторжении договора об оказании услуг",
+  "type": "Шаблон документа",
+  "size": "13 kb",
+  "link": "https://docs.google.com/document/d/1qZSTBl1xmBVKwsKLbaJfyndxZOsfD2qN/preview",
+  "category": "Досудебные претензии",
+  "download_link": "https://docs.google.com/document/export?format=docx&id=1qZSTBl1xmBVKwsKLbaJfyndxZOsfD2qN",
+  "instruction_link": null,
+  "id": "31",
+  "instruction_link_download": null
+},
+{
+  "_id": {
+    "$oid": "669cfe447ec2e4d01fb4fc8d"
+  },
+  "title": "Заявление о расторжении договора об оказании услуг в части",
+  "type": "Шаблон документа",
+  "size": "12 kb",
+  "link": "https://docs.google.com/document/d/1SzkjfTtxST2WWYOaTOhBndoTtX0oSlhxFn_p3dFgWXY/preview",
+  "category": "Досудебные претензии",
+  "download_link": "https://docs.google.com/document/export?format=docx&id=1SzkjfTtxST2WWYOaTOhBndoTtX0oSlhxFn_p3dFgWXY",
+  "instruction_link": null,
+  "id": "32",
+  "instruction_link_download": null
+},
+{
+  "_id": {
+    "$oid": "669cfe447ec2e4d01fb4fc8e"
+  },
+  "title": "Претензия о расторжении договора об оказании услуг в части",
+  "type": "Шаблон документа",
+  "size": "12 kb",
+  "link": "https://docs.google.com/document/d/1-qjZbD7Zm5h1FVLE2H6xCorOMdszmYEg-5UCjP813Lc/preview",
+  "category": "Досудебные претензии",
+  "download_link": "https://docs.google.com/document/export?format=docx&id=1-qjZbD7Zm5h1FVLE2H6xCorOMdszmYEg-5UCjP813Lc",
+  "instruction_link": null,
+  "id": "33",
   "instruction_link_download": null
 }]
