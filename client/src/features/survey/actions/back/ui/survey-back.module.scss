@@ -1,7 +1,8 @@
 @use '@/app/ui/styles/helper';
 
 .survey__back {
-	font-size: 1rem;
+	font-size: 0.9rem;
+	font-size: clamp(0.9rem, 0.88rem + 0.09999999999999998vw, 1rem);
 	color: helper.$title;
 	background-color: helper.$accentColor;
 	padding: 1rem 2.5rem;

@@ -2,9 +2,11 @@
 
 .view-document {
 	&__download {
+		outline: none;
 		font-weight: 600;
 		font-family: inherit;
-		font-size: 1rem;
+		font-size: 0.9rem;
+		font-size: clamp(0.9rem, 0.88rem + 0.09999999999999998vw, 1rem);
 		padding: 1rem 1.8rem;
 		margin-top: 1rem;
 		border: 0.15rem solid helper.$primaryColorDark;
@@ -22,6 +24,15 @@
 
 		&:hover {
 			background-color: helper.$primaryColorDark;
+		}
+	}
+}
+
+@media (max-width: 48em) {
+	.view-document {
+		&__download {
+			margin: 2rem auto 1rem;
+			display: block;
 		}
 	}
 }

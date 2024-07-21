@@ -17,7 +17,8 @@
 
 	&__title {
 		color: helper.$white;
-		font-size: 2rem;
+		font-size: 1.6rem;
+		font-size: clamp(1.6rem, 1.52rem + 0.3999999999999999vw, 2rem);
 		font-weight: bold;
 		line-height: 1.5;
 
@@ -33,7 +34,8 @@
 
 	&__description {
 		color: helper.$lightSilver;
-		font-size: 1.1rem;
+		font-size: 0.9rem;
+		font-size: clamp(0.9rem, 0.86rem + 0.2000000000000001vw, 1.1rem);
 		line-height: 1.5;
 		max-width: 30rem;
 	}
@@ -80,6 +82,8 @@
 	&__item {
 		color: helper.$white;
 		text-decoration: none;
+		font-size: 0.9rem;
+		font-size: clamp(0.9rem, 0.88rem + 0.09999999999999998vw, 1rem);
 		cursor: pointer;
 
 		@include helper.transition();
@@ -87,5 +91,41 @@
 		&:hover {
 			color: helper.$accentColor;
 		}
+	}
+}
+
+@media (max-width: 64em) {
+	.footer {
+		&__form-container {
+			display: flex;
+			flex-direction: column;
+		}
+
+		&__title {
+			text-align: center;
+
+			&::after {
+				margin: 1rem auto 1.5rem;
+			}
+		}
+
+		&__description {
+			text-align: center;
+			max-width: 100%;
+		}
+	}
+}
+
+@media (max-width: 48em) {
+	.footer {
+		&__menu-container {
+			display: none;
+		}
+	}
+}
+
+@media (max-width: 26.5625em) {
+	.footer {
+		margin-top: 5rem;
 	}
 }

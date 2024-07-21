@@ -35,7 +35,7 @@ function CardsList(): React.ReactElement {
 		if (!data) {
 			setHasMore(false);
 		} else {
-			if (data[data.length - 1].length === 0) setHasMore(false);
+			if (data[data.length - 1].length < 10) setHasMore(false);
 			else setHasMore(true);
 		}
 	}, [data]);
@@ -52,7 +52,13 @@ function CardsList(): React.ReactElement {
 				category,
 				query,
 			});
-		}
+		} // Если запрос пуст в поле поиска, то очищаем список результатов
+		else
+			setSearchFilters({
+				type,
+				category,
+				query: null,
+			});
 	}, [searchParams]);
 
 	// Увеличиваем offset для infinite scrolling

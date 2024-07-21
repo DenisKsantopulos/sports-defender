@@ -1,16 +1,13 @@
 import sportsman from '@/app/ui/assets/sportsman.png';
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import Paths from '@/shared/model/data/Paths';
-import useAos from '@/shared/model/hooks/useAos';
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 import styles from './main.module.scss';
 
 function Main(): React.ReactElement {
-	useAos();
-
 	return (
-		<div className={styles.container} data-aos='fade-left'>
+		<div className={styles.container}>
 			<div>
 				<h1 className={styles['main__title']}>
 					ваши права в фитнес-индустрии

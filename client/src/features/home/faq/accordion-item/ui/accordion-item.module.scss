@@ -26,9 +26,14 @@
 		}
 	}
 
+	&__icon {
+		color: helper.$title;
+	}
+
 	&__question {
 		color: helper.$title;
-		font-size: 1.1rem;
+		font-size: 0.9rem;
+		font-size: clamp(0.9rem, 0.86rem + 0.2000000000000001vw, 1.1rem);
 		line-height: 1.5;
 		font-weight: 600;
 	}
@@ -40,7 +45,7 @@
 		@include helper.transition(max-height, 0.5s, cubic-bezier(0, 1, 0, 1));
 
 		&--active {
-			max-height: 999rem;
+			max-height: 9999rem;
 			height: auto;
 
 			@include helper.transition(
@@ -53,13 +58,23 @@
 
 	&__answer {
 		color: helper.$subtitle;
-		font-size: 1rem;
+		font-size: 0.9rem;
+		font-size: clamp(0.9rem, 0.88rem + 0.09999999999999998vw, 1rem);
 		line-height: 1.5;
 		padding: 1rem 2rem 1.5rem;
 		border: 0.125rem solid helper.$accentColor;
 		border-top: none;
 		white-space: pre-wrap;
+		overflow-wrap: anywhere;
 
 		@include helper.borderRadius(0, 0, 2rem, 2rem);
+	}
+}
+
+@media (max-width: 48em) {
+	.accordion {
+		&__item {
+			gap: 1rem;
+		}
 	}
 }

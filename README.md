@@ -27,7 +27,6 @@
 	<li>EmailJS</li>
 	<li>ESLint</li>
 	<li>SCSS modules + BEM</li>
-	<li>AOS animation library</li>
 	<li>FontAwesome Icons</li>
 </ul>
 

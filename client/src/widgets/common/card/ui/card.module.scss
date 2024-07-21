@@ -3,7 +3,8 @@
 .card {
 	display: flex;
 	flex-direction: column;
-	width: 25rem;
+	max-width: 25rem;
+	width: 100%;
 	box-shadow: 0 0 0.4rem helper.$lightSilver;
 	overflow: hidden;
 	cursor: pointer;
@@ -24,15 +25,18 @@
 	}
 
 	&__title-icon {
-		padding-right: 0.5rem;
-		font-size: 1rem;
+		font-size: 0.9rem;
+		font-size: clamp(0.9rem, 0.88rem + 0.09999999999999998vw, 1rem);
+		margin-right: 0.5rem;
 	}
 
 	&__title {
-		font-size: 1.2rem;
+		font-size: 1rem;
+		font-size: clamp(1rem, 0.96rem + 0.19999999999999996vw, 1.2rem);
 		font-weight: 600;
 		line-height: 1.5;
 		color: helper.$title;
+		overflow-wrap: anywhere;
 	}
 
 	&__bottom-container {
@@ -65,5 +69,30 @@
 
 	&__download-icon {
 		padding-right: 0.5rem;
+	}
+}
+
+@media (max-width: 26.5625em) {
+	.card {
+		&__content-container {
+			padding: 0.8rem;
+		}
+
+		&__title {
+			text-align: center;
+		}
+
+		&__bottom-container {
+			display: block;
+		}
+
+		&__description {
+			text-align: center;
+		}
+
+		&__download {
+			display: block;
+			margin: 1rem auto 0.5rem;
+		}
 	}
 }

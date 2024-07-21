@@ -2,12 +2,14 @@
 
 .survey {
 	&__question {
-		font-size: 2rem;
+		font-size: 1.5rem;
+		font-size: clamp(1.5rem, 1.4rem + 0.5vw, 2rem);
 		font-weight: 600;
 		line-height: 1.5;
 		color: helper.$title;
 		text-align: center;
 		white-space: pre-wrap;
+		overflow-wrap: anywhere;
 	}
 
 	&__warning {
@@ -15,6 +17,7 @@
 		border: 0.1rem solid helper.$darkYellow;
 		padding: 1.3rem 2rem;
 		max-width: 60rem;
+		width: 100%;
 		margin: 1rem auto 0;
 
 		@include helper.borderRadius(2rem);
@@ -39,5 +42,6 @@
 		line-height: 1.5;
 		margin-top: 0.5rem;
 		white-space: pre-wrap;
+		overflow-wrap: anywhere;
 	}
 }

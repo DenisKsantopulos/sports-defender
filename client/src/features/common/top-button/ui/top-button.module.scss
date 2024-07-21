@@ -1,6 +1,7 @@
 @use '@/app/ui/styles/helper';
 
 .button {
+	z-index: 99;
 	position: fixed;
 	bottom: -5rem;
 	right: 1.2rem;

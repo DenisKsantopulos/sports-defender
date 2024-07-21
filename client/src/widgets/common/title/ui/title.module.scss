@@ -1,15 +1,19 @@
 @use '@/app/ui/styles/helper';
 
 .title {
+	margin: 0 1.5rem;
+
 	&__main-text {
-		font-size: 2rem;
+		font-size: 1.5rem;
+		font-size: clamp(1.5rem, 1.4rem + 0.5vw, 2rem);
 		color: helper.$title;
 		line-height: 1.5;
 		margin-top: 1.5rem;
 	}
 
 	&__description {
-		font-size: 1rem;
+		font-size: 0.9rem;
+		font-size: clamp(0.9rem, 0.88rem + 0.09999999999999998vw, 1rem);
 		color: helper.$subtitle;
 		line-height: 1.5;
 		margin-top: 1rem;

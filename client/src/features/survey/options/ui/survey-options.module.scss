@@ -18,6 +18,7 @@
 
 .options {
 	&__item {
+		max-width: 100%;
 		width: 60rem;
 		padding: 1rem 2rem;
 		border: 0.1rem solid helper.$lightSilver;
@@ -36,7 +37,57 @@
 	}
 
 	&__label {
+		font-size: 0.9rem;
+		font-size: clamp(0.9rem, 0.88rem + 0.09999999999999998vw, 1rem);
+		overflow-wrap: anywhere;
 		padding-left: 1rem;
 		cursor: inherit;
+	}
+}
+
+@media (max-width: 70.625em) {
+	.options {
+		&__item {
+			width: 50rem;
+		}
+	}
+}
+
+@media (max-width: 60.625em) {
+	.options {
+		&__item {
+			width: 40rem;
+		}
+	}
+}
+
+@media (max-width: 50.625em) {
+	.options {
+		&__item {
+			width: 30rem;
+		}
+	}
+}
+
+@media (max-width: 40.625em) {
+	.options {
+		&__item {
+			width: 20rem;
+		}
+	}
+
+	.survey {
+		&__actions {
+			display: flex;
+			flex-direction: column;
+		}
+	}
+}
+
+@media (max-width: 30.625em) {
+	.options {
+		&__item {
+			width: 100%;
+		}
 	}
 }

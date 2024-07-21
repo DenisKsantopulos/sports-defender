@@ -9,12 +9,13 @@
 .cards-list {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: start;
+	justify-content: center;
 	gap: 4.5rem;
 
 	&__button {
 		margin-top: 2rem;
-		font-size: 1rem;
+		font-size: 0.9rem;
+		font-size: clamp(0.9rem, 0.88rem + 0.09999999999999998vw, 1rem);
 		font-weight: 600;
 		font-family: inherit;
 		padding: 1.1rem 2rem;

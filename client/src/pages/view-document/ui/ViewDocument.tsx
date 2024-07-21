@@ -1,17 +1,14 @@
 import TopButton from '@/features/common/top-button/ui/TopButton';
+import DocumentDownload from '@/features/document-view/document-download/ui/DocumentDownload';
 import DocumentInstruction from '@/features/document-view/document-instruction/ui/DocumentInstruction';
 import { useDocumentById } from '@/shared/api/queries';
-import useAos from '@/shared/model/hooks/useAos';
 import Error from '@/widgets/common/fetch-status/error/ui/Error';
 import Info from '@/widgets/common/fetch-status/info/ui/Info';
-import { useParams } from 'react-router-dom';
-import DocumentDownload from '@/features/document-view/document-download/ui/DocumentDownload';
 import Footer from '@/widgets/common/footer/ui/Footer';
+import { useParams } from 'react-router-dom';
 import styles from './view-document.module.scss';
 
 function ViewDocument(): React.ReactElement {
-	useAos();
-
 	const { id } = useParams(); // ID документа
 
 	const { data, isLoading, error } = useDocumentById(id); // Достаем документ по ID
@@ -20,7 +17,7 @@ function ViewDocument(): React.ReactElement {
 		<>
 			<TopButton />
 			<div className={styles.wrapper}>
-				<section className={styles.container} data-aos='fade-up'>
+				<section className={styles.container}>
 					{isLoading && <Info text='Загрузка документа...' />}
 					{error && (
 						<Error text='Во время загрузки документа произошла ошибка!' />

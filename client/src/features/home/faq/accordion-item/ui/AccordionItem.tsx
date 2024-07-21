@@ -26,9 +26,15 @@ const AccordionItem = memo(
 				>
 					<p className={styles['accordion__question']}>{question}</p>
 					{isOpen ? (
-						<FontAwesomeIcon icon={faChevronUp} />
+						<FontAwesomeIcon
+							icon={faChevronUp}
+							className={styles['accordion__icon']}
+						/>
 					) : (
-						<FontAwesomeIcon icon={faChevronDown} />
+						<FontAwesomeIcon
+							icon={faChevronDown}
+							className={styles['accordion__icon']}
+						/>
 					)}
 				</div>
 				<div

@@ -11,7 +11,8 @@
 		outline: none;
 		background: none;
 		border: none;
-		font-size: 1.1rem;
+		font-size: 0.9rem;
+		font-size: clamp(0.9rem, 0.86rem + 0.2000000000000001vw, 1.1rem);
 		font-weight: 600;
 		font-family: inherit;
 		color: helper.$accentColorDark;
@@ -19,7 +20,8 @@
 
 		&-icon {
 			text-decoration: underline;
-			font-size: 1.1rem;
+			font-size: 0.9rem;
+			font-size: clamp(0.9rem, 0.86rem + 0.2000000000000001vw, 1.1rem);
 			padding-left: 0.5rem;
 		}
 	}

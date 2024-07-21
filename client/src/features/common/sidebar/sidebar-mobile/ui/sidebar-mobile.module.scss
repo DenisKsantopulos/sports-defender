@@ -1,0 +1,74 @@
+@use '@/app/ui/styles/helper';
+
+.sidebar {
+	&__open-icon {
+		display: none;
+		background-color: helper.$white;
+		padding: 1rem;
+		box-shadow: 0.0625rem 0 0.2rem helper.$silver;
+		font-size: 1.1rem;
+		margin-left: 1rem;
+		cursor: pointer;
+
+		@include helper.borderRadius(2rem);
+		@include helper.transition();
+
+		&:hover {
+			background-color: helper.$lightSilver;
+		}
+	}
+}
+
+.sidebar-mobile {
+	&__close-container {
+		position: absolute;
+		top: 0;
+		left: -110vw;
+		height: 100vh;
+		width: 95vw;
+		z-index: 998;
+		background: transparent;
+		@include helper.transition();
+
+		&--active {
+			left: 0;
+		}
+	}
+
+	&__container {
+		width: max-content;
+		height: 100%;
+		background-color: helper.$blackTransparent;
+		box-shadow: 0.0625rem 0 1rem helper.$black;
+		overflow-y: auto;
+		z-index: 999;
+	}
+
+	&__item {
+		list-style-type: none;
+		margin: 2.5rem 4rem 2rem 2.5rem;
+	}
+
+	&__link {
+		color: helper.$white;
+		font-size: 0.9rem;
+		font-size: clamp(0.9rem, 0.86rem + 0.2000000000000001vw, 1.1rem);
+		text-decoration: none;
+		overflow-wrap: anywhere;
+		cursor: pointer;
+
+		@include helper.transition();
+
+		&:hover {
+			color: helper.$silver;
+		}
+	}
+}
+
+@media (max-height: 48.125em), (max-width: 93.75em) {
+	.sidebar {
+		&__open-icon {
+			display: block;
+		}
+	}
+}

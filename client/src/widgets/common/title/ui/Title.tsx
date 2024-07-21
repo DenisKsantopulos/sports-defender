@@ -1,4 +1,3 @@
-import useAos from '@/shared/model/hooks/useAos';
 import { memo } from 'react';
 import styles from './title.module.scss';
 
@@ -9,8 +8,6 @@ interface TitleArgumentsType {
 
 const Title = memo(
 	({ title, children }: TitleArgumentsType): React.ReactElement => {
-		useAos();
-
 		return (
 			<div data-aos='fade-right'>
 				<h2 className={styles['title__main-text']}>{title}</h2>

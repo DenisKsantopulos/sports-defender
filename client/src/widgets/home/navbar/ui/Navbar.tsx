@@ -1,22 +1,27 @@
-import logo from '@/app/ui/assets/logo-header.png';
+import wideLogo from '@/app/ui/assets/logo-header.png';
+import logo from '@/app/ui/assets/logo.png';
 import Paths from '@/shared/model/data/Paths';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
-import useAos from '@/shared/model/hooks/useAos';
 import styles from './navbar.module.scss';
 
 function Navbar(): React.ReactElement {
-	useAos();
-
 	return (
-		<nav className={styles.navbar} data-aos='fade-right'>
+		<nav className={styles.navbar}>
+			<img
+				src={wideLogo}
+				alt='Логотип'
+				title='Спортивный Защитник'
+				loading='lazy'
+				className={styles['navbar__logo']}
+			/>
 			<img
 				src={logo}
 				alt='Логотип'
 				title='Спортивный Защитник'
 				loading='lazy'
-				className={styles['navbar__logo']}
+				className={`${styles['navbar__logo']} ${styles['navbar__logo--small']}`}
 			/>
 			<ul className={styles['navbar__menu']}>
 				<li className={styles['menu__list']}>

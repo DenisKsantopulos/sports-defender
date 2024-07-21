@@ -1,13 +1,10 @@
-import React from 'react';
 import image from '@/app/ui/assets/explanation-section.png';
-import useAos from '@/shared/model/hooks/useAos';
+import React from 'react';
 import styles from './explanation.module.scss';
 
 function Explanation(): React.ReactElement {
-	useAos();
-
 	return (
-		<section className={styles.container} data-aos='fade-right'>
+		<section className={styles.container}>
 			<img
 				src={image}
 				alt='Что такое ЗоЗПП?'

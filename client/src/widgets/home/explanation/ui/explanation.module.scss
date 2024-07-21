@@ -13,7 +13,8 @@
 .explanation {
 	&__title {
 		color: helper.$title;
-		font-size: 2.3rem;
+		font-size: 2rem;
+		font-size: clamp(2rem, 1.94rem + 0.2999999999999998vw, 2.3rem);
 		line-height: 1.4;
 
 		&::after {
@@ -28,7 +29,8 @@
 
 	&__description {
 		color: helper.$subtitle;
-		font-size: 1.1rem;
+		font-size: 0.9rem;
+		font-size: clamp(0.9rem, 0.86rem + 0.2000000000000001vw, 1.1rem);
 		line-height: 1.8;
 	}
 
@@ -36,5 +38,30 @@
 		display: block;
 		max-width: 100%;
 		width: 21rem;
+	}
+}
+
+@media (max-width: 64em) {
+	.explanation {
+		&__title {
+			&::after {
+				margin: 1rem auto 2rem;
+			}
+		}
+
+		&__image {
+			display: none;
+		}
+	}
+	.container {
+		display: flex;
+		justify-content: center;
+		text-align: center;
+	}
+}
+
+@media (max-width: 26.5625em) {
+	.container {
+		margin-top: 5rem;
 	}
 }

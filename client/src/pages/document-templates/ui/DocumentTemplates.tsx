@@ -1,20 +1,17 @@
-import TopButton from '@/features/common/top-button/ui/TopButton';
-import Title from '@/widgets/common/title/ui/Title';
-import useAos from '@/shared/model/hooks/useAos';
+import CardsList from '@/features/common/list/ui/CardsList';
 import SearchField from '@/features/common/search/ui/SearchField';
 import Tabs from '@/features/common/tabs/ui/Tabs';
-import CardsList from '@/features/common/list/ui/CardsList';
-import { useStores } from '@/shared/model/hooks/useStores';
-import documentTemplatesTabTitles from '@/shared/model/data/DocumentTemplatesTabTitles';
+import TopButton from '@/features/common/top-button/ui/TopButton';
 import CardTypes from '@/shared/model/data/CardTypes';
-import { observer } from 'mobx-react-lite';
+import documentTemplatesTabTitles from '@/shared/model/data/DocumentTemplatesTabTitles';
+import { useStores } from '@/shared/model/hooks/useStores';
 import Footer from '@/widgets/common/footer/ui/Footer';
+import Title from '@/widgets/common/title/ui/Title';
+import { observer } from 'mobx-react-lite';
 import styles from './document-templates.module.scss';
 
 const DocumentTemplates = observer((): React.ReactElement => {
 	const { documentTemplatesTabsStore, documentTemplatesSearch } = useStores();
-
-	useAos();
 
 	return (
 		<>
@@ -27,10 +24,7 @@ const DocumentTemplates = observer((): React.ReactElement => {
 						вами документа, который поможет защитить ваши права в
 						сфере защиты прав потребителей.
 					</Title>
-					<div
-						className={styles['document-templates__filters']}
-						data-aos='fade-up'
-					>
+					<div className={styles['document-templates__filters']}>
 						<SearchField
 							cardType={CardTypes.DOCUMENT_TEMPLATE}
 							category={documentTemplatesTabsStore.activeTab}

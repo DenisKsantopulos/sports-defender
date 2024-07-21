@@ -8,6 +8,10 @@
 
 	&__logo {
 		height: 2.2rem;
+
+		&--small {
+			display: none;
+		}
 	}
 
 	&__menu {
@@ -19,7 +23,8 @@
 .menu {
 	&__list {
 		list-style-type: none;
-		font-size: 1.1rem;
+		font-size: 0.9rem;
+		font-size: clamp(0.9rem, 0.86rem + 0.2000000000000001vw, 1.1rem);
 	}
 
 	&__item {
@@ -53,6 +58,26 @@
 
 	&__search-icon {
 		font-size: 0.9rem;
-		padding-left: 0.5rem;
+		margin-left: 0.5rem;
+	}
+}
+
+@media (max-height: 48.125em), (max-width: 93.75em) {
+	.navbar {
+		&__menu {
+			display: none;
+		}
+	}
+}
+
+@media (max-width: 31.25em) {
+	.navbar {
+		&__logo {
+			display: none;
+
+			&--small {
+				display: block;
+			}
+		}
 	}
 }

@@ -1,5 +1,6 @@
 import logo from '@/app/ui/assets/logo.png';
-import SidebarItem from '@/features/common/sidebar/ui/SidebarItem';
+import SidebarItem from '@/features/common/sidebar/sidebar-item/ui/SidebarItem';
+import SidebarMobile from '@/features/common/sidebar/sidebar-mobile/ui/SidebarMobile';
 import Paths from '@/shared/model/data/Paths';
 import {
 	faComment,
@@ -16,6 +17,7 @@ import styles from './sidebar.module.scss';
 function Sidebar(): React.ReactElement {
 	return (
 		<aside className={styles.sidebar}>
+			<SidebarMobile />
 			<ul className={styles['sidebar__menu']}>
 				<SidebarItem
 					path={Paths.HOME}

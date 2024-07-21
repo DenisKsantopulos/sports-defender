@@ -1,12 +1,14 @@
 @use '@/app/ui/styles/helper';
 
 .sidebar {
+	z-index: 999;
 	position: sticky;
 	top: 0;
 	left: 0;
 	width: 5.9rem;
 	height: 100vh;
 	border-right: 0.0625rem solid helper.$lightSilver;
+	display: none;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -22,5 +24,26 @@
 	&__logo {
 		width: 3rem;
 		margin: 1rem;
+	}
+}
+
+@media (max-height: 48.125em), (max-width: 93.75em) {
+	.sidebar {
+		width: 1.5rem;
+		justify-content: center;
+
+		&__menu {
+			display: none;
+		}
+
+		&__logo {
+			display: none;
+		}
+	}
+}
+
+@media (max-width: 48em) {
+	.sidebar {
+		width: 1rem;
 	}
 }

@@ -2,7 +2,7 @@
 
 .nothing-found {
 	width: 100%;
-	margin-top: 3rem;
+	margin: 3rem 1.5rem;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -15,7 +15,13 @@
 	}
 
 	&__title {
-		font-size: 1.2rem;
+		font-size: 0.9rem;
+		font-size: clamp(
+			0.9rem,
+			0.8400000000000001rem + 0.29999999999999993vw,
+			1.2rem
+		);
+		text-align: center;
 		color: helper.$title;
 		line-height: 1.5;
 		font-weight: 600;

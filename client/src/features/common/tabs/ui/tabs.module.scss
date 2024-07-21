@@ -3,9 +3,12 @@
 .tabs {
 	display: flex;
 	justify-content: center;
+	margin: 0 1.5rem;
 
 	&__item {
-		font-size: 1rem;
+		text-align: center;
+		font-size: 0.9rem;
+		font-size: clamp(0.9rem, 0.88rem + 0.09999999999999998vw, 1rem);
 		color: helper.$subtitle;
 		padding: 1rem 2rem;
 		border-bottom: 0.15rem solid helper.$white;
@@ -19,6 +22,16 @@
 
 		&--active {
 			border-color: helper.$accentColor;
+		}
+	}
+}
+
+@media (max-width: 48em) {
+	.tabs {
+		flex-wrap: wrap;
+
+		&__item {
+			padding: 1rem;
 		}
 	}
 }

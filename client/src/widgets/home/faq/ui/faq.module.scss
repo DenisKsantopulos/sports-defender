@@ -9,7 +9,8 @@
 .faq {
 	&__title {
 		color: helper.$title;
-		font-size: 2.3rem;
+		font-size: 2rem;
+		font-size: clamp(2rem, 1.94rem + 0.2999999999999998vw, 2.3rem);
 		text-align: center;
 		line-height: 1.4;
 
@@ -25,7 +26,8 @@
 
 	&__description {
 		color: helper.$subtitle;
-		font-size: 1.1rem;
+		font-size: 0.9rem;
+		font-size: clamp(0.9rem, 0.86rem + 0.2000000000000001vw, 1.1rem);
 		text-align: center;
 		line-height: 1.8;
 		margin: 0 auto;
@@ -37,5 +39,11 @@
 		display: flex;
 		flex-flow: column wrap;
 		gap: 1.5rem;
+	}
+}
+
+@media (max-width: 26.5625em) {
+	.container {
+		margin-top: 5rem;
 	}
 }
