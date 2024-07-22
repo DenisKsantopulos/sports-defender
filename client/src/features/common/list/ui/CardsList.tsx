@@ -8,22 +8,28 @@ import { Fragment, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import SearchParams from '@/entities/SearchParams';
 import styles from './cards-list.module.scss';
+import useDebounce from '@/shared/model/hooks/useDebounce';
 
 function CardsList(): React.ReactElement {
 	const [searchParams] = useSearchParams();
+
 	const [searchFilters, setSearchFilters] = useState<SearchParams>({
 		type: searchParams.get('type') ?? '',
 		category: searchParams.get('category') ?? '',
 		query: searchParams.get('query') ?? '',
 	}); // Хранит поисковые параметры из URL
-
 	const [hasMore, setHasMore] = useState<boolean>(false); // Показать/скрыть кнопку "Загрузить еще"
+
+	const debouncedSearchFilters: SearchParams = useDebounce<SearchParams>(
+		searchFilters,
+		300
+	); // Поисковой запрос на сервер будет посылаться с debounce задержкой
 
 	const { data, isLoading, error, isValidating, setSize, size } =
 		useInfiniteSearch(
-			searchFilters.type,
-			searchFilters.category,
-			searchFilters.query
+			debouncedSearchFilters.type,
+			debouncedSearchFilters.category,
+			debouncedSearchFilters.query
 		); // Отправляем запрос через SWR на сервер с поисковыми фильтрами
 
 	// При обновлении поисковых параметров в URL обновляем стейт поисковых параметров, который тригерит запрос на сервер через SWR
