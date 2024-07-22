@@ -1,26 +1,22 @@
-import { useSearchParams } from 'react-router-dom';
-import { Fragment, useEffect, useState } from 'react';
-import Info from '@/widgets/common/fetch-status/info/ui/Info';
-import Error from '@/widgets/common/fetch-status/error/ui/Error';
-import NothingFound from '@/widgets/common/search/nothing-found/ui/NothingFound';
 import Document from '@/entities/Document';
-import Card from '@/widgets/common/card/ui/Card';
 import { useInfiniteSearch } from '@/shared/api/queries';
+import Card from '@/widgets/common/card/ui/Card';
+import Error from '@/widgets/common/fetch-status/error/ui/Error';
+import Info from '@/widgets/common/fetch-status/info/ui/Info';
+import NothingFound from '@/widgets/common/search/nothing-found/ui/NothingFound';
+import { Fragment, useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import SearchParams from '@/entities/SearchParams';
 import styles from './cards-list.module.scss';
-
-interface SearchParamsType {
-	type: string; // Тип документа (шаблон, статья, кейс)
-	category: string; // Категория документа (заявление, претензия, товары и пр.)
-	query: string | null; // Сам поисковой запрос пользователя
-}
 
 function CardsList(): React.ReactElement {
 	const [searchParams] = useSearchParams();
-	const [searchFilters, setSearchFilters] = useState<SearchParamsType>({
-		type: '',
-		category: '',
-		query: null,
-	}); // Хранит параметры поиска для запроса по SWR
+	const [searchFilters, setSearchFilters] = useState<SearchParams>({
+		type: searchParams.get('type') ?? '',
+		category: searchParams.get('category') ?? '',
+		query: searchParams.get('query') ?? '',
+	}); // Хранит поисковые параметры из URL
+
 	const [hasMore, setHasMore] = useState<boolean>(false); // Показать/скрыть кнопку "Загрузить еще"
 
 	const { data, isLoading, error, isValidating, setSize, size } =
@@ -28,7 +24,16 @@ function CardsList(): React.ReactElement {
 			searchFilters.type,
 			searchFilters.category,
 			searchFilters.query
-		);
+		); // Отправляем запрос через SWR на сервер с поисковыми фильтрами
+
+	// При обновлении поисковых параметров в URL обновляем стейт поисковых параметров, который тригерит запрос на сервер через SWR
+	useEffect(() => {
+		setSearchFilters({
+			type: searchParams.get('type') ?? '',
+			category: searchParams.get('category') ?? '',
+			query: searchParams.get('query') ?? '',
+		});
+	}, [searchParams]);
 
 	// Проверяем есть ли еще чанки данных в infinite scroll
 	useEffect(() => {
@@ -39,27 +44,6 @@ function CardsList(): React.ReactElement {
 			else setHasMore(true);
 		}
 	}, [data]);
-
-	// При обновлении параметров поиска в URL обновляем их для запроса на сервер (используется, когда юзер меняет активную вкладку)
-	useEffect(() => {
-		const type: string = searchParams.get('type') ?? '';
-		const category: string = searchParams.get('category') ?? '';
-		const query: string = searchParams.get('query') ?? '';
-
-		if (query.length !== 0) {
-			setSearchFilters({
-				type,
-				category,
-				query,
-			});
-		} // Если запрос пуст в поле поиска, то очищаем список результатов
-		else
-			setSearchFilters({
-				type,
-				category,
-				query: null,
-			});
-	}, [searchParams]);
 
 	// Увеличиваем offset для infinite scrolling
 	function handleLoadMoreClick(): void {

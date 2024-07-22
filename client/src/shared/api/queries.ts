@@ -23,7 +23,7 @@ export function useDocumentById(id: string | undefined) {
 export function useInfiniteSearch(
 	type: string,
 	category: string,
-	query: string | null
+	query: string
 ) {
 	const getKey: SWRInfiniteKeyLoader = (
 		pageIndex: number,
@@ -31,9 +31,7 @@ export function useInfiniteSearch(
 	) => {
 		if (previousPageData && !previousPageData.length) return null; // Дошли до конца
 
-		return query !== null
-			? `/search?type=${type}&category=${category}&query=${query}&offset=${pageIndex}&limit=10`
-			: null;
+		return `/search?type=${type}&category=${category}&query=${query}&offset=${pageIndex}&limit=10`;
 	};
 
 	return useSWRInfinite<Document[]>(getKey);

@@ -59,56 +59,41 @@ router.get('/surveys/:id', async (req, res) => {
 // /search?type=...&query=...&offset=...&limit=...
 // /search?type=...&category=...&query=...&offset=...&limit=...
 router.get('/search', async (req, res) => {
-	const type = req.query.type; // Тип документа (шаблон, статья или кейс)
-	const category = req.query.category; // Категория документа (заявления, претензии, товары и пр.)
-	const query = req.query.query;
-	const limit = req.query.limit; // Максимальное количество выводимых запросов за раз
-	const offset = req.query.offset * limit; // С какого элемента надо выводить запросы (необходимо умножить на limit, т.к это pageIndex в SWR)
+	try {
+		const type = req.query.type; // Тип документа (шаблон, статья или кейс)
+		const category = req.query.category; // Категория документа (заявления, претензии, товары и пр.)
+		const query = req.query.query;
+		const limit = req.query.limit; // Максимальное количество выводимых запросов за раз
+		const offset = req.query.offset * limit; // С какого элемента надо выводить запросы (необходимо умножить на limit, т.к это pageIndex в SWR)
 
-	if (query.length !== 0) {
-		let documents = undefined;
+		// Формируем объект запроса
+		let searchCriteria = {};
 
-		if (type.length === 0) {
-			// Поиск по всей базе
-			documents = await DocumentsModel.find(
-				{
-					title: { $regex: query, $options: 'i' },
-				},
-				undefined,
-				{ skip: offset, limit }
-			).exec();
-		} else {
-			if (category.length === 0 || category === 'Все категории') {
-				// Поиск по типу только
-				documents = await DocumentsModel.find(
-					{
-						$and: [
-							{ title: { $regex: query, $options: 'i' } },
-							{ type },
-						],
-					},
-					undefined,
-					{ skip: offset, limit }
-				);
-			} else {
-				// Поиск по типу и категории
-				documents = await DocumentsModel.find(
-					{
-						$and: [
-							{ title: { $regex: query, $options: 'i' } },
-							{ type },
-							{ category },
-						],
-					},
-					undefined,
-					{ skip: offset, limit }
-				);
-			}
+		if (type && type !== '') {
+			searchCriteria.type = type;
 		}
 
-		res.json(documents);
-	} else {
-		res.status(500).json({ message: 'Search Query Empty!' });
+		if (category && category !== '' && category !== 'Все категории') {
+			searchCriteria.category = category;
+		}
+
+		if (query && query !== '') {
+			searchCriteria.title = new RegExp(query, 'i'); // Регулярное выражение для частичного совпадения
+		}
+
+		// Фильтруем выдачу результатов
+		const results = await DocumentsModel.find(searchCriteria, undefined, {
+			skip: offset,
+			limit,
+		});
+
+		// Отправляем клиенту отфильтрованные результаты
+		res.json(results);
+	} catch (err) {
+		res.status(500).json({
+			message: 'Something went wrong during searching!',
+			error: err,
+		});
 	}
 });
 
