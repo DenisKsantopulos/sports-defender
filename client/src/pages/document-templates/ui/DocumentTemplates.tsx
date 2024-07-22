@@ -18,18 +18,12 @@ const DocumentTemplates = observer((): React.ReactElement => {
 			<TopButton />
 			<div className={styles.wrapper}>
 				<section className={styles.container}>
-					<Title title='Поиск по шаблонам документов'>
-						Необходимо скачать готовый шаблон документа?
-						Воспользуйтесь данным разделом для скачивания нужного
-						вами документа, который поможет защитить ваши права в
-						сфере защиты прав потребителей.
-					</Title>
+					<Title title='Поиск по шаблонам документов' />
 					<div className={styles['document-templates__filters']}>
 						<SearchField
 							cardType={CardTypes.DOCUMENT_TEMPLATE}
 							category={documentTemplatesTabsStore.activeTab}
 							store={documentTemplatesSearch}
-							placeholder='Введите название документа'
 						/>
 						<Tabs
 							items={documentTemplatesTabTitles}

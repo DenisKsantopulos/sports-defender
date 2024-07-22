@@ -74,10 +74,7 @@ function Footer(): React.ReactElement {
 					</ul>
 				</div>
 				<p className={styles['footer__message']}>
-					<span className={styles['footer__warning']}>
-						ВНИМАНИЕ!{' '}
-					</span>
-					Сайт не предоставляет юридических консультаций, это просто
+					Сайт не предоставляет юридических консультаций, это
 					справочный материал.
 				</p>
 				<p className={styles['footer__commercial']}>

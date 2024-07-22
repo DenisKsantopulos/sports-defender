@@ -11,7 +11,6 @@ interface SearchFieldArgumentsType {
 	cardType?: CardTypes;
 	category?: string;
 	store: any; // MobX store хранит текст запроса в поле поиска
-	placeholder: string;
 }
 
 const SearchField = observer(
@@ -19,7 +18,6 @@ const SearchField = observer(
 		cardType,
 		category,
 		store,
-		placeholder,
 	}: SearchFieldArgumentsType): React.ReactElement => {
 		const [, setSearchParams] = useSearchParams();
 
@@ -52,7 +50,7 @@ const SearchField = observer(
 			<div className={styles.search}>
 				<input
 					type='search'
-					placeholder={placeholder}
+					placeholder='Введите запрос...'
 					value={store.query}
 					onChange={e => store.setQuery(e.target.value)}
 					onKeyDown={handleKeyDownPress}

@@ -10,12 +10,4 @@
 		line-height: 1.5;
 		margin-top: 1.5rem;
 	}
-
-	&__description {
-		font-size: 0.9rem;
-		font-size: clamp(0.9rem, 0.88rem + 0.09999999999999998vw, 1rem);
-		color: helper.$subtitle;
-		line-height: 1.5;
-		margin-top: 1rem;
-	}
 }

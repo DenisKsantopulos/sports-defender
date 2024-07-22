@@ -14,16 +14,9 @@ function Search(): React.ReactElement {
 			<TopButton />
 			<div className={styles.wrapper}>
 				<section className={styles.container}>
-					<Title title='Поиск по всей базе'>
-						Не знаете что вам необходимо найти? Воспользуйтесь общим
-						поиском по всей базе документов "Спортивного Защитника"
-						от судебных кейсов до шаблонов документов.
-					</Title>
+					<Title title='Поиск по всем документам' />
 					<div className={styles['document-templates__filters']}>
-						<SearchField
-							store={globalSearch}
-							placeholder='Искать по...'
-						/>
+						<SearchField store={globalSearch} />
 						<CardsList />
 					</div>
 				</section>

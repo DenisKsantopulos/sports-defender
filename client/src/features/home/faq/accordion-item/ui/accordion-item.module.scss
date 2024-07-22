@@ -41,6 +41,7 @@
 	&__content {
 		max-height: 0;
 		overflow: hidden;
+		cursor: default;
 
 		@include helper.transition(max-height, 0.5s, cubic-bezier(0, 1, 0, 1));
 

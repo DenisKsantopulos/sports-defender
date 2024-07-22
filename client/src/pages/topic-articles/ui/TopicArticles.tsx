@@ -15,16 +15,11 @@ function TopicArticles(): React.ReactElement {
 			<TopButton />
 			<div className={styles.wrapper}>
 				<section className={styles.container}>
-					<Title title='Поиск по тематическим статьям'>
-						Тематические статьи предоставляют очень важную
-						юридическую информацию. Данный раздел предназначен для
-						поиска такого рода документов.
-					</Title>
+					<Title title='Поиск по тематическим статьям' />
 					<div className={styles['document-templates__filters']}>
 						<SearchField
 							cardType={CardTypes.TOPIC_ARTICLE}
 							store={topicArticlesSearch}
-							placeholder='Введите название статьи'
 						/>
 						<CardsList />
 					</div>

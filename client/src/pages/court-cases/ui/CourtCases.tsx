@@ -18,17 +18,12 @@ const CourtCases = observer((): React.ReactElement => {
 			<TopButton />
 			<div className={styles.wrapper}>
 				<section className={styles.container}>
-					<Title title='Поиск по судебным делам'>
-						Данный раздел предназначен для поиска нужного вами
-						судебного кейса, который поможет защитить ваши права в
-						сфере защиты прав потребителей.
-					</Title>
+					<Title title='Поиск по судебным кейсам' />
 					<div className={styles['document-templates__filters']}>
 						<SearchField
 							cardType={CardTypes.COURT_CASE}
 							category={courtCasesTabsStore.activeTab}
 							store={courtCasesSearch}
-							placeholder='Введите название дела'
 						/>
 						<Tabs
 							items={courtCasesTabTitles}
