@@ -10,7 +10,7 @@ function Main(): React.ReactElement {
 		<div className={styles.container}>
 			<div>
 				<h1 className={styles['main__title']}>
-					ваши права потребителя в фитнесе
+					права потребителя в фитнесе
 				</h1>
 				<p className={styles['main__description']}>
 					Возникли юридические вопросы по услугам фитнес-центров или
