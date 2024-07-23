@@ -13,7 +13,7 @@ function Footer(): React.ReactElement {
 							Остались сомнения?
 						</h3>
 						<p className={styles['footer__description']}>
-							Свяжитесь с нами через форму ниже, и мы поможем вам
+							Свяжитесь с нами через форму ниже, и мы поможем
 							разобраться.
 						</p>
 					</div>
