@@ -459,4 +459,18 @@
   "instruction_link": null,
   "id": "33",
   "instruction_link_download": null
+},
+{
+  "_id": {
+    "$oid": "669fc2ec0cbb58d79bad6ea0"
+  },
+  "title": "Статья о Роспотребнадзоре",
+  "type": "Тематическая статья",
+  "size": "197 kb",
+  "link": "https://docs.google.com/document/d/1SKAL3l1PU1EfnUeA43k8hfePzui0rXMq/preview",
+  "category": "Тематическая статья",
+  "download_link": "https://docs.google.com/document/export?format=docx&id=1SKAL3l1PU1EfnUeA43k8hfePzui0rXMq",
+  "instruction_link": null,
+  "id": "34",
+  "instruction_link_download": null
 }]
