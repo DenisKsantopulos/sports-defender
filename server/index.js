@@ -9,7 +9,7 @@ app.use(express.json());
 
 connectDB();
 
-app.use('/', router);
+app.use(router);
 
 app.use((err, req, res, next) => {
 	console.error(err);
