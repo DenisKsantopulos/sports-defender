@@ -473,4 +473,32 @@
   "instruction_link": null,
   "id": "34",
   "instruction_link_download": null
+},
+{
+  "_id": {
+    "$oid": "669fe3702eae59dff00de706"
+  },
+  "title": "Статья о моральном вреде",
+  "type": "Тематическая статья",
+  "size": "18 kb",
+  "link": "https://docs.google.com/document/d/1FxMMk29G-2w_nOjPum33DBfd0zJXHyEB/preview",
+  "category": "Тематическая статья",
+  "download_link": "https://docs.google.com/document/export?format=docx&id=1FxMMk29G-2w_nOjPum33DBfd0zJXHyEB",
+  "instruction_link": null,
+  "id": "35",
+  "instruction_link_download": null
+},
+{
+  "_id": {
+    "$oid": "669fe3702eae59dff00de707"
+  },
+  "title": "Статья о недопустимых условиях договора",
+  "type": "Тематическая статья",
+  "size": "21 kb",
+  "link": "https://docs.google.com/document/d/1uICtM3G6Htziom70ADu0n_VNhHq6UKaL/preview",
+  "category": "Тематическая статья",
+  "download_link": "https://docs.google.com/document/export?format=docx&id=1uICtM3G6Htziom70ADu0n_VNhHq6UKaL",
+  "instruction_link": null,
+  "id": "36",
+  "instruction_link_download": null
 }]
