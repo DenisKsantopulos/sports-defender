@@ -74,8 +74,7 @@ function Footer(): React.ReactElement {
 					</ul>
 				</div>
 				<p className={styles['footer__message']}>
-					Сайт не предоставляет юридических консультаций, это
-					справочный материал.
+					Размещенные материалы носят справочный характер.
 				</p>
 				<p className={styles['footer__commercial']}>
 					&copy; 2024 Спортивный Защитник

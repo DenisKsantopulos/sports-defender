@@ -38,12 +38,14 @@ function SidebarMobile(): React.ReactElement {
 						<div
 							className={styles['sidebar-mobile__logo-container']}
 						>
-							<img
-								src={smallLogo}
-								alt='Логотип'
-								loading='lazy'
-								className={styles['sidebar-mobile__logo']}
-							/>
+							<Link to={Paths.HOME}>
+								<img
+									src={smallLogo}
+									alt='Логотип'
+									loading='lazy'
+									className={styles['sidebar-mobile__logo']}
+								/>
+							</Link>
 						</div>
 						<li className={styles['sidebar-mobile__item']}>
 							<Link

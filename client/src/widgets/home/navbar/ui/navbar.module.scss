@@ -8,6 +8,7 @@
 
 	&__logo {
 		height: 2.2rem;
+		cursor: pointer;
 
 		&--small {
 			display: none;
@@ -62,7 +63,7 @@
 	}
 }
 
-@media (max-height: 48.125em), (max-width: 93.75em) {
+@media (max-width: 56.25em) {
 	.navbar {
 		&__menu {
 			display: none;

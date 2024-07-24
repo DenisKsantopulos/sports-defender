@@ -8,8 +8,7 @@ export default function FAQ(): React.ReactElement {
 				Часто задаваемые вопросы
 			</h2>
 			<p className={styles['faq__description']}>
-				Этот раздел охватывает основные проблемы, с которыми
-				сталкиваются участники правовых отношений.
+				Основные проблемы, с которыми сталкиваются потребители
 			</p>
 			<div className={styles['faq__accordions']}>
 				<AccordionList />

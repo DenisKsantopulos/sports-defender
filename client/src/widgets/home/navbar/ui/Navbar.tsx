@@ -9,20 +9,24 @@ import styles from './navbar.module.scss';
 function Navbar(): React.ReactElement {
 	return (
 		<nav className={styles.navbar}>
-			<img
-				src={wideLogo}
-				alt='Логотип'
-				title='Спортивный Защитник'
-				loading='lazy'
-				className={styles['navbar__logo']}
-			/>
-			<img
-				src={logo}
-				alt='Логотип'
-				title='Спортивный Защитник'
-				loading='lazy'
-				className={`${styles['navbar__logo']} ${styles['navbar__logo--small']}`}
-			/>
+			<Link to={Paths.HOME}>
+				<img
+					src={wideLogo}
+					alt='Логотип'
+					title='Спортивный Защитник'
+					loading='lazy'
+					className={styles['navbar__logo']}
+				/>
+			</Link>
+			<Link to={Paths.HOME}>
+				<img
+					src={logo}
+					alt='Логотип'
+					title='Спортивный Защитник'
+					loading='lazy'
+					className={`${styles['navbar__logo']} ${styles['navbar__logo--small']}`}
+				/>
+			</Link>
 			<ul className={styles['navbar__menu']}>
 				<li className={styles['menu__list']}>
 					<Link
