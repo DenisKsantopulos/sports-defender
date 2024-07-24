@@ -42,7 +42,10 @@ const AccordionItem = memo(
 						isOpen && styles['accordion__content--active']
 					}`}
 				>
-					<p className={styles['accordion__answer']}>{answer}</p>
+					<p
+						className={styles['accordion__answer']}
+						dangerouslySetInnerHTML={{ __html: answer }}
+					/>
 				</div>
 			</div>
 		);

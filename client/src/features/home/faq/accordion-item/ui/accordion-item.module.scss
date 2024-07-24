@@ -69,6 +69,10 @@
 		overflow-wrap: anywhere;
 
 		@include helper.borderRadius(0, 0, 2rem, 2rem);
+
+		& > a {
+			color: helper.$blue;
+		}
 	}
 }
 

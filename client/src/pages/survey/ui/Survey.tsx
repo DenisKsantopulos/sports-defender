@@ -23,9 +23,12 @@ const Survey = observer((): React.ReactElement => {
 				{data && (
 					<>
 						{data.text !== null && (
-							<SurveyHeader title={data.text}>
-								{data.note !== null ? data.note : undefined}
-							</SurveyHeader>
+							<SurveyHeader
+								title={data.text}
+								description={
+									data.note !== null ? data.note : undefined
+								}
+							/>
 						)}
 						{data.solutionDocumentId !== null && (
 							<SurveyDocument
