@@ -1,0 +1,276 @@
+openapi: 3.0.1
+info:
+  title: 'Спортивный Защитник'
+  description: 'Ваш надежный онлайн помощник в сфере защиты прав потребителей'
+  version: 1.0.0
+servers:
+  - url: https://sports-defender-server.na4u.ru/
+paths:
+  /get-document/{id}:
+    get: 
+      description: 'Возвращает документ (шаблон, статья или кейс) по его ID'
+      parameters:
+        - name: id
+          in: path
+          description: 'ID документа, который требуется вернуть'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: 'Возвращает один документ'
+          content: 
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Document'
+        '404':
+          description: 'Документ не был найден'
+          content: 
+            application/json:
+              example:
+                message: 'Документ не был найден на сервере!'
+        '500':
+          description: 'Ошибка сервера'
+          content:
+            application/json:
+              example:
+                message: 'Oops, server error'
+  /get-frequently-asked-questions:
+    get:
+      description: 'Возвращает список всех часто задаваемых вопросов'
+      responses:
+        '200':
+          description: 'Возвращает список часто задаваемых вопросов'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FaqList'
+  /surveys/{id}:
+    get:
+      description: 'Возвращает элемент анкеты по ID'
+      parameters:
+        - name: id
+          in: path
+          description: 'ID элемента анкеты, который надо вернуть'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: 'Возвращает элемент анкеты (вопрос/справка/ответ/решение)'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Survey'
+        '404':
+          description: 'Элемент анкеты не был найден'
+          content:
+            application/json:
+              example:
+                message: 'Вопрос не был найден на сервере!'
+        '500':
+          description: 'Ошибка сервера'
+          content:
+            application/json:
+              example:
+                message: 'Oops, server error'
+  /search:
+    get:
+      description: 'Поиск по документам с использованием фильтров'
+      parameters:
+        - name: type
+          in: query
+          description: 'Тип документа (шаблон, статья или кейс)'
+          required: false
+          schema:
+            type: string
+        - name: category
+          in: query
+          description: 'Категория документа (заявления, претензии, товары и пр.)'
+          required: false
+          schema:
+            type: string
+        - name: query
+          in: query
+          description: 'Поисковой запрос'
+          required: false
+          schema:
+            type: string
+        - name: offset
+          in: query
+          description: 'С какого номера элемента надо выводить следующие запросы'
+          required: true
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          description: 'Максимальное количество выводимых запросов за раз'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: 'Возвращает список документов с учетом выставленных фильтров'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentList'
+        '500':
+          description: 'Ошибка сервера'
+          content:
+            application/json:
+              example:
+                message: 'Oops, server error'
+
+  
+components:
+    schemas:
+      Document:
+        type: object
+        properties:
+          id:
+            type: string
+            description: 'ID документа'
+            example: '1'
+            nullable: false
+          title:
+            type: string
+            description: 'Заголовок документа'
+            example: 'Заявление о возврате качественного товара'
+            nullable: false
+          type:
+            type: string
+            description: 'Тип документа (статья, кейс или шаблон)'
+            example: 'Шаблон документа'
+            nullable: false
+          category:
+            type: string
+            description: 'Категория документа (заявление, жалобы и пр)'
+            example: 'Заявление'
+            nullable: false
+          size:
+            type: string
+            description: 'Размер документа'
+            example: '11 KB'
+            nullable: false
+          link:
+            type: string
+            description: 'Ссылка для просмотра в Google Docs'
+            example: 'https://docs.google.com/document/d/169Rpu46hkWzOKmAyRutuqCeOO9EErc8Z/preview'
+            nullable: false
+          download_link:
+            type: string 
+            description: 'Ссылка для скачивания в Google Docs'
+            example: 'https://drive.google.com/uc?export=download&id=169Rpu46hkWzOKmAyRutuqCeOO9EErc8Z'
+            nullable: false
+          instruction_link:
+            type: string
+            description: 'Ссылка для просмотра инструкции по заполнению шаблона в Google Docs (только для документов с типом шаблон)'
+            default: null
+            example: 'https://docs.google.com/document/d/1m8DfmTIyirRcYA-Dh5KjjKP4JSGohWhS/preview'
+            nullable: true
+          instruction_link_download:
+            type: string
+            description: 'Ссылка на скачивание инструкции по заполнению шаблона в Google Docs (только для документов с типом шаблон)'
+            default: null
+            example: 'https://drive.google.com/uc?export=download&id=1m8DfmTIyirRcYA-Dh5KjjKP4JSGohWhS'
+            nullable: true
+        required:
+          - id
+          - title
+          - type
+          - category
+          - size
+          - link
+          - download_link
+      DocumentList:
+        type: array
+        description: 'Список документов'
+        items:
+          type: object
+          allOf:
+            - $ref: '#/components/schemas/Document'
+      Faq:
+        type: object
+        properties:
+            id:
+              type: integer 
+              description: 'ID часто задаваемого вопроса'
+              example: 1
+              nullable: false
+            question:
+              type: string 
+              description: 'Суть вопроса'
+              example: 'Можно ли вернуть деньги за абонемент в фитнес-клуб?'
+              nullable: false
+            answer:
+              type: string
+              description: 'Ответ на вопрос'
+              example: 'Можно вернуть деньги как за неиспользованный период...'
+              nullable: false
+        required:
+          - id
+          - question
+          - answer
+      FaqList:
+        type: array
+        description: 'Список часто задаваемых вопросов'
+        items:
+          type: object
+          allOf:
+            - $ref: '#/components/schemas/Faq'
+      Survey:
+        type: object 
+        properties:
+          id:
+            type: integer
+            description: 'ID элемента анкеты'
+            example: 1
+            nullable: false
+          text:
+            type: string
+            description: 'Сам вопрос, его может не быть, если юзер прошел до конца анкеты и получает шаблон документа'
+            default: null
+            example: 'С чем нужна помощь?'
+            nullable: true
+          note:
+            type: string
+            description: 'Справочная информация, ее может не быть для каждого вопроса'
+            default: null
+            example: null
+            nullable: true
+          answers:
+            type: array
+            description: 'Список вариантов ответа на вопрос'
+            items:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: 'ID варианта ответа на вопрос'
+                  example: 1
+                  nullable: false
+                text:
+                  type: string
+                  description: 'Текст ответа'
+                  example: 'У меня травма'
+                  nullable: false
+                nextQuestionId:
+                  type: integer
+                  description: 'ID следующего элемента анкеты, если будет кликнут данный вариант ответа на вопрос'
+                  example: 16
+                  nullable: false
+              required:
+                - id
+                - text
+                - nextQuestionId
+          solutionDocumentId:
+            type: string
+            description: 'ID на шаблон документа, который решит проблему, если юзер прошел всю анкету'
+            default: null
+            example: null
+            nullable: true
+        required:
+          - id
+
+  
