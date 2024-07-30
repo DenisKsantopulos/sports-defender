@@ -1,10 +1,11 @@
-const express = require('express');
-const router = express.Router();
-const { getDocs } = require('../controllers/documentController');
-const { getSurvey } = require('../controllers/surveyController');
-const { getSearch } = require('../controllers/searchController');
-const { getFaq } = require('../controllers/FaqController');
-const { getErr } = require('../controllers/errorController');
+import express, { Router } from 'express';
+import { getDocs } from '../controllers/documentController';
+import { getErr } from '../controllers/errorController';
+import { getFaq } from '../controllers/faqController';
+import { getSurvey } from '../controllers/surveyController';
+import { getSearch } from '../controllers/searchController';
+
+const router: Router = express.Router();
 
 // Получить документ по ID
 router.get('/get-document/:id', getDocs);
@@ -17,4 +18,4 @@ router.get('/search', getSearch);
 // Обработка 404 ошибки
 router.get('*', getErr);
 
-module.exports = router;
+export default router;

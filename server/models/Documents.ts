@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const DocumentsSchema = new mongoose.Schema({
 	title: String, // Заголовок документа
@@ -24,4 +24,5 @@ const DocumentsSchema = new mongoose.Schema({
 DocumentsSchema.index({ title: 'text', type: 'text', category: 'text' }); // create a text index on the title, type, category field
 
 const DocumentsModel = mongoose.model('documents', DocumentsSchema);
-module.exports = DocumentsModel;
+
+export default DocumentsModel;
