@@ -17,6 +17,7 @@
 <ul>
 	<li>Express.js</li>
 	<li>MongoDB</li>
+	<li>Swagger</li>
 	<li>Yandex Metrika</li>
 	<li>Vite</li>
 	<li>ReactJS + Router</li>
