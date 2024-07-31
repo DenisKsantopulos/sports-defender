@@ -1,0 +1,29 @@
+version: '1.0.0'
+
+networks:
+    sports-defender:
+
+services:
+    nginx:
+        image: nginx:1.27.0-alpine
+        ports:
+            - '80:80'
+        volumes:
+            - './nginx.conf:/etc/nginx/nginx.conf'
+        depends_on:
+            - backend
+            - frontend
+        networks:
+            - sports-defender
+
+    backend:
+        build:
+            context: ./server
+        networks:
+            - sports-defender
+
+    frontend:
+        build:
+            context: ./client
+        networks:
+            - sports-defender

@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
 
-const DB_URI: string =
-	process.env.MONGODB_URI ?? 'mongodb://localhost:27017/defender'; // Обновляется автоматически на сервере под MongoDB Atlas URI
+const DB_URI: string = 'mongodb+srv://Denis:00392024@cluster0.kbanvrn.mongodb.net/defender';
 
 const connectDB = async (): Promise<void> => {
 	try {

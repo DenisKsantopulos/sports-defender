@@ -15,10 +15,12 @@
 <br />
 <p><strong>Спортивный Защитник</strong> - использует следующие технологии:</p>
 <ul>
+	<li>Docker Compose</li>
 	<li>Express.js</li>
 	<li>MongoDB</li>
 	<li>Swagger</li>
 	<li>Yandex Metrika</li>
+	<li>Nginx</li>
 	<li>Vite</li>
 	<li>ReactJS + Router</li>
 	<li>TypeScript</li>
@@ -54,11 +56,7 @@
 
 ## Инструкция по запуску приложения
 
-В папке `./client` выполните команды `npm i` и `npm run dev` для запуска клиента.
-
-В папке `./server` выполните команды `npm i` и `npm run start` для запуска сервера.
-
-Также подразумевается наличие _MongoDB_ с базой данных `defender` и коллекциями `faqs`, `documents` и `surveys`. Данные для БД лежат по следующему пути: `./mongodb-data/defender.*.json`.
+Для запуска приложения перейдите в корень проекта и выполните команду `docker-compose up --build`, далее откройте браузер по адресу `http://localhost:80`.
 
 <!-- --------CONTRIBUTING-------- -->
 

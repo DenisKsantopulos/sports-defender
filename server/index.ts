@@ -16,8 +16,8 @@ app.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
 	res.status(500).send({ message: 'Internal Server Error' });
 });
 
-const PORT: number = process.env.APP_PORT ? Number(process.env.APP_PORT) : 3001; // Автоматически изменяется под порт хостинга
-const HOST: string = process.env.APP_IP ?? '127.0.0.1'; // Автоматически изменяется под IP хостинга
+const PORT: number = 3001;
+const HOST: string = '0.0.0.0';
 
 app.listen(PORT, HOST, () => {
 	console.log(`Express.js server running at http://${HOST}:${PORT}/`);
