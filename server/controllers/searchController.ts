@@ -1,20 +1,24 @@
-const express = require('express');
-const router = express.Router();
-const DocumentsModel = require('../models/Documents');
+import DocumentsModel from '../models/Documents';
+
+interface SearchCriteriaType {
+	type?: string;
+	category?: string;
+	title?: RegExp;
+}
 
 // /search?query=...&offset=...&limit=...
 // /search?type=...&query=...&offset=...&limit=...
 // /search?type=...&category=...&query=...&offset=...&limit=...
-const getSearch = async (req, res) => {
-    try {
-		const type = req.query.type; // Тип документа (шаблон, статья или кейс)
-		const category = req.query.category; // Категория документа (заявления, претензии, товары и пр.)
-		const query = req.query.query;
-		const limit = req.query.limit; // Максимальное количество выводимых запросов за раз
-		const offset = req.query.offset * limit; // С какого элемента надо выводить запросы (необходимо умножить на limit, т.к это pageIndex в SWR)
+const getSearch = async (req: any, res: any) => {
+	try {
+		const type: string = req.query.type; // Тип документа (шаблон, статья или кейс)
+		const category: string = req.query.category; // Категория документа (заявления, претензии, товары и пр.)
+		const query: string = req.query.query;
+		const limit: number = req.query.limit; // Максимальное количество выводимых запросов за раз
+		const offset: number = req.query.offset * limit; // С какого элемента надо выводить запросы (необходимо умножить на limit, т.к это pageIndex в SWR)
 
 		// Формируем объект запроса
-		let searchCriteria = {};
+		let searchCriteria: SearchCriteriaType = {};
 
 		if (type && type !== '') {
 			searchCriteria.type = type;
@@ -42,6 +46,6 @@ const getSearch = async (req, res) => {
 			error: err,
 		});
 	}
-}
+};
 
-module.exports = { getSearch }
+export { getSearch };

@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const FaqSchema = new mongoose.Schema({
 	id: Number,
@@ -8,4 +8,4 @@ const FaqSchema = new mongoose.Schema({
 
 const FaqModel = mongoose.model('faq', FaqSchema);
 
-module.exports = FaqModel;
+export default FaqModel;

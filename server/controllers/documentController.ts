@@ -1,10 +1,8 @@
-const express = require('express');
-const router = express.Router();
-const DocumentsModel = require('../models/Documents');
+import DocumentsModel from '../models/Documents';
 
-const getDocs = async (req, res) => {
-    try {
-		const documentId = req.params.id; // ID документа, который нужен клиенту
+const getDocs = async (req: any, res: any) => {
+	try {
+		const documentId: number = req.params.id; // ID документа, который нужен клиенту
 
 		// Поиск элемента в MongoDB по ID
 		const document = await DocumentsModel.findOne({ id: documentId });
@@ -20,6 +18,6 @@ const getDocs = async (req, res) => {
 	} catch (error) {
 		res.status(500).send({ message: 'Oops, server error' });
 	}
-}
+};
 
-module.exports = { getDocs }
+export { getDocs };

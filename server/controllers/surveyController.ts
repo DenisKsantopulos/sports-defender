@@ -1,10 +1,8 @@
-const express = require('express');
-const router = express.Router();
-const SurveyModel = require('../models/Surveys');
+import SurveyModel from '../models/Surveys';
 
-const getSurvey = async (req, res) => {
-    try {
-		const surveyId = req.params.id; // ID вопроса, который нужен клиенту
+const getSurvey = async (req: any, res: any) => {
+	try {
+		const surveyId: number = req.params.id; // ID вопроса, который нужен клиенту
 
 		// Поиск элемента в MongoDB по ID
 		const survey = await SurveyModel.findOne({ id: surveyId });
@@ -20,6 +18,6 @@ const getSurvey = async (req, res) => {
 	} catch (error) {
 		res.status(500).send({ message: 'Oops, server error' });
 	}
-}
+};
 
-module.exports = { getSurvey }
+export { getSurvey };
